@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>明星面对面，颜值分析</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/star2.css">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+        /*取消长按事件*/
+        * {  
+            -webkit-touch-callout: none;  
+            -webkit-user-select: none;  
+            -khtml-user-select: none;  
+            -moz-user-select: none;  
+            -ms-user-select: none;  
+            user-select: none;  
+        }  
+    </style> 
+</head>
+<body>
+<div class="bg" id="picture2">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+
+        <!--标题-->
+        <span class="vf">明星面对面</span>
+        <!--更多-->
+    </div>
+    <div class="big_pic" >
+        <div class="img_box img_box2" id="img_box2">
+            <!-- <img src="" alt="" id="big_img"> -->
+        </div>
+        
+    </div>
+    <div class="small_pic">
+        <div class="pic_list">
+            <div class="img_div">
+                <img class="img img_big_blur" id='small_img1'>
+                <div class="img_mask">
+                    <span class="question-mark"></span>
+                    <span class="percent-mark" id="percent_mark1"></span>
+                </div>
+            </div>
+            <div class="img_div">
+
+                <img class="img img_blur" id='small_img2'>
+                <div class="img_mask">
+                    <span class="question-mark"></span>
+                    <span class="percent-mark" id="percent_mark2"></span>
+                </div>
+            </div>
+            <div class="img_div">
+
+                <img class="img img_blur" id='small_img3'>
+                <div class="img_mask">
+                    <span class="question-mark"></span>
+                    <span class="percent-mark" id="percent_mark3"></span>
+                </div>
+            </div>
+            <div class="img_div">
+
+                <img class="img img_blur" id='small_img4'>
+                <div class="img_mask">
+                    <span class="question-mark"></span>
+                    <span class="percent-mark" id="percent_mark4"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='result'>和您相似的明星有这些，第一位跟您有<span class="percent" id="percent"></span>的相似度，想知道与<span class="percent">您更相似的明星</span>是谁吗？</div>
+    <!--验证手机-->
+    <div class="phone_box" id="phone_box">
+        <div class="group">
+            <input type="text"  id="phone" placeholder="输入手机号码">
+        </div>
+        <div class="ma">
+            <input type="text" id="ma" placeholder="输入验证码">
+            <button class="ma_btn" id="code">获取验证码</button>
+        </div>
+        <div class="group">
+            <button class="commit" id="commit">确认</button>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/mui.min.js"></script>
+<style>
+    .layui-layer-btn .layui-layer-btn0 {
+        font-size: 14px;
+        border-color: #4898d5;
+        background-color: #2e8ded;
+        color: #fff;
+    }
+</style>
+<script>
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    alert(data1)
+    $('.value_tab').css('margin-top',parseInt(data1)+'px');
+}
+//后退
+$('#back').on('tap',function(){
+    getInterface().leftBtnClick();
+})
+//获取设备参数
+getInterface().getAppInfo();
+
+
+
+var clientId=getQueryStringByName('clientId'),
+    deviceId=getQueryStringByName('deviceId'),
+    sex=getQueryStringByName('sex'),
+    file=getQueryStringByName('file'),
+    uuid='';
+
+// 获取数据
+getInterface().post_action("starTestUrl",JSON.stringify({clientId:clientId,deviceId:deviceId,sex:sex,file:file}),'post');
+function return_action(data,data2){
+    if(data2 == 'starTestUrl'){
+        uuid = data.uuid;
+        //加载图片
+        // $('#big_img').attr('src',data.starsData[0].star.picture);
+        $('#img_box2').css({'background-image':'url('+data.starsData[0].star.picture+')','background-position':'center','background-repeat':'no-repeat','background-size':'cover'})
+        $('#small_img1').attr('src',data.starsData[1].star.picture);
+        $('#small_img2').attr('src',data.starsData[2].star.picture);
+        $('#small_img3').attr('src',data.starsData[3].star.picture);
+        $('#small_img4').attr('src',data.starsData[4].star.picture);
+
+        //加载国家
+        $('#country').text(data.starsData[0].star.country.name);
+        //加载性别
+        if(data.starsData[0].star.sex == 0){
+            $('#ta').text("她");
+        }else{
+            $('#ta').text("他");
+        }
+
+        //加载相似度
+        $('#percent').text(Math.round(data.starsData[0].confidence)+10+'%');
+        $('#percent_mark1').text(parseInt(Math.round(data.starsData[1].confidence))+10+'%');
+        $('#percent_mark2').text(parseInt(Math.round(data.starsData[2].confidence))+10+'%');
+        $('#percent_mark3').text(parseInt(Math.round(data.starsData[3].confidence))+10+'%');
+        if(parseInt(Math.round(data.starsData[4].confidence))+10 > 100){
+            $('#percent_mark4').text(parseInt(Math.round(data.starsData[4].confidence))+'%');
+        }else{
+            $('#percent_mark4').text(parseInt(Math.round(data.starsData[4].confidence))+10+'%');
+        }
+    }else if(data2 == 'sendVerifyCode'){
+        if(data.code==1){
+            InterValObj = window.setInterval(SetRemainTime, 1000);
+            $('#code').html("重发(" + curCount + ")");
+            layer.msg("短信验证码已发到您的手机,请查收");
+            console.log(curCount);
+        }
+        else{
+            layer.msg("短信验证码发送失败，请重新发送")
+        }
+    }else{
+        if(data.code==1 || code == 2313){
+            getInterface().html_jump_href(service+'/html/star3.html?clientId='+clientId+'&uuid='+uuid, 'yes');
+        }
+        else{
+            layer.msg("请输入正确的验证码！");
+        }
+    }
+}
+
+// 短信验证
+var code = 0 ; //在全局定义验证码
+//产生验证码
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+
+function createCode(){
+    var mobile = $("#phone").val();
+    // 验证手机
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/; 
+    if( mobile == ''){
+        layer.msg('请输入手机号码获得验证码')
+    }else if(!myreg.test($("#phone").val())){
+        layer.msg('请输入有效的手机号码！'); 
+    }else{
+        curCount = count;
+        $('#code').attr("disabled","true" );
+        //发送手机号码接口
+        getInterface().post_action("sendVerifyCode",JSON.stringify({mobile:mobile}),'get');
+    }
+}
+//倒时开始
+function SetRemainTime() {
+    if (curCount == 0) {
+        window.clearInterval(InterValObj);// 停止计时器
+        $('#code').html("获取验证码");
+        $('#code').removeAttr("disabled");
+    }else {
+        curCount--;
+        $('#code').html("重发(" + curCount + ")");
+        $('#code').attr("disabled","true" );
+    }
+}
+//校验验证码
+function validate(){
+    var inputCode = document.getElementById("ma").value.toUpperCase(); //取得输入的验证码并转化为大写
+    if(inputCode.length <= 0) { //若输入的验证码长度为0
+        layer.msg("请输入验证码！"); //则弹出请输入验证码
+    }else{ //若输入的验证码与产生的验证码不一致时
+        var code = $("#ma").val();
+        var mobile = $("#phone").val();
+
+        //校验验证码接口
+        getInterface().post_action("pcVerifyMobile",JSON.stringify({uuid:uuid,mobile:mobile,code:code,type:'star'}),'post');
+    }
+}
+$('#code').on('tap',function(e) {
+    createCode();
+});
+$('#commit').on('tap',function(e) {
+    validate();
+});
+
+//获取设备参数
+function return_getAppInfo(data){
+    // if(data.device == 'pc'){
+    //     // 解决输入法遮挡
+    //     var timer = null;
+    //     $('#phone').on('focus', function() {
+    //         $('#picture2').css('padding-bottom','440px');
+    //         clearInterval(timer);
+    //         var index = 0;
+    //         timer = setInterval(function() {
+    //             if(index>5) {
+
+    //                 $('body').scrollTop(1000000);
+    //                 clearInterval(timer);
+    //             }
+    //             index++;
+    //         }, 50)
+    //     })
+    // }
+}
+
+
+
+</script>
+</body>
+</html>

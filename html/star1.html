@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>明星面对面，颜值分析</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/star1.css">
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+        /*取消长按事件*/
+        * {  
+            -webkit-touch-callout: none;  
+            -webkit-user-select: none;  
+            -khtml-user-select: none;  
+            -moz-user-select: none;  
+            -ms-user-select: none;  
+            user-select: none;  
+        }  
+        #arrow{
+            /*animation-duration: 1s;    //动画持续时间*/
+            /*animation-delay: 1s;    //动画延迟时间*/
+            animation-iteration-count: infinite;    /*动画执行次数*/
+            -webkit-animation-iteration-count: infinite;    /*动画执行次数*/
+            -moz-animation-iteration-count: infinite;    /*动画执行次数*/
+            -o-animation-iteration-count: infinite;    /*动画执行次数*/
+            -ms-animation-iteration-count: infinite;    /*动画执行次数*/
+        }
+    </style> 
+</head>
+<body>
+<div class="bg" id="picture0">
+    <!--后退-->
+    <div id="back"></div>
+    <div class="start_body" >
+        <div class="img_box case" id="container">
+            <div class="girl" id="girl"></div>
+            <label class="img" id="img_box"></label>
+            <div class="arrow animated bounce" id="arrow"></div>
+            <span class="img-font" id="img_font"></span>
+        </div>
+        <div class="start_select case" id="sex_radio">
+            <div class="button-holder">
+                <span class="tag">选择性别</span>
+                <div class="sex-div" id="female">
+                    <input value="0" type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" checked /><label for="radio-1-1"></label><span>女</span>
+                </div>
+                <div class="sex-div" id="male">
+                    <input value="1" type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label><span>男</span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="start_btn" id="start_btn">
+        </div>
+        <div class="tip" id="tip">
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 帮助文档 -->
+<div class="white"></div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script>
+$(function(){
+     //判断设备
+     getInterface().getAppInfo();
+ });
+
+//判断设备
+function return_getAppInfo(data){
+    if(data.device == 'pc'){
+        //获取状态栏导航栏高度
+        // getInterface().getStatusBarHeight();
+        //动画
+        setInterval(function(){
+            $('#arrow').fadeOut(1000,function(){
+                setTimeout(function(){
+                    $('#arrow').fadeIn();
+                },1000);
+            })
+        },1000)
+        
+    }
+}
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    $('#back').css('top',parseInt(data1)+'px');
+}
+//后退
+$('#back').on('tap',function(){
+    getInterface().leftBtnClick();
+})
+// $('.sex-div').on('tap',function(){
+//     $(this).find('.regular-radio').triggle('input');
+// });
+
+//帮助文档
+$('.tip').on('tap',function(){
+    //页面层
+    if(window.screen.width<=680){
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            shade: 0.7, //遮罩透明度
+            closeBtn : 1,
+            content: '<div class="help"></div>'
+        }); 
+    }else{
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            area:['927','1112'],
+            shade: 0.7, //遮罩透明度
+            closeBtn : 1,
+            content: '<div class="help"></div>'
+        }); 
+    }
+    $('.layui-layer').css({ 'background-color':'transparent','box-shadow':'none'});
+});
+
+var uuid = '';
+var file = '';
+var verification = '';
+
+// 拍照或选择图片
+$('#container').on('tap','#img_box,#img_font',function(){
+    getInterface().post_photo('star/','','');
+});
+function return_photo(data1,data2){
+    file = data1;
+    //去掉人物
+    $('#girl').fadeOut();
+    //缓存图片
+    var img=new Image();  
+    img.onload=function(){
+        $("#img_box").css({'background-image':'url('+file+')','border':'3px solid #EAE8E9'});
+    };  
+    img.src=file;
+    $('#img_font').css('background-image','url("../image/star/reTake.png")');
+}
+//开始测试
+$('#start_btn').on('tap',function(){
+    //性别0女，1男
+    var sex = $("#sex_radio input:checked").val();
+    if(file){
+        getInterface().html_jump_href(service+'/html/star3.html?file='+file, 'yes');
+    }else{
+        getInterface().toast('请拍照或选择照片');
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+/* html, body, div, span, iframe, map, font, img, a img, samp, strong, hr, h1, h2, h3, h4, h5, h6, b, p, blockquote, a, address, code, dl, dt, dd, ol, ul, li, form, label, table, tr, td, th, button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-weight: normal;
+    font-family: "微软雅黑";
+} */
+input[type=file] {
+    display: inline;
+}
+body{
+    height: 100%;
+    position: relative;
+    /*border: 10px solid #333;*/
+    background: url("../image/star/img_Physiognomy_bg.png") no-repeat center;
+    background-size: cover;
+
+}
+html{
+    height: 100%;
+
+}
+/*顶部栏*/
+.value_tab {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+#back {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 28px;
+    height: 28px;
+}
+.vf {
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg{
+    /*border: 10px solid #333;*/
+    background: url("../image/star/img_Physiognomy_bg.png") no-repeat center;
+    background-size: cover;
+    /*height: 100%;*/
+}
+
+/*主体部分*/
+.img_box{
+    cursor: pointer;
+    margin: 0 auto;
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+ #picture2 {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+ }
+.big_pic {
+    padding-top: 10px;
+    margin-top: 74px;
+}
+.img_box2 {
+    border: 2px solid #FF6D90;
+    width: 1.7rem;
+    height: 2.2rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+
+}
+.big_pic img {
+    height: 100%;
+}
+.small_pic {
+    margin-top: 10px;
+    width: 100%;
+    padding: 0 0.2rem 0 0.25rem;
+}
+.pic_list {
+    width: 100%;
+}
+
+.pic_list{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+      justify-content: center;
+    width: 100%;
+    height: 1rem;
+}
+.pic_list .img_div {
+    display: inline-block;
+    background-color: #fff;
+    width: 0.3rem;
+    height: 0.9rem;
+    flex-grow: 1;
+    margin-right: 0.05rem;
+    position: relative;
+    overflow: hidden;
+    /*text-align: center;*/
+}
+.pic_list .img {
+    display: inline-block;
+    height: 0.9rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -0.5rem;
+}
+.img_big_blur {
+    filter:blur(10px);
+    -webkit-filter:blur(10px);
+    -moz-filter:blur(10px);
+    -ms-filter:blur(10px);
+    -o-filter:blur(10px);
+}
+.img_blur {
+    filter:blur(7px);
+    -webkit-filter:blur(7px);
+    -moz-filter:blur(7px);
+    -ms-filter:blur(7px);
+    -o-filter:blur(7px);
+}
+.img_big_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    text-align: center;
+    padding-top: 1.5rem;
+}
+.img_big_mask .question-mark{
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url(../image/star/img_mask.png) no-repeat center center;
+    -webkit-background-size: 0.4rem;
+    background-size: 0.4rem;
+}
+.img_big_mask .percent-mark {
+    color: #ee2f6c;
+    font-size: 0.3rem;
+    display: block;
+    text-align: center;
+}
+.pic_list .img_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    text-align: center;
+    padding-top: 0.2rem;
+}
+
+.pic_list .question-mark {
+    display: inline-block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url(../image/star/img_mask.png) no-repeat center center;
+    -webkit-background-size: 0.3rem;
+    background-size: 0.3rem;
+}
+.pic_list .percent-mark {
+    color: #ee2f6c;
+    font-size: 0.2rem;
+    display: block;
+}
+.result {
+    color: #323232;
+    font-size: 0.17rem;
+    letter-spacing: 0.01rem;
+    padding: 0 0.3rem;
+}
+.result span {
+    color: #FE3769;
+    font-size: inherit;
+}
+.result .ta {
+    color: #fff!important;
+}
+.send_font {
+    color: #fff;
+    text-align: center;
+    margin-top: 0.1rem;
+    letter-spacing: 0.01rem;
+}
+
+/*验证手机*/
+.phone_box{
+    /*background: url(../image/star/img_Physiognomy_bg.png) no-repeat;*/
+    background-size: cover;
+    width: 100%;
+}
+.group{
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;  TWEENER - IE 10 
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+.group div{
+    margin: 0 auto;
+}
+.group #phone{
+    background: #E2E2E2 url(../image/star/smartphone.png) no-repeat 0.15rem;
+    padding: 3%;
+    border-radius: 5px;
+    width: 2.4rem;
+    margin: 0 auto;
+    height: 0.4rem;
+    background-size: 0.2rem;
+    padding-left: 0.5rem;
+    color: #949494;
+    font-size: 0.14rem;
+    border: 1px solid #FF6D90;
+}
+.group #phone::-webkit-input-placeholder { /* WebKit browsers */
+    color:#949494;
+}
+.group #phone:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#949494;
+}
+.group #phone::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#949494;
+}
+.group #phone:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#949494;
+}
+.ma{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 2.4rem;
+    margin: 0 auto;
+}
+.ma #ma{
+    background: #E2E2E2 url(../image/star/verificationcode.png) no-repeat 0.15rem;
+    width: 1.4rem;
+    height: 0.4rem;
+    border-radius: 5px;
+    padding: .08rem;
+    margin: .08rem 0 .08rem;
+    background-size: 0.2rem;
+    padding-left: 0.5rem;
+    color: #949494;
+    font-size: 0.14rem;
+    border: 1px solid #FF6D90;
+}
+.ma #ma::-webkit-input-placeholder { /* WebKit browsers */
+    color:#949494;
+}
+.ma #ma:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#949494;
+}
+.ma #ma::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#949494;
+}
+.ma #ma:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#949494;
+}
+.ma_btn{
+    text-align: center;
+    padding: 0;
+    width: 0.9rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    margin: 0;
+    border-radius: 5px;
+    color:#fff;
+    border: solid 1px #f12c41;
+    background: #f12c41;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f12c41', endColorstr='#eb34a5');
+    cursor: pointer;
+    background: linear-gradient(to right, #ED4264, #F97575,#ED4264);
+    background: -webkit-linear-gradient(to right, #ED4264, #F97575,#ED4264);
+    background: -moz-linear-gradient(to right, #ED4264, #F97575,#ED4264);
+}
+.commit{
+    width: 2.4rem;
+    height: 0.4rem;
+    display: inline;
+    margin: 0 auto;
+    border-radius: 0.8rem;
+    color:#fff;
+    border: solid 1px #f12c41;
+    background: #f12c41;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f12c41', endColorstr='#eb34a5');
+    cursor: pointer;
+    background: linear-gradient(to right, #ED4264, #F97575,#ED4264);
+    background: -webkit-linear-gradient(to right, #ED4264, #F97575,#ED4264);
+    background: -moz-linear-gradient(to right, #ED4264, #F97575,#ED4264);
+}
+/*适配广告机*/
+@media only screen and (min-device-width: 680px) {
+    .img_big_blur {
+        filter:blur(15px);
+        -webkit-filter:blur(15px);
+        -moz-filter:blur(15px);
+        -ms-filter:blur(15px);
+        -o-filter:blur(15px);
+    }
+    .img_blur {
+        filter:blur(10px);
+        -webkit-filter:blur(10px);
+        -moz-filter:blur(10px);
+        -ms-filter:blur(10px);
+        -o-filter:blur(10px);
+    }
+    .small_pic {
+        margin-top: 40px;
+        width: 100%;
+        padding: 0 0.2rem 0 0.25rem;
+    }
+    .result {
+        color: #323232;
+        /* text-align: center; */
+        margin-top: 20px;
+        font-size: 0.18rem;
+        letter-spacing: 0.01rem;
+        padding: 0 0.3rem;
+    }
+    .phone_box {
+        background-size: cover;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .bg {
+        padding-bottom: 45px;
+    }
+    .big_pic {
+        padding-top: 40px;
+        margin-top: 72px;
+    }
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="../css/checkprice.css">	
+	<link rel="stylesheet" href="../css/headandall.css">
+	<link rel="stylesheet" href="../base/tab.css">
+	<link rel="stylesheet" href="../base/base.css">
+	<meta charset="UTF-8">
+	<title>查价格</title>
+	<style>
+		.value_tab{
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+<!--顶部tab-->
+<div class="value_tab">
+    <!--后退-->
+    <div id="back"></div>
+    <!--关闭-->
+    <!--标题-->
+    <span class="vf">查价格</span>
+    <!--更多-->
+</div>
+	
+	<div class="search-block">
+		<input class="search-input" style="border-radius: 15px;border: none" placeholder="微整/美容/焕肤"/>
+		<div class="search-icon left-float">
+			<img src="../image/home_CheckPrice/Path.png" alt="" />
+		</div>
+		<div class="search-button">搜索</div>
+	</div>
+	<div class="title-block">
+					<div class="title-up">
+					<div class="up-left up-word left-float">行业最新成交项目TOP10</div>
+			<div class="care-block right-float" id="care">
+				<div class="care-icon left-float">
+					<img src="../image/home_CheckPrice/Clock-pre.png" alt="" />
+					
+				</div>
+				<span class="care-word">关注价格</span>
+				<div class="maskqr">
+                <img src="../image/qc.png" alt="" class="qrcode">
+            </div>
+			</div></div>
+		<div class="title-down">
+			<span class="table-title">项目名称</span>
+			<span class="table-title">成交金额</span>
+			<span class="table-title">最低价</span>
+			<span class="table-title">平均价</span>
+			<span class="table-title">最高价</span>
+		</div>
+	</div>
+	<div class="box">
+	<div class="table-block">
+
+		
+	</div>
+	<div class="footer"></div>
+	</div>
+	
+	 <script src="../js/android.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/layer/layer.min.js"></script>
+    <script src="../js/mui.min.js"></script>
+	<script>
+		 var page=1;
+		 var datanum=0;
+		 var total=0;
+ $("#back").on('tap',function () {
+                getInterface().leftBtnClick();
+            })
+
+           $(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    alert(data1);
+    $('.value_tab').css('padding-top',data1+'pt','padding-bottom',data1+'pt');
+}
+
+	//二维码遮罩层
+        $(document).ready(function () {
+                $(".care-block").click(function (event) {
+                    // console.log("aaa");
+                    event.stopPropagation();
+                    $(".maskqr").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").click(function (event) {
+                    var con=$(".qrcode");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".maskqr").hide();
+                    }
+                })
+            });
+		 // var page=1;
+		 // var datanum=0;
+		 // var total=0;
+		 function checkprice () {
+		 	$.ajax({
+		 		 type:"GET",
+                url:"http://test.legle.cc:82/getPrice?pageNumber="+page,
+                datatype:"json",
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                success:function(result){
+                	// console.log(result);
+                	// var i=result.prices.length - 1;
+                	if(datanum=0){
+                		var data=0;
+                	}
+            		else{ var data=datanum;}
+            			;
+            			var total0=0;
+                		
+                		total0=result.recordTotal;
+  	             	for (var i = result.prices.length-1; i >=0; i--) {
+                		$('.table-block').append("<ul class='row row"+data+"' ><li class='column1 left-float'></li><li class='column2 left-float'></li><li class='column3 left-float'></li><li class='column3 left-float'></li><li class='column3 left-float'></li><hr class='line left-float'/></ul>");
+
+                		$('.row'+data+' li').eq(0).html(result.prices[i].name);
+                		$('.row'+data+' li').eq(1).html(result.prices[i].deal);
+                		$('.row'+data+' li').eq(2).html(result.prices[i].low);
+                		$('.row'+data+' li').eq(3).html(result.prices[i].average);
+                		$('.row'+data+' li').eq(4).html(result.prices[i].high);
+                		data++;
+                	};
+                		window.sessionStorage.setItem("total0",total0);
+                		window.sessionStorage.setItem("data",data);
+                		console.log(data,total0);
+                	if(result.code==1){}
+                	else{
+                		toast(result.err);
+                	}
+                	
+                },
+                error: function() {}
+		 	})
+				
+				datanum = parseInt(window.sessionStorage.getItem("data"));
+				total = parseInt(window.sessionStorage.getItem("total0"));
+				console.log(window.sessionStorage.getItem("data"),window.sessionStorage.getItem("total0"));
+				// if(total>datanum){
+		 	// 	page=page+1;
+		 	// 	checkprice();
+		 	// 	console.log(datanum,total);
+		 	// }
+			}
+		 $(document).ready(function(){
+		 	checkprice();
+		 	
+
+		 })
+		 // $(document).ready(function(){
+		 // 	getInterface().getAppInfo();
+		 // })
+		 // function return_getAppInfo(data){
+		 // 	console.log(data);
+		 // }
+		 $('.search-button').on('tap',function(){
+		 	var search_word=$('.search-input').val();
+		 	var rowmax=$('.table-block ul').length;
+		 	var i=0;
+		 	var show_count=0;
+		 	while(i<rowmax)
+		 	{
+		 		var e=$('.table-block ul').eq(i);
+		 		var word=$(e).children(':first').html();
+		 		if(word.indexOf(search_word)==-1){
+		 			$(e).hide();
+		 			i++;
+		 		}
+		 		else{
+		 			$(e).show();
+		 			i++;
+		 			show_count++;
+		 		}
+		 	}
+		 	if(show_count==0){
+		 		layer.alert("你所输入的项目搜索不到！");
+		 	}
+
+		 	// for (var i = 0; i > max ; i++) {}
+		 	// 	
+		 	
+		 });
+
+
+		 
+	</script>
+</body>
+</html>

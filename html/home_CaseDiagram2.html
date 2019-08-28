@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_CaseDiagram2.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab head-block">
+        <!--后退-->
+        <img id="back" src="../image/home_CheckPrice/Path002.png" alt="">
+        <!--关闭-->
+        <!--标题-->
+        <span class="vf">案例图</span>
+        <!--更多-->
+    </div>
+    <div class="middle box">
+        <span class="nose_title">鼻部微整</span>
+        <div class="nose_sbt">
+            <span>缩鼻头</span>
+            <span></span>
+        </div>
+        <div class="nose_sby">
+            <span>索鼻翼</span>
+            <span></span>
+        </div>
+        <div class="nose_dbj">
+            <span>垫鼻尖</span>
+            <span></span>
+        </div>
+        <div class="nose_bb">
+            <span>鼻部</span>
+            <span></span>
+        </div>
+        <div class="nose_bbl">
+            <span>鼻微整</span>
+            <span></span>
+        </div>
+        <a href="../html/home_CaseDiagram3.html">
+            <div class="nose_fb nose_clicked">
+                <span>丰鼻</span>
+                <span></span>
+            </div>
+        </a>
+
+    </div>
+</div>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+<script>
+//    后退
+var back =document.getElementById("back");
+back.onclick=function () {
+//        console.log("aa");
+    history.back();
+}
+//    点击切换
+$(function(){
+    $('.middle div').click(function(){
+        $('.middle div.nose_clicked').each(function(index, element) {
+            this.classList.remove("nose_clicked");
+        });;
+        this.classList.add("nose_clicked");
+    });
+})
+</script>
+</body>
+</html>

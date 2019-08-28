@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="../css/swiper_ad1.css">
+	<link rel="stylesheet" href="../css/headandall.css">
+	<link rel="stylesheet" href="../base/tab.css">
+	<link rel="stylesheet" href="../base/base.css">
+
+	<meta charset="UTF-8">
+	<title>广告1</title>
+	<style>
+    /*取消长按事件*/
+    * {  
+        -webkit-touch-callout: none;  
+        -webkit-user-select: none;  
+        -khtml-user-select: none;  
+        -moz-user-select: none;  
+        -ms-user-select: none;  
+        user-select: none;  
+    }
+        
+    </style>
+</head>
+<body>
+<div class="head-block tab">
+		<div class="head-icon-l left-float">
+			<img id="back" src="../image/icon-right.png" alt="">
+		</div>
+		
+		<div class="title-word left-float">女王盛宴平安夜</div>
+		
+	</div>
+	<div class="box">
+	<img src="../image/swiper_ad1/top.jpg" alt="" class="top">
+			<span class="title_up">立享店庆优惠</span>
+			<span class="title_down">立享店庆优惠</span><br>
+			<img src="../image/swiper_ad1/bar.png" class="bar">
+			<ul  class="quan">
+				<li class="hb_block">
+					<span>满50优惠券</span><br>
+					<span>10</span><br>
+					<span>RMB</span><br>
+					<span>点击领取</span><br>
+					
+				</li>
+
+				<li class="hb_block">
+					<span>满50优惠券</span><br>
+					<span>10</span><br>
+					<span>RMB</span><br>
+					<span>点击领取</span><br>
+					
+				</li>
+				<li class="hb_block">
+					<span>满50优惠券</span><br>
+					<span>10</span><br>
+					<span>RMB</span><br>
+					<span>点击领取</span><br>
+					
+				</li>
+				<li class="hb_block">
+					<span>满50优惠券</span><br>
+					<span>10</span><br>
+					<span>RMB</span><br>
+					<span>点击领取</span><br>
+					
+				</li>
+			</ul>
+			<div class="main">
+					<span class="title_up">周年庆 不容错过的精彩</span>
+					<span class="title_down">周年庆 不容错过的精彩</span><br>
+					<img src="../image/swiper_ad1/bar.png" class="bar">
+					<div class="doctor">
+						<div class="d_left">
+							<span>陈贵宗</span>
+							<span>陈贵宗</span>
+							<img src="../image/swiper_ad1/hot.png" alt="">
+							<br>
+							<span>国际范新锐博士</span>
+							<br>
+							<span>国际范新锐美眼博士，从业十年来，<br>一直专注于眼部整形手术，
+							<br>拥有上万例成功的手术案例</span><br>
+							<span>查看医生主页></span>
+						</div>
+						<div class="d_right">
+							<img src="../image/swiper_ad1/yisheng.png" alt="">
+						</div>
+					</div>
+					<div class="case">
+						<img src="../image/swiper_ad1/case.jpg" alt="">
+						<img src="../image/swiper_ad1/check.png" alt="">
+						<span>查看案例</span>
+					</div>
+					
+					<div class="eye">
+						<div class="e_left">
+							<img src="../image/swiper_ad1/eye.jpg" alt="">
+						</div>
+						<div class="e_right">
+							<span>明眸翘睫大眼术</span><br>
+							<span>￥5800</span>
+							<span>￥8800</span><br>
+							<span>国际范新锐美眼博士，从业十年来，<br>一直专注于眼部整形手术，
+							<br>拥有上万例成功的手术案例</span><br>
+							<span>点击预约></span>
+						</div>
+					</div>
+
+
+				</div>
+
+	  <script src="../js/android.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/bbmis.js"></script>
+	<script>
+
+	//取消双击事件
+        mui.init({
+    gestureConfig:{
+    tap: true, //默认为true
+    doubletap: true, //默认为false
+    longtap: true, //默认为false
+    swipe: true, //默认为true
+    drag: true, //默认为true
+    hold:false,//默认为false，不监听
+    release:false//默认为false，不监听
+  }
+});
+ //        后退
+             $("#back").on('tap',function () {
+                getInterface().leftBtnClick();
+            })
+		
+		$(document).ready(function(){  
+            $(".tab").attr('style','padding-top:'+localStorage.topH+'px');
+            $(".box").attr('style','padding-top:'+localStorage.topH+'px');
+        });
+	</script>
+</body>
+</html>

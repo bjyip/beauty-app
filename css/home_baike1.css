@@ -1,0 +1,163 @@
+body{
+    background-color: #FCF9FE;
+}
+
+.lay{
+    width: 1080px;
+}
+.top-padding{
+    background-color: #fff;
+    padding-top: 0;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+/*列表*/
+.zaz_list{
+    height: 190px;
+    margin-left: 28px ;
+    margin-right: 28px ;
+    white-space:nowrap;
+    overflow:auto;
+}
+.zaz_list::-webkit-scrollbar {/*隐藏滚轮*/
+    display: none;
+}
+.list-ul{ /*兼容 IE*/
+    zoom: 1;
+    white-space: nowrap;
+}
+.zaz_list li{
+    display:inline-block;
+    margin-top: 114px;
+    margin-left: 20px;
+    background-color: #FB7981;
+    font-size: 39px;
+    border-radius: 30px;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px 30px;
+}
+
+/*中间的大图*/
+.baike_img{
+    width: 990px;
+    height: 899px;
+    margin: 81px 0 0 45px;
+    background: url("../image/home_Baike/baike.png") no-repeat;
+    position: relative;
+}
+.part {
+    position: absolute;
+    width: 600px;
+    height: 800px;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -420px;
+
+}
+.hair {
+    position: absolute;
+    width: 600px;
+    height: 220px;
+    top: 0;
+
+}
+.forehead {
+    position: absolute;
+    width: 600px;
+    height: 120px;
+    top: 220px;
+
+}
+.eyebrow {
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    top: 340px;
+
+}
+.eye {
+    position: absolute;
+    width: 400px;
+    height: 80px;
+    top: 390px;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 2;
+
+}
+.ears {
+    position: absolute;
+    width: 600px;
+    height: 120px;
+    top: 390px;
+    left: 0;
+    z-index: 1;
+
+}
+.nose {
+    position: absolute;
+    width: 70px;
+    height: 200px;
+    top: 390px;
+    left: 50%;
+    margin-left: -35px;
+    z-index: 3;
+
+}
+.face {
+    position: absolute;
+    width: 400px;
+    height: 120px;
+    top: 470px;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 2;
+
+}
+.mandible {
+    position: absolute;
+    width: 400px;
+    height: 110px;
+    top: 590px;
+    left: 50%;
+    margin-left: -200px;
+    z-index: 1;
+
+}
+.mouth {
+    position: absolute;
+    width: 200px;
+    height: 110px;
+    top: 590px;
+    left: 50%;
+    margin-left: -100px;
+    z-index: 3;
+
+}
+.chin {
+    position: absolute;
+    width: 260px;
+    height: 80px;
+    top: 700px;
+    left: 50%;
+    margin-left: -130px;
+    z-index: 1;
+
+}
+/*底部的文字*/
+.tishi {
+    text-align: center;
+    margin-top: 108px;
+    color: #333;
+    font-size: 40px;
+}

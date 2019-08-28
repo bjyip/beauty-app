@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> -->
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <!--<link rel="stylesheet" href="../base/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../css/home_Physiognomy3.css">
+    <link rel="stylesheet" href="../css/home_Physiognomy2.css">
+    <!--<link rel="stylesheet" href="../base/">-->
+    <title>Title</title>
+    <style>
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .load{
+            display: none;
+
+        }
+        /*.det_nav span{*/
+            /*color: #FE9696;*/
+            /*font-size: 49px;*/
+            /*font-weight: bold;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<!--loading-->
+<div class="load">
+    <!--中间的图标-->
+    <img class="tb" src="../image/home_physiognomy/img_Physiognomy.png" alt="">
+    <!--分析结果的文字-->
+    <p> 云端大数据努力分析中</p>
+    <!--背景图-->
+    <img class="bg " src="../image/home_physiognomy/img_Physiognomy_bg.png" alt="">
+</div>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+
+        <!--标题-->
+        <span class="vf">颜值测试结果</span>
+        <!--更多-->
+    </div>
+    <!--微信获取-->
+    <div class="obt">
+       <img src="../image/Qr-code-free-icon.png" alt="">
+       <div class="obt-text">微信获取结果，看看你的颜值超过多少人？<br/>
+        可以分享到朋友圈哦       
+        </div>
+         <img class="obt-tap" src="../image/Tap.png" alt="">
+    </div>
+    <!--分享-->
+    <div class="mask_share">
+        <div class="share">
+            <div id="qr"></div>
+        </div>
+    </div>
+    <!--结果-->
+    <div class="det">
+
+            <!--头像-->
+            <div class="det_img"></div>
+            <!--总体分析-->
+        <div class="jz">
+            <span id="fx">总体分析</span>
+            <span class="score show_sc"></span>
+            <span class="score"></span>
+            <span class="score"></span>
+            <span class="score"></span>
+            <span class="score"></span>
+            <span class="score"></span>
+        </div>
+
+            <!--雷达图-->
+            <div class=" radar show_ra"></div>
+            <div class="radar"></div>
+            <div class="radar"></div>
+             <div class="radar"></div>
+             <div class="radar"></div>
+             <div class="radar"></div>
+
+        <!--综合测试-->
+        <ul class="det_nav">
+            <li id="total" class="det_select">综合测试</li>
+            <li id="outLine" class="">轮廓测试</li>
+            <li id="EyebrowScore" class="">眉部测试</li>
+            <li id="EyeScore" class="">眼部测试</li>
+            <li id="noseScore" class="">鼻部测试</li>
+            <li id="MouthScore" class="">口唇测试</li>
+        </ul>
+        <div class="list">
+            <!--综合分析-->
+            <div class="det_list show" >
+<div class="cent">
+    <span class="detail">详细数据分析报告</span>
+    <p class="section">
+        <span class="name">轮廓分析：</span>
+        <span class="block"></span>
+    </p>
+    <p class="section">
+        <span class="name">眼部分析：</span>
+        <span class="block"></span>
+    </p>
+    <p class="section">
+        <span class="name">鼻部分析：</span>
+        <span class="block"></span>
+    </p>
+    <p class="section">
+        <span class="name">唇部分析：</span>
+        <span class="block"></span>
+    </p>
+    <p class="section">
+        <span class="name">眉部分析：</span>
+        <span class="block"></span>
+    </p>
+    <p class="section">
+        <span class="name">相学分析：</span>
+        <span class="block"></span>
+    </p>
+    <p class="section">
+        <span class="name">总体分析：</span>
+        <span class="block"></span>
+    </p>
+</div>
+
+            </div>
+            <!--轮廓分析-->
+            <div class="det_list">
+                <div class="lk cent">
+                    <p class="section">
+                        <span class="name">髋下颌宽度：</span>
+                        <span class="block_outLine"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">三庭：</span>
+                        <span class="block_outLine"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">五眼：</span>
+                        <span class="block_outLine"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">面宽中下面：</span>
+                        <span class="block_outLine"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">面宽对称性：</span>
+                        <span class="block_outLine"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">髋：下颌：下巴：</span>
+                        <span class="block_outLine"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">下巴：</span>
+                        <span class="block_outLine"></span>
+                    </p>
+                </div>
+
+
+
+            </div>
+            <!--眉部分析-->
+            <div class="det_list">
+                <div class="mb cent">
+                    <p class="section">
+                        <span class="name">左眉鼻翼连线：</span>
+                        <span class="block_eyebrow"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">右眉鼻翼连线：</span>
+                        <span class="block_eyebrow"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">左眉尾眼外角：</span>
+                        <span class="block_eyebrow"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">右眉尾眼外角：</span>
+                        <span class="block_eyebrow"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">眉间距：鼻翼宽：</span>
+                        <span class="block_eyebrow"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">眉水平角：</span>
+                        <span class="block_eyebrow"></span>
+                    </p>
+                </div>
+
+            </div>
+            <!--眼部分析-->
+            <div class="det_list">
+                <div class="yb cent">
+                    <p class="section">
+                        <span class="name">眼裂宽：高：</span>
+                        <span class="block_eye"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">眼宽：内呲间距：</span>
+                        <span class="block_eye"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">内呲角-外呲角：</span>
+                        <span class="block_eye"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">目面：</span>
+                        <span class="block_eye"></span>
+                    </p>
+                </div>
+
+            </div>
+            <!--鼻部分析-->
+            <div class="det_list">
+                <div class="bb cent">
+                    <p class="section">
+                        <span class="name">鼻翼宽：鼻体宽：</span>
+                        <span class="block_nose"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">鼻宽：面宽：</span>
+                        <span class="block_nose"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">鼻长：面宽：</span>
+                        <span class="block_nose"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">鼻指数：</span>
+                        <span class="block_nose"></span>
+                    </p>
+                    <p class="section">
+                        <span class="name">鼻唇：</span>
+                        <span class="block_nose"></span>
+                    </p>
+                </div>
+
+            </div>
+            <!--唇部分析-->
+            <div class="det_list">
+                <div class="cb cent" >
+                    <p class="section">
+                        <span class="name">口宽/颏高：</span>
+                        <span class="block_mouth"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">口鼻/颏鼻：</span>
+                        <span class="block_mouth"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">口宽/瞳距：</span>
+                        <span class="block_mouth"></span>
+
+                    </p>
+                    <p class="section">
+                        <span class="name">口指数：</span>
+                        <span class="block_mouth"></span>
+                    </p>
+                    <p class="section">
+                        <span class="name">唇目指数：</span>
+                        <span class="block_mouth"></span>
+                    </p>
+                    <p class="section">
+                        <span class="name">唇指数：</span>
+                        <span class="block_mouth"></span>
+                    </p>
+                    <p class="section">
+                        <span class="name">口唇水平角：</span>
+                        <span class="block_mouth"></span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+
+    <div class="footer_left">
+        <span>系统推荐项目</span>
+        <ul>
+            <li id="foot_a"></li>
+            <li id="foot_b"></li>
+            <li id="foot_c"></li>
+        </ul>
+        
+        <div class="footer_left_color-1"></div>
+        <div  class="footer_left_color-word">高匹配</div>
+          <div>
+            <div class="footer_left_color-2"></div>
+            <div class="footer_left_color-word">匹配</div>
+        </div>
+        </div>
+      
+    </div>
+    <div class="footer_right">
+        <span>测试结论</span>
+        <p>1、在综合测试中得分最高为 **项。说明你的什么什么。 </p>
+        <p>另外由**项得分较低，影响了整体分值。</p>
+        <p>2、轮廓分析中，***值偏低，可以通过脸部调整去改善。</p>
+        <p>3、眉部测试中，**，可以使用纹眉神器进行调整</p>
+        <p>4、更多专业建议，请按在线咨询</p>
+    </div>
+<!--验证手机-->
+<div class="mark" id="mark">
+    <div class="phone_box" id="phone_box">
+        <div class="top"></div>
+        <div class="group">
+            <input type="text"  id="phone" placeholder="输入手机号码">
+        </div>
+        <div class="ma">
+            <input type="text" id="ma" placeholder="输入验证码">
+            <button class="ma_btn" id="code">获取验证码</button>
+        </div>
+        <div class="group">
+            <button class="commit" id="commit">确认</button>
+        </div>
+    </div>
+</div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script src="../js/jquery.lineProgressbar.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src=../js/jquery-qrcode-0.14.0.min.js></script>
+<script>
+
+
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    $('.value_tab').css('padding-top',parseInt(data1)+'px');
+}
+    //后退
+    $('#back').on('tap',function () {
+        getInterface().leftBtnClick();
+    }) ;
+//    切换
+    $('.det_nav li').on('tap',function () {
+        $('#fx').html($(this).html());
+        $('.radar').removeClass('show_ra');
+        $('.det_list').removeClass('show');
+        $('.score').removeClass('show_sc');
+        $('.det_nav li').removeClass('det_select');
+        $(this).addClass("det_select");
+        $('.list .det_list:eq('+$(this).index()+')').addClass('show');
+        $('.radar:eq('+$(this).index()+')').addClass('show_ra');
+        $('.score:eq('+$(this).index()+')').addClass('show_sc');
+    })
+    //传数据
+    var uuid = getQueryStringByName('uuid'),
+
+            mobile = getQueryStringByName('mobile') || "18856555665";
+    getInterface().post_action("lookTest",JSON.stringify({uuid:uuid}),'get');
+
+//短信验证
+    var code=0;   //在全局定义 验证码
+    //产生验证码
+    var InterValObj;  //timer变量，控制时间
+    var count=60;  //间隔函数，一秒执行
+    var curCount;  //当前剩余秒数
+//判断是否需要手机认证
+    // getInterface().post_action('lookTest',JSON.stringify({mobile:mobile}),'get');
+
+    function return_action(data,data2) {
+        if(data2 == 'lookTest'){
+//           alert(data.code);
+            if(data.code == 1){
+
+                analysis(data);
+//                loading
+                $('.load').hide()
+                $('#mark').css('display','block');
+                //分享链接
+            $('.obt').on("tap",function () {
+                //页面层
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 0,
+                    area:['927','1112'],
+                    shade: 0.7, //遮罩透明度
+                    closeBtn : 1,
+                    content: '<div class="share"><div class="share_code" id="share_code"></div></div>'
+                });
+                jQuery('#share_code').qrcode({width: 400,height: 400,text:data.shareUrl});
+                $('#share_code canvas').css({'width':'400px','height':'400px'});
+                $('.layui-layer').css({ 'background-color':'transparent','box-shadow':'none','left':'50%','margin-left':'-380px'});
+
+            })
+//                // 点击空白处隐藏弹出
+//                $("body").on('click',function (event) {
+//                    var con=$(".obt");
+//                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+//                        $(".mask_share").hide();
+//                    }
+//                })
+            }else if(data.code==2){
+                alert('需要手机验证');
+                analysis(data);
+            }
+        }else if(data2 == 'sendVerifyCode'){
+            if (data.code==1){
+                InterValObj = window.setInterval(SetRemainTime,1000);
+                $('#code').html("重发（" + curCount + "）");
+                getInterface().callAndroidLog("短信验证码已发送到您的手机，请查收");
+                console.log(curCount);
+            }
+            else{
+                getInterface().callAndroidLog("短信验证码发送失败，请重新发送");
+            }
+        }else{
+            if(data.code ==1||code ==2313){
+                $('#mark').css('display','none');
+            }
+            else{
+                getInterface().callAndroidLog("请输入正确的验证码");
+            }
+        }
+    }
+
+    function  createCode() {
+        var mobile=$('#phone').val();
+        // 验证手机
+//        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        var myreg=/^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])+\d{8}$/;
+        if (mobile == ''){
+            getInterface().callAndroidLog('请输入手机号码获得验证码')
+        }else if(!myreg.test($('#phone').val())){
+            getInterface().callAndroidLog('请输入有效的手机号码')
+        }else{
+            curCount = count;
+            $('#code').attr("disabled","true");
+            //发送手机号码接口
+            getInterface().post_action("sendVerifyCode",JSON.stringify({mobile:mobile}),'get');
+        }
+    }
+
+    //倒时开始
+function  SetRemainTime() {
+    if (curCount == 0){
+        window.clearInterval(InterValObj) // 停止计时器
+        $('#code').html("获取验证码");
+        $('#code').removeAttr('disabled');
+
+    }else{
+        curCount--;
+        $('#code').html("重发("+ curCount +")");
+        $('#code').attr("disabled","true");
+    }
+}
+    
+    //校验验证码
+    function validate() {
+        var inputCode = document.getElementById("ma").value.toUpperCase();//取得输入的验证码并转换为大写
+        if(inputCode.length <= 0){ //如果输入验证码的长度为0
+            getInterface().callAndroidLog("请输入验证码！") //弹出请输入验证码
+        }else{
+            //如果输入的验证码和发送的验证码不一样
+            var code= $('#ma').val();
+            var mobile=$('#phone').val();
+            //校验验证码接口
+            getInterface().post_action("pcVerifyMobile",JSON.stringify({mobile:mobile,code:code}),'post');
+        }
+    }
+    $('#code').on('tap',function(e) {
+        createCode();
+    });
+    $('#commit').on('tap',function(e) {
+        validate();
+    });
+
+    //渲染页面
+    var image_path = localStorage.getItem('image_path')
+   function analysis(data) {
+       // t推荐项目
+
+
+     //解析数据
+       //加载图片
+       $('.det_img').css('background','url('+image_path+')').css('background-position','center').css('background-size','cover');
+       //总分
+
+       $('.score:eq(0)').text(":"+data.looks.LooksTotalScore);
+       $('.score:eq(1)').text(":"+data.looks.LooksTotalScore);
+       $('.score:eq(2)').text(":"+data.looks.OutLineScore);
+       $('.score:eq(4)').text(":"+data.looks.EyeScore);
+       $('.score:eq(3)').text(":"+data.looks.EyebrowScore);
+       $('.score:eq(5)').text(":"+data.looks.NoseScore);
+       $('.score:eq(6)').text(":"+data.looks.MouthScore);
+
+
+    //轮廓分析
+       $('.block:eq(0)').LineProgressbar({
+           percentage: data.looks.OutLineScore,
+
+//           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+
+// 眼部分析
+       $('.block:eq(1)').LineProgressbar({
+           percentage: data.looks.EyeScore,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7 ',
+           ShowProgressCount:'false',
+           height:28,
+       })
+
+//鼻部分析
+       $('.block:eq(2)').LineProgressbar({
+           percentage: data.looks.NoseScore,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //唇部分析
+       $('.block:eq(3)').LineProgressbar({
+           percentage: data.looks.MouthScore,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //眉部分析
+       $('.block:eq(4)').LineProgressbar({
+           percentage: data.looks.EyebrowScore,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+        //相学分析
+       $('.block:eq(5)').LineProgressbar({
+           percentage: data.looks.KanXiangScore,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //总体分析
+       $('.block:eq(6)').LineProgressbar({
+           percentage: data.looks.LooksTotalScore,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //髋下颌宽度
+       $('.block_outLine:eq(0)').LineProgressbar({
+           percentage:data.looks.TestValue.sOutLine_Scores.delta_BBI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+
+       //三庭
+       $('.block_outLine:eq(1)').LineProgressbar({
+           percentage: data.looks.TestValue.sOutLine_Scores.delta_TPR,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+
+       //五眼
+       $('.block_outLine:eq(2)').LineProgressbar({
+           percentage: data.looks.TestValue.sOutLine_Scores.delta_FER,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //面宽：中下面：
+       $('.block_outLine:eq(3)').LineProgressbar({
+           percentage:data.looks.TestValue.sOutLine_Scores.delta_FWCMLH,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+//       面部对称性
+       $('.block_outLine:eq(4)').LineProgressbar({
+           percentage:data.looks.TestValue.sOutLine_Scores.delta_LBCRB,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //髋：下颌：下巴
+       $('.block_outLine:eq(5)').LineProgressbar({
+           percentage: data.looks.TestValue.sOutLine_Scores.delta_BA,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //下巴
+       $('.block_outLine:eq(6)').LineProgressbar({
+           percentage:data.looks.TestValue.sOutLine_Scores.delta_CA,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //左眉鼻翼连线
+       $('.block_eyebrow:eq(0)').LineProgressbar({
+           percentage:data.looks.TestValue.sEyebrow_Scores.delta_LENA,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //右眉鼻翼连线
+       $('.block_eyebrow:eq(1)').LineProgressbar({
+           percentage: data.looks.TestValue.sEyebrow_Scores.delta_RENA,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //左眉尾眼外角
+       $('.block_eyebrow:eq(2)').LineProgressbar({
+           percentage:data.looks.TestValue.sEyebrow_Scores.delta_LEEN,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //右眉尾眼外角
+       $('.block_eyebrow:eq(3)').LineProgressbar({
+           percentage:data.looks.TestValue.sEyebrow_Scores.delta_REEN,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //眉间距：鼻翼宽
+       $('.block_eyebrow:eq(4)').LineProgressbar({
+           percentage: data.looks.TestValue.sEyebrow_Scores.delta_ECND,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //眉水平角
+       $('.block_eyebrow:eq(5)').LineProgressbar({
+           percentage: data.looks.TestValue.sEyebrow_Scores.delta_EA,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //眼裂宽：高
+       $('.block_eye:eq(0)').LineProgressbar({
+           percentage:data.looks.TestValue.sEye_Scores.delta_EBWR,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //眼宽
+       $('.block_eye:eq(1)').LineProgressbar({
+           percentage: data.looks.TestValue.sEye_Scores.delta_EBCIC,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //内呲角
+       $('.block_eye:eq(2)').LineProgressbar({
+           percentage: data.looks.TestValue.sEye_Scores.delta_IACO,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //目面
+       $('.block_eye:eq(3)').LineProgressbar({
+           percentage: data.looks.TestValue.sEye_Scores.delta_EFI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //鼻翼宽：鼻体宽
+       $('.block_nose:eq(0)').LineProgressbar({
+           percentage:data.looks.TestValue.sNose_Scores.delta_NWWCB,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //鼻宽：面宽
+       $('.block_nose:eq(1)').LineProgressbar({
+           percentage:data.looks.TestValue.sNose_Scores.delta_NWCFW,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //鼻长：面宽
+       $('.block_nose:eq(2)').LineProgressbar({
+           percentage: data.looks.TestValue.sNose_Scores.delta_NHCFW,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //鼻
+       $('.block_nose:eq(3)').LineProgressbar({
+           percentage:data.looks.TestValue.sNose_Scores.delta_NI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //鼻唇
+       $('.block_nose:eq(4)').LineProgressbar({
+           percentage: data.looks.TestValue.sNose_Scores.delta_NMI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //k口宽
+       $('.block_mouth:eq(0)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_MBCMC,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //口鼻
+       $('.block_mouth:eq(1)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_NMCNC,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //瞳距
+       $('.block_mouth:eq(2)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_MBCED,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+        //口
+       $('.block_mouth:eq(3)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_MI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //唇目
+       $('.block_mouth:eq(4)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_LEI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //唇
+       $('.block_mouth:eq(5)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_LI,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //口唇水平角
+       $('.block_mouth:eq(6)').LineProgressbar({
+           percentage: data.looks.TestValue.sMouth_Scores.delta_S,
+           fillBackgroundColor: '#ED4264',
+           backgroundColor:'#9DA1A7',
+           ShowProgressCount:'false',
+           height:28,
+       })
+       //雷达图.
+
+
+       //综合测试
+       var option= { //可以去官网上根据每个案例不同的option去写各种图形
+           tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+               show:true,
+               trigger: 'axis'
+           },
+           textStyle:{
+               fontSize:20,
+               color:'#333333',
+           },
+           polar: [{    //极坐标
+               name:{
+                   show: true,
+                   formatter: null,
+               },
+               splitLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               axisLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               indicator: [
+                   {text: '轮廓分析',max: 100},
+                   {text: '眉部分析',max: 100},
+                   {text: '眼部分析',max: 100},
+                   {text: '鼻部分析',max: 100},
+                   {text: '口唇分析',max: 100},
+                   {text: '相学分析',max: 100},
+                   {text: '总体分析',max: 100},
+               ],
+               radius:140,
+               startAngle: 90   // 改变雷达图的旋转度数
+           }],
+           series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+               name: '总点击量',
+               type: 'radar',
+               symbolSize: 15,
+               symbol:"",
+               itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                   normal: {
+                       color:"#F67180",
+                       linestyle:{
+                           color :"#ED4264",
+                           normal:{
+                               width:8,
+                           }
+                       },
+                       areaStyle: {
+                           color :"#ED4264",
+                           width : 10,
+                           opacity:0.8,
+                       },
+                   }
+               },
+               data: [{
+                   value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                   name: '雷达图'
+               }, {
+                   value: [],
+                   name: ''
+               }]
+           }]
+       };
+       $(function() {
+           option.series[0].data[0].value=[data.looks.OutLineScore,data.looks.EyeScore,data.looks.NoseScore,data.looks.MouthScore,data.looks.EyebrowScore,data.looks.KanXiangScore,data.looks.LooksTotalScore];  // 加载数据到data中
+//           option.series[0].data[0].name ='ESOP系统';
+           var myChartat = echarts.init(document.getElementsByClassName('radar')[0]);
+           myChartat.setOption(option, true);   //为echarts对象加载数据
+       });
+
+       //轮廓测试
+       var option= { //可以去官网上根据每个案例不同的option去写各种图形
+
+           tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+               show:true,
+               trigger: 'axis'
+           },
+           textStyle:{
+               fontSize:20,
+               color:'#333333',
+           },
+
+           polar: [{    //极坐标
+               name:{
+                   show: true,
+                   formatter: null,
+               },
+               splitLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               axisLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               indicator: [
+                   {text: '颧下颌宽度',max: 100},
+                   {text: '三庭',max: 100},
+                   {text: '五眼',max: 100},
+                   {text: '面宽:中下面',max: 100},
+                   {text: '面部对称性',max: 100},
+                   {text: '跨度',max: 100},
+                   {text: '颧:下颌:下巴',max: 100},
+               ],
+               radius:140,
+               startAngle: 90   // 改变雷达图的旋转度数
+           }],
+           series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+               name: '总点击量',
+               type: 'radar',
+               symbolSize: 15,
+               symbol:"",
+               itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                   normal: {
+                       color:"#F67180",
+                       linestyle:{
+                           color :"#ED4264",
+                           normal:{
+                               width:8,
+                           }
+                       },
+                       areaStyle: {
+                           color :"#ED4264",
+                           width : 10,
+                           opacity:0.8,
+                       },
+                   }
+               },
+               data: [{
+                   value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                   name: '雷达图'
+               }, {
+                   value: [],
+                   name: ''
+               }]
+           }]
+       };
+       $(function() {
+           option.series[0].data[0].value=[data.looks.TestValue.sOutLine_Scores.delta_BBI,data.looks.TestValue.sOutLine_Scores.delta_TPR,data.looks.TestValue.sOutLine_Scores.delta_FER,data.looks.TestValue.sOutLine_Scores.delta_FWCMLH,data.looks.TestValue.sOutLine_Scores.delta_LBCRB,data.looks.TestValue.sOutLine_Scores.delta_BA,data.looks.TestValue.sOutLine_Scores.delta_CA];  // 加载数据到data中
+//           option.series[0].data[0].name ='ESOP系统';
+           var myChartat = echarts.init(document.getElementsByClassName('radar')[1]);
+           myChartat.setOption(option, true);   //为echarts对象加载数据
+       });
+
+       //眉部测试
+       var option = { //可以去官网上根据每个案例不同的option去写各种图形
+           tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+               show:true,
+               trigger: 'axis'
+           },
+           textStyle:{
+               fontSize:20,
+               color:'#333333',
+           },
+
+           polar: [{    //极坐标
+               name:{
+                   show: true,
+                   formatter: null,
+               },
+               splitLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               axisLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               indicator: [
+                   {text: '左眉鼻翼连线',max: 100},
+                   {text: '右眉鼻翼连线',max: 100},
+                   {text: '左眉眼尾外角',max: 100},
+                   {text: '右眉眼尾外角',max: 100},
+                   {text: '眉间距：鼻翼宽',max: 100},
+                   {text: '眉水平角',max: 100},
+               ],
+               radius:140,
+               startAngle: 90   // 改变雷达图的旋转度数
+           }],
+           series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+               name: '总点击量',
+               type: 'radar',
+               symbolSize: 15,
+               symbol:"",
+               itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                   normal: {
+                       color:"#F67180",
+                       linestyle:{
+                           color :"#ED4264",
+                           normal:{
+                               width:8,
+                           }
+                       },
+                       areaStyle: {
+                           color :"#ED4264",
+                           width : 10,
+                           opacity:0.8,
+                       },
+                   }
+               },
+               data: [{
+                   value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                   name: '雷达图'
+               }, {
+                   value: [],
+                   name: ''
+               }]
+           }]
+       };
+       $(function() {
+           option.series[0].data[0].value=[data.looks.TestValue.sEyebrow_Scores.delta_LENA,data.looks.TestValue.sEyebrow_Scores.delta_RENA,data.looks.TestValue.sEyebrow_Scores.delta_LEEN,data.looks.TestValue.sEyebrow_Scores.delta_REEN,data.looks.TestValue.sEyebrow_Scores.delta_ECND,data.looks.TestValue.sEyebrow_Scores.delta_EA,];  // 加载数据到data中
+//           option.series[0].data[0].name ='ESOP系统';
+           var myChart = echarts.init(document.getElementsByClassName('radar')[2]);
+           myChart.setOption(option, true);   //为echarts对象加载数据
+       });
+
+       //眼部测试
+       var option = { //可以去官网上根据每个案例不同的option去写各种图形
+           tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+               show:true,
+               trigger: 'axis'
+           },
+           textStyle:{
+               fontSize:20,
+               color:'#333333',
+           },
+
+           polar: [{    //极坐标
+               name:{
+                   show: true,
+                   formatter: null,
+               },
+               splitLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               axisLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               indicator: [
+                   {text: '眼裂宽：高',max: 100},
+                   {text: '眼宽：內眦角',max: 100},
+                   {text: '内眦角-外眦角',max: 100},
+                   {text: '目面',max: 100},
+               ],
+               radius:140,
+               startAngle: 90   // 改变雷达图的旋转度数
+           }],
+           series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+               name: '总点击量',
+               type: 'radar',
+               symbolSize: 15,
+               symbol:"",
+               itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                   normal: {
+                       color:"#F67180",
+                       linestyle:{
+                           color :"#ED4264",
+                           normal:{
+                               width:8,
+                           }
+                       },
+                       areaStyle: {
+                           color :"#ED4264",
+                           width : 10,
+                           opacity:0.8,
+                       },
+                   }
+               },
+               data: [{
+                   value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                   name: '雷达图'
+               }, {
+                   value: [],
+                   name: ''
+               }]
+           }]
+       };
+       $(function() {
+           option.series[0].data[0].value=[data.looks.TestValue.sEye_Scores.delta_EBWR,data.looks.TestValue.sEye_Scores.delta_EBCIC,data.looks.TestValue.sEye_Scores.delta_IACO,data.looks.TestValue.sEye_Scores.delta_EFI,];  // 加载数据到data中
+//           option.series[0].data[0].name ='ESOP系统';
+           var myChart = echarts.init(document.getElementsByClassName('radar')[3]);
+           myChart.setOption(option, true);   //为echarts对象加载数据
+       });
+
+       //眼部测试
+       var option = { //可以去官网上根据每个案例不同的option去写各种图形
+           tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+               show:true,
+               trigger: 'axis'
+           },
+           textStyle:{
+               fontSize:20,
+               color:'#333333',
+           },
+
+           polar: [{    //极坐标
+               name:{
+                   show: true,
+                   formatter: null,
+               },
+               splitLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               axisLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               indicator: [
+                   {text: '鼻翼宽：鼻体宽',max: 100},
+                   {text: '鼻宽：面宽',max: 100},
+                   {text: '鼻长：面宽',max: 100},
+                   {text: '鼻',max: 100},
+                   {text: '鼻唇',max: 100}
+               ],
+               radius:140,
+               startAngle: 90   // 改变雷达图的旋转度数
+           }],
+           series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+               name: '总点击量',
+               type: 'radar',
+               symbolSize: 15,
+               symbol:"",
+               itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                   normal: {
+                       color:"#F67180",
+                       linestyle:{
+                           color :"#ED4264",
+                           normal:{
+                               width:8,
+                           }
+                       },
+                       areaStyle: {
+                           color :"#ED4264",
+                           width : 10,
+                           opacity:0.8,
+                       },
+                   }
+               },
+               data: [{
+                   value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                   name: '雷达图'
+               }, {
+                   value: [],
+                   name: ''
+               }]
+           }]
+       };
+       $(function() {
+           option.series[0].data[0].value=[data.looks.TestValue.sNose_Scores.delta_NWWCB,data.looks.TestValue.sNose_Scores.delta_NWCFW,data.looks.TestValue.sNose_Scores.delta_NHCFW,data.looks.TestValue.sNose_Scores.delta_NI,data.looks.TestValue.sNose_Scores.delta_NMI,];  // 加载数据到data中
+//           option.series[0].data[0].name ='ESOP系统';
+           var myChart = echarts.init(document.getElementsByClassName('radar')[4]);
+           myChart.setOption(option, true);   //为echarts对象加载数据
+       });
+
+       //口唇测试
+       var option = { //可以去官网上根据每个案例不同的option去写各种图形
+           tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+               show:true,
+               trigger: 'axis'
+           },
+           textStyle:{
+               fontSize:20,
+               color:'#333333',
+           },
+           polar: [{    //极坐标
+               name:{
+                   show: true,
+                   formatter: null,
+               },
+               splitLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               axisLine: {
+                   lineStyle: {
+                       color: '#a19e9d',
+                       width:5,
+                   }
+               },
+               indicator: [
+                   {text: '口宽/颏高',max: 100},
+                   {text: '口鼻/颏鼻',max: 100},
+                   {text: '口宽/瞳距',max: 100},
+                   {text: '口',max: 100},
+                   {text: '唇目',max: 100},
+                   {text: '唇',max: 100},
+                   {text: '口唇水平角',max: 100}
+               ],
+               radius:140,
+               startAngle: 90   // 改变雷达图的旋转度数
+           }],
+           series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+               name: '总点击量',
+               type: 'radar',
+               symbolSize: 15,
+               symbol:"",
+               itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                   normal: {
+                       color:"#F67180",
+                       linestyle:{
+                           color :"#ED4264",
+                           normal:{
+                               width:8,
+                           }
+                       },
+                       areaStyle: {
+                           color :"#ED4264",
+                           width : 10,
+                           opacity:0.8,
+                       },
+                   }
+               },
+               data: [{
+                   value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                   name: '雷达图'
+               }, {
+                   value: [],
+                   name: ''
+               }]
+           }]
+       };
+       $(function() {
+           option.series[0].data[0].value=[data.looks.TestValue.sMouth_Scores.delta_MBCMC,data.looks.TestValue.sMouth_Scores.delta_NMCNC,data.looks.TestValue.sMouth_Scores.delta_MBCED,data.looks.TestValue.sMouth_Scores.delta_MI,data.looks.TestValue.sMouth_Scores.delta_LEI,data.looks.TestValue.sMouth_Scores.delta_LI,data.looks.TestValue.sMouth_Scores.delta_S,];  // 加载数据到data中
+//           option.series[0].data[0].name ='ESOP系统';
+           var myChart = echarts.init(document.getElementsByClassName('radar')[5]);
+           myChart.setOption(option, true);   //为echarts对象加载数据
+       });
+
+       //推荐项目
+//       var json=data.recommends;
+//       $.each(json,function(idx,obj){
+//           layer.alert(obj);
+//           $('#foot_a').text(obj.name)[0];
+//           $('#foot_b').text(obj.name)[1];
+//           $('#foot_c').text(obj.name)[2];
+//       })
+       var json=data.recommends;
+       var arr=[];
+       $.each(json,function (idx,obj) {
+
+           arr.push(obj.name);
+
+       });
+       $('#foot_a').html(arr[0]);
+       $('#foot_b').html(arr[1]);
+       $('#foot_c').html(arr[2]);
+
+   };
+
+</script>
+</body>
+</html>     

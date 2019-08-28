@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/star3.css">
+    <title>明星面对面，对比结果</title>
+</head>
+<body>
+<!-- loading -->
+<div class="bg" id="picture1">
+    <div class="start_body1" >
+        <div class="img_box" id="container">
+            <img src="../image/star/mix.min.gif" alt="" id="mix">
+        </div>
+        <div class="start_btn1">
+            <button class="start_btn_f" id="start_btn_f"></button>
+        </div>
+    </div>
+    <div class='find_star'>正在寻找明星</div>
+    <div class="progress_bar">
+        <progress value='0' max='100' class='mypro'></progress>
+    </div>
+</div>
+
+<div class="bg2">
+    <div class="top-padding">
+        <!--顶部tab-->
+         <div class="value_tab">
+            <img id="back" src="../image/icon-right.png" alt="">
+            <span class="vf">明星面对面</span>
+        </div>
+    </div>
+    
+    <!--微信获取-->
+    <div class="obt" id="obt">
+        <p>让你的朋友围观你和哪位大明星最像吧</p>
+        <br/>
+        <p>点击分享，让你朋友参与测试<img src="../image/Tap.png" alt=""></p>
+        
+    </div>
+    <div class="imgVs">
+        <div class="img1">
+            <div class="me_img" id="me_img"></div>
+            <div class="dashed"></div>
+        </div>
+        <div class="vs"></div>
+        <div class="img2" id="img2">
+            <div class="ta_img" id="ta_img"></div>
+            <div class="title" id="ta_title"></div>
+        </div>
+    </div>
+    <div class="small_pic">
+        <div class="pic_list">
+            <div class="img_div img_div1">
+                <span class="img" id="small_img0"></span>
+                <div class="title" id="small_title0"></div>
+            </div>
+            <div class="img_div">
+                <span class="img" id="small_img1"></span>
+                <div class="title" id="small_title1"></div>
+            </div>
+            <div class="img_div">
+                <span class="img" id="small_img2"></span>
+                <div class="title" id="small_title2"></div>
+            </div>
+            <div class="img_div">
+                <span class="img" id="small_img3"></span>
+                <div class="title" id="small_title3"></div>
+            </div>
+            <div class="img_div">
+                <span class="img" id="small_img4"></span>
+                <div class="title" id="small_title4"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="information">
+        <div class="information_content">
+            <div class="information_message_bg" id="starName">
+            </div>
+            <div class="totalScore">
+                <span class="look-like">相似度</span>
+                <span class="fen" id="fen"></span>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="info_content" id="starInfo"></div>
+    </div>
+
+    <div class="sao">
+        <img class="er" id="qrcode">
+        <!-- <div class="share" id="share"></div> -->
+    </div>
+    <!--加入爱咋整-->
+    <div class="addAi">
+        加入爱咋整，更多乐趣美颜新科技！
+    </div>
+    <!--验证手机-->
+    <div class="mark" id="mark">
+        <div class="phone_box" id="phone_box">
+            <div class="top">验证手机，查看结果</div>
+            <div class="group">
+                <input type="text"  id="phone" placeholder="输入手机号码">
+            </div>
+            <div class="ma">
+                <input type="text" id="ma" placeholder="输入验证码">
+                <button class="ma_btn" id="code">获取验证码</button>
+            </div>
+            <div class="group">
+                <button class="commit" id="commit">确认</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 微信浏览器 -->
+<div class="wxtip" id="JweixinTip">
+    <span class="wxtip-icon"></span>
+    <p class="wxtip-txt">点击右上角<br/>分享给朋友或朋友圈</p>
+</div>
+<div class="wxtip" id="JQQTip">
+    <p class="wxtip-txt other">请使用微信扫描二维码</p>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script src="../js/jquery-qrcode-0.14.0.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/weixin.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+var clientId = '59f6e1064467027c0c1c786f';
+var deviceId = '123';
+var file=getQueryStringByName('file');
+var mobile = '';
+var sharePic = '';
+var ua = navigator.userAgent.toLowerCase();
+if (ua.match(/MicroMessenger/i) == "micromessenger" ) {//微信打开
+    //提醒分享
+    setTimeout(function(){
+        $('#JweixinTip').show();
+        $('#JweixinTip').on('tap',function(){
+            $(this).fadeOut();
+        })
+    },2000);
+
+    //网页
+    $('#picture1').hide();
+    $('.value_tab').remove();
+    $('#obt').remove();
+    $('.bg2').css('margin-top','20px');
+    $('.bg').css('display','none');
+    $('.bg2').css('display','block');
+    var uuid=getQueryStringByName('uuid');
+    getStar(uuid);
+}else if(ua.indexOf('chrome')>=0){//chrome打开
+    
+    
+    var arr2 = [
+        {
+            1 : '陈乔恩',
+            2 : '关之琳',
+            3 : '郭德纲',
+            4 : '胡歌',
+            5 : '靳东',
+            6 : '梁朝伟',
+            7 : '宋承宪' ,
+            8 : '李嘉欣',
+            9 : '黎明',
+            10 :'吴世勋',
+            11 :'林心如',
+            12 :'林依晨',
+            13 :'林志玲',
+            14 :'刘德华',
+            15 :'刘嘉玲' ,
+            16 :'黎姿',
+            17 :'李敏镐',
+            18 :'陈妍希' ,
+            19 :'邓超',
+            20 :'范冰冰',
+            21 : '陈乔恩',
+            22 : '关之琳',
+            23 : '郭德纲',
+            24 : '胡歌',
+            25 : '靳东',
+            26 : '梁朝伟',
+            27 : '宋承宪' ,
+            28 : '李嘉欣',
+            29 : '黎明',
+            30 :'吴世勋',
+            31 :'林心如',
+            32 :'林依晨',
+            33 :'林志玲',
+            34 :'刘德华',
+            35 :'刘嘉玲' ,
+            36 :'黎姿',
+            37 :'李敏镐',
+            38 :'陈妍希' ,
+            39 :'邓超',
+            40 :'范冰冰',
+            41 : '陈乔恩',
+            42 : '关之琳',
+            43 : '郭德纲',
+            44 : '胡歌',
+            45 : '靳东',
+            46 : '梁朝伟',
+            47 : '宋承宪' ,
+            48 : '李嘉欣',
+            49 : '黎明',
+            50 :'吴世勋',
+            51 :'林心如',
+            52 :'林依晨',
+            53 :'林志玲',
+            54 :'刘德华',
+            55 :'刘嘉玲' ,
+            56 :'黎姿',
+            57 :'李敏镐',
+            58 :'陈妍希' ,
+            59 :'邓超',
+            60 :'范冰冰',
+            61 : '陈乔恩',
+            62 : '关之琳',
+            63 : '郭德纲',
+            64 : '胡歌',
+            65 : '靳东',
+            66 : '梁朝伟',
+            67 : '宋承宪' ,
+            68 : '李嘉欣',
+            69 : '黎明',
+            70 :'吴世勋',
+            71 :'林心如',
+            72 :'林依晨',
+            73 :'林志玲',
+            74 :'刘德华',
+            75 :'刘嘉玲' ,
+            76 :'黎姿',
+            77 :'李敏镐',
+            78 :'陈妍希' ,
+            79 :'邓超',
+            80 :'范冰冰',
+            81 : '陈乔恩',
+            82 : '关之琳',
+            83 : '郭德纲',
+            84 : '胡歌',
+            85 : '靳东',
+            86 : '梁朝伟',
+            87 : '宋承宪' ,
+            88 : '李嘉欣',
+            89 : '黎明',
+            90 :'吴世勋',
+            91 :'林心如',
+            92 :'林依晨',
+            93 :'林志玲',
+            94 :'刘德华',
+            95 :'刘嘉玲' ,
+            96 :'黎姿',
+            97 :'李敏镐',
+            98 :'陈妍希' ,
+            99 :'邓超',
+            100 :'范冰冰',
+            
+        }
+    ];
+    goprogress();
+
+    $('.layui-layer').css({'width':'37px','left':'50%','margin-left':'-19px'});
+
+    getInterface().post_action("starTestUrl",JSON.stringify({clientId:clientId,deviceId:deviceId,sex:'0',file:file}),'post');
+
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+}else {//其他浏览器打开
+    $('#picture1').hide();
+    setTimeout(function(){
+        $('#JQQTip').show();
+    },100);
+}
+//后退
+$('#back').on('tap',function(){
+    getInterface().leftBtnClick();
+});
+//进度条
+function goprogress(){
+    var pro=document.getElementsByTagName("progress")[0];
+    gotoend(pro,0);
+}
+//进度条
+function gotoend(pro,value){
+    var value=value+1;
+
+    //切换姓名
+    $('#start_btn_f').text(arr2[0][value]);
+       
+    //进度条
+    pro.value=value;
+    if(value<100) {
+        setTimeout(function(){gotoend(pro, value);},20)
+        if(value > 96){
+            $('#picture1').hide();
+        }
+    }else{
+        setTimeout(function(){
+            goprogress()
+            // alert("任务完成")
+            $('.bg2').fadeIn();
+        },20);
+    }
+}
+
+
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    if (data2 != 0) {
+        $('.top-padding').css('padding-top',parseInt(data1)+'px');
+        $('.bg2').css('padding-top',parseInt(data1)+'px');
+        $('.addAi').css('margin-bottom',data2+'px');
+    }
+}
+//app
+function return_action(data,data2){
+    if(data2 == 'starTestUrl'){
+        if(data.code == 0){
+            getInterface().toast(data.err);
+            setTimeout(function(){
+                getInterface().leftBtnClick();
+            },1000);
+        }else if(data.code == 1){
+            $('#mark').css('display','block');
+            getInterface().post_action("starTest",JSON.stringify({uuid:data.uuid}),'get');
+        }else{
+            getInterface().post_action("starTest",JSON.stringify({uuid:data.uuid}),'get');
+        }
+        //获取数据
+    }else if(data2 == 'starTest'){
+        if(data.code == 0) {
+            getInterface().toast(data.err);
+        }else if(data.code == 1){
+            analysis(data);
+
+            //分享链接
+            $('#obt').on('tap',function(){
+                //页面层
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 0,
+                    area:['927','1112'],
+                    shade: 0.7, //遮罩透明度
+                    closeBtn : 1,
+                    content: '<div class="share"><div class="share_code" id="share_code"></div></div>'
+                }); 
+                jQuery('#share_code').qrcode({width: 400,height: 400,text:data.shareUrl});
+                $('#share_code canvas').css({'width':'400px','height':'400px'});
+                $('.layui-layer').css({ 'background-color':'transparent','box-shadow':'none','left':'50%','margin-left':'-380px'});
+            });
+        }
+    }else if(data2 == 'sendVerifyCode'){
+        if(data.code==1){
+            InterValObj = window.setInterval(SetRemainTime, 1000);
+            $('#code').html("重发(" + curCount + ")");
+            getInterface().toast("短信验证码已发到您的手机,请查收");
+            console.log(curCount);
+        }
+        else{
+            getInterface().toast("短信验证码发送失败，请重新发送")
+        }
+    }else if(data2 == 'pcVerifyMobile'){
+        if(data.code==1 || code == 2313){
+            $('#mark').fadeOut().css('display','none');
+            //红包接口
+            getInterface().post_action("redpackStatus",JSON.stringify({mobile:mobile}),'post');
+        }
+        else{
+            getInterface().toast("请输入正确的验证码！");
+        }
+    }else{
+        if(data.code==1){
+            if(data.redpack=='no'){
+                //关注公众号
+                setTimeout(function(){
+                    layer.open({
+                        type: 1,
+                        title: false,
+                        closeBtn: 0,
+                        area:['927','1112'],
+                        shade: 0.7, //遮罩透明度
+                        closeBtn : 1,
+                        content: '<div class="focus"><div class="share_code public"></div></div>'
+                    }); 
+                    $('.layui-layer').css({ 'background-color':'transparent','box-shadow':'none','left':'50%','margin-left':'-380px'});
+                },200)
+            }
+        }
+    }
+}
+
+//网页
+function getStar(uuid){
+
+    $.ajax({
+        type:"get",
+        url:HOSTNAME+"/starTest",
+        data:{
+            uuid:uuid
+        },
+        //返回数据的格式
+        datatype: "json",
+        //成功返回之后调用的函数             
+        success:function(data){
+            if(data.code == 1){
+             analysis(data);
+            }
+        }       
+    });
+}
+//渲染页面
+function analysis(data){
+    //解析数据
+    //加载图片
+    $('#me_img').css('background','url('+data.image_path+') no-repeat center');
+    $('#ta_img').css('background','url('+data.starsData[4].star.picture+') no-repeat center');
+    $('#small_img0').css('background','url('+data.starsData[4].star.picture+') no-repeat center');
+    $('#small_img1').css('background','url('+data.starsData[3].star.picture+') no-repeat center');
+    $('#small_img2').css('background','url('+data.starsData[2].star.picture+') no-repeat center');
+    $('#small_img3').css('background','url('+data.starsData[1].star.picture+') no-repeat center');
+    $('#small_img4').css('background','url('+data.starsData[0].star.picture+') no-repeat center');
+
+    //加载名字
+    $('#ta_title').text(data.starsData[4].star.name);
+    $('#small_title0').text(data.starsData[4].star.name);
+    $('#small_title1').text(data.starsData[3].star.name);
+    $('#small_title2').text(data.starsData[2].star.name);
+    $('#small_title3').text(data.starsData[1].star.name);
+    $('#small_title4').text(data.starsData[0].star.name);
+
+    //加载相似度
+    if((parseInt(data.starsData[4].confidence.toFixed(2))+10) > 100){
+        $('#fen').text(parseInt(data.starsData[4].confidence.toFixed(2))+'%');
+    }else{
+        $('#fen').text(parseInt(data.starsData[4].confidence.toFixed(2))+10+'%');
+    }
+    // $('.vf').text(data.clientId+'='+data.uuid)
+    //加载资料
+    $('#starName').html(data.starsData[4].star.name);
+    $('#starInfo').html(data.starsData[4].star.introduction);
+
+    //点击图片切换
+    var picArr = $('.pic_list .img_div');
+    for(var i = 0; i < picArr.length; i++){
+        picArr[i].index = 4-i;
+        $(picArr[i]).on('tap',function(){
+            for(var j = 0; j < picArr.length; j++){
+                $(picArr[j]).css('border','1px solid #E4E5E9');
+            }
+            $(this).css('border','1px solid #eb34a6');
+            console.log(this.index)
+            $('#ta_img').css('background','url('+data.starsData[this.index].star.picture+') no-repeat center');
+
+            $('#ta_title').text(data.starsData[this.index].star.name);
+            if((parseInt(data.starsData[this.index].confidence.toFixed(2))+10) > 100){
+                $('#fen').text(parseInt(data.starsData[this.index].confidence.toFixed(2))+'%');
+            }else{
+                $('#fen').text(parseInt(data.starsData[this.index].confidence.toFixed(2))+10+'%');
+            }
+            $('#starName').html(data.starsData[this.index].star.name);
+            $('#starInfo').html(data.starsData[this.index].star.introduction);
+        });
+    }
+    //解除loading
+    // layer.closeAll("loading");
+    // 微信分享
+    initWeixinShare({
+        // 分享给朋友
+        onMenuShareAppMessage:{
+            title: '原来我和这个明星最像！', // 分享标题
+            desc: '原来我和这个明星最像！快来一起围观吧~', // 分享描述
+            link: document.URL, // 分享链接
+            imgUrl: data.image_path, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        }
+        // 分享到朋友圈
+        ,onMenuShareTimeline:{
+            title: '原来我和这个明星最像！', // 分享标题
+            link: document.URL, // 分享链接
+            imgUrl: data.image_path, // 分享图标
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        }
+    });
+}
+
+//获取url参数
+var sex=decodeURI(getQueryStringByName('sex'));
+var improPic=getQueryStringByName('file');
+var color = '黑色';
+var url = 'http://106.75.99.42:85/service/NewChangeEyeBrow.ashx',
+    faceData = '',
+    name = '',
+    file = '',
+    nowPic='',
+    size = '';
+// 短信验证
+var code = 0 ; //在全局定义验证码
+//产生验证码
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+function createCode(){
+    mobile = $("#phone").val();
+    // 验证手机
+    var myreg=/^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])+\d{8}$/; 
+    if( mobile == ''){
+       getInterface().toast('请输入手机号码获得验证码')
+    }else if(!myreg.test($("#phone").val())){
+        getInterface().toast('请输入有效的手机号码！'); 
+    }else{
+        curCount = count;
+        $('#code').attr("disabled","true" );
+        //发送手机号码接口
+        getInterface().post_action("sendVerifyCode",JSON.stringify({mobile:mobile}),'get');
+    }
+}
+//倒时开始
+function SetRemainTime() {
+    if (curCount == 0) {
+        window.clearInterval(InterValObj);// 停止计时器
+        $('#code').html("获取验证码");
+        $('#code').removeAttr("disabled");
+    }else {
+        curCount--;
+        $('#code').html("重发(" + curCount + ")");
+        $('#code').attr("disabled","true" );
+    }
+}
+//校验验证码
+function validate(){
+    var inputCode = document.getElementById("ma").value.toUpperCase(); //取得输入的验证码并转化为大写
+    if(inputCode.length <= 0) { //若输入的验证码长度为0
+        getInterface().toast("请输入验证码！"); //则弹出请输入验证码
+    }else{ //若输入的验证码与产生的验证码不一致时
+        var code = $("#ma").val();
+        mobile = $("#phone").val();
+
+        //校验验证码接口
+        getInterface().post_action("pcVerifyMobile",JSON.stringify({mobile:mobile,code:code}),'post');
+    }
+}
+//输入验证码按钮变色
+$('#ma').bind('input propertychange',function(){ 
+    if($(this).val() == ''){
+        $('#commit').removeClass('ma-active');
+    }else{
+        $('#commit').addClass('ma-active');
+    }
+})
+
+$('#code').on('tap',function(e) {
+    createCode();
+});
+$('#commit').on('tap',function(e) {
+    validate();
+});
+
+// 二维码
+$('#qrcode').attr('src','http://azz-photo.oss-cn-shenzhen.aliyuncs.com/azzwx.jpeg');
+
+
+
+</script>
+</body>
+</html>

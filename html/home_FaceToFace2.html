@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_FaceToFace2.css">
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+        <!--标题-->
+        <span class="vf">明星面对面</span>
+        <!--更多-->
+    </div>
+    <!--背景图片-->
+    <div class="bg"></div>
+    <!--明星图片-->
+    <!--小图-->
+    <div class="star_sm">
+    </div>
+    <!--文字-->
+    <span class="star_font">
+
+          和您相似的明星有这些，第一位跟您有<b>50%</b>的相似
+        <br>
+        度，想知道与<b>您更相似的明星</b>是谁吗？
+
+    </span>
+    <!--手机验证-->
+   <form action="" method="">
+        <div class="phone">
+            <input type="text" name="phone" id="phonenumber" placeholder="输入手机号"  onclick="this.style.background='none'">
+        </div>
+        <div class="phone_code">
+            <input type="text" name="" id="checkcode" placeholder="输入验证码"  onclick="this.style.background='none'"> 
+            <span onclick="checkphone(phonenumber.value);">获取验证码</span>
+        </div>
+        <div class="conf" onclick="checknumber(phonenumber.value,checkcode.value);"><p>确认</p></div>
+    </form>
+</div>
+<script>
+   //        后退
+             $(".back").on('click',function () {
+                getInterface().leftBtnClick();
+            });
+    function checknumber(str1,str2) {  
+    if(str1==""){  
+        alert("手机号不能为空！");  
+    }
+    if(str2==""){  
+        alert("验证码不能为空！");  
+    }  
+    else{  
+        var re = /^1[0-9]{10}$/ ; 
+        if (re.test(str1)) {  
+            alert("正确");  
+        } 
+        else {  
+            alert("手机号格式错误！");  
+        }  
+    }  
+}
+function checkphone(str3) {
+    // body...
+    if(str3==""){  
+        alert("手机号不能为空！");  
+    }
+    else{  
+        var re = /^1[0-9]{10}$/ ; 
+        if (re.test(str3)) {  
+            alert("验证码已发送");  
+        } 
+        else {  
+            alert("手机号格式错误！");  
+        }
+    }
+}
+</script>
+</body>
+</html>

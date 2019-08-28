@@ -1,0 +1,146 @@
+html, body, div, span, iframe, map, font, img, a img, samp, strong, hr, h1, h2, h3, h4, h5, h6, b, p, blockquote, a, address, code, dl, dt, dd, ol, ul, li, form, label, table, tr, td, th, button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-weight: normal;
+    font-family: "微软雅黑";
+}
+body{
+    height: 100%;
+    background: url(../image/face/bg.jpg) no-repeat top;
+    background-size: 100%;
+}
+html{
+    height: 100%;
+    font-size: 87.5%;
+}
+.tab{
+    height:214px;
+}
+#back{
+    width: 94px;
+    height: 94px;
+    background: url("../image/face/back.png") no-repeat center;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    position: fixed;
+    top: 55px;
+    left: 55px;
+}
+#bg{
+    width: 168px;
+    height: 218px;
+    background: url("../image/face/use.png") no-repeat center;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 55px;
+    top: 0;
+}
+.mask_bg{
+    background: #FFFFFF;
+    position: absolute;
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    background: rgba(0,0,0,.8);
+    z-index: 9999;
+}
+.mask_bg_img{
+    background: url("../image/face/indrouce.png") no-repeat center;
+    width: 925px;
+    height: 1112px;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    background-size: cover;
+}
+.tool{
+    width: 856px;
+    height: 1273px;
+    background: url("../image/face/jiexi.png") no-repeat center;
+    background-size: 100% 100%;
+    /*margin-top: 502px;*/
+    position: absolute;
+    top: 608px;
+    transform: translateX(-50%);
+    left: 50%;
+    background-size: cover;
+}
+/*.content{*/
+    /*height:100%;*/
+/*}*/
+/*相机*/
+#camer{
+    width: 921px;
+    height: 815px;
+    background: url("../image/face/saomiao.png") no-repeat center;
+    background-size: 100% 100%;
+    margin-left: 55px;
+    margin-top: 30px;
+    float: left;
+}
+/*开始测试*/
+.beg{
+    width: 400px;
+    height: 83px;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    top:803px;
+    -webkit-animation-name: jump;
+    -webkit-animation-duration: 0.65s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes jump{
+    from {
+        -webkit-transform: scale(0.9, 0.9);
+    }
+    to {
+        -webkit-transform: scale(1.1, 1.1);
+    }
+}
+
+.figure{
+    width: 611px;
+    height: 859px;
+    background: url("../image/face/figure.png") no-repeat center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    margin-left: -305.5px;
+}
+.jx{
+    width: 710px;
+    height: 85px;
+    border-top: solid #fe5462 6px;
+    border-bottom: solid #fe5462 6px;
+    position: absolute;
+    top: 1348px;
+    text-align: center;
+    font-size: 73px;
+    left: 50%;
+    margin-left: -355px;
+    font-family: 隶书 Regular;
+    color: #fe5462;
+    line-height: 80px;
+}
+.jx_show{
+    -webkit-animation-name: jump;
+    -webkit-animation-duration: 0.65s;
+    -webkit-animation-iteration-count: infinite;
+}
+#pic{
+    width: 530px;
+    height: 657px;
+    border-radius: 30px;
+    position: absolute;
+    left: 251px;
+    top: 320px;
+}

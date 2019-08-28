@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>领取红包</title>
+	<link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../css/gethb.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/headandall.css">
+     <style>
+    /*取消长按事件*/
+    * {  
+        -webkit-touch-callout: none;  
+        -webkit-user-select: none;  
+        -khtml-user-select: none;  
+        -moz-user-select: none;  
+        -ms-user-select: none;  
+        user-select: none;  
+    }
+        
+    </style>
+</head>
+<body>
+	<div class="head-block tab">
+		<div class="head-icon-l left-float">
+            <img id="back" src="../image/icon-right.png" alt="">
+		</div>
+		<!--<div class="head-icon-l left-float">-->
+			<!--<img src="../image/home_CheckPrice/Cross.jpg" alt="" />-->
+		<!--</div>-->
+		<div class="title-word left-float">领取现金红包</div>
+		<!--<div class="head-icon-r right-float">-->
+			<!--<img src="../image/home_CheckPrice/Path0.jpg" alt="" />-->
+		<!--</div>-->
+	</div>
+	<div class="hbimage-2 box">
+                <img src="../image/3.khb-top.png" alt="">
+                <div class="phone">
+                <input type="text" name="phone" id="phonenumber" placeholder="输入手机号码" maxlength="11">
+                 </div>
+                <div class="check_code">
+                <input type="text" name="checkcode" id="checkcode" placeholder="验证码" maxlength="4">
+                <div class="line"></div>
+                <div class="sendcode">获取</div>
+                </div>
+                <button class="sign_button" type="submit" formmethod="post">立即领取红包</button>
+
+                </div>
+                 <script src="../js/android.js"></script>
+    			<script src="../js/jquery.min.js"></script>
+    			<script src="../js/swiper.min.js"></script>
+    			<script src="../js/bbmis.js"></script>
+    			<script src="../js/mui.min.js"></script>
+    			<script src="../js/layer/layer.min.js"></script>
+                <script>
+                	$('.sendcode').on('tap',function(e) {
+    createCode();
+    
+});
+ $("#back").on('tap',function () {
+                getInterface().leftBtnClick();
+            })
+
+
+
+// 短信验证
+var code = 0 ; //在全局定义验证码
+//产生验证码
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+function createCode(){
+    curCount = count;
+    $('#code').attr("disabled","true" );
+    // console.log($('#phonenumber').val());
+    var mobile = $("#phonenumber").val();
+    if( mobile == ''){
+        getInterface().callAndroidLog("手机号不能为空！");
+    }else{
+        $.get(HOSTNAME+'/sendVerifyCode?mobile='+mobile,function (result) {
+
+            if(result.code==1)
+            {
+                InterValObj = window.setInterval(SetRemainTime, 1000);
+                $('.sendcode').html("重发(" + curCount + ")");
+                getInterface().callAndroidLog("短信验证码已发到您的手机,请查收");
+                console.log(curCount);
+            }
+            else{
+                getInterface().callAndroidLog("短信验证码发送失败，请重新点击获取验证码");
+            }
+        });
+    }
+}
+//倒时开始
+function SetRemainTime() {
+    if (curCount == 0) {
+        window.clearInterval(InterValObj);// 停止计时器
+        $('.sendcode').html("获取");
+        $('.sendcode').removeAttr("disabled");
+    }else {
+        curCount--;
+        $('.sendcode').html("重发(" + curCount + ")");
+        $('.sendcode').attr("disabled","disabled" );
+    }
+}
+//校验验证码
+function validate(){
+
+    var inputCode = document.getElementById("checkcode").value.toUpperCase(); //取得输入的验证码并转化为大写
+    if(inputCode.length <= 0) { //若输入的验证码长度为0
+       getInterface().callAndroidLog("请输入验证码！"); //则弹出请输入验证码
+    }
+    else{ //若输入的验证码与产生的验证码不一致时
+        var code = $("#checkcode").val();
+        var mobile = $("#phonenumber").val();
+        // var uuid = localStorage.getItem("wxarpt-my-uuid");
+            // console.log(uuid);
+            // console.log(mobile,code);
+            $.ajax({
+                type:"POST",
+                url:HOSTNAME+"/userCodeLogin",
+                data:{mobile:mobile,code:code},
+                datatype:"json",
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                success:function(result){
+                         // console.log(result);
+
+            if(result.code==1)
+            {   
+                // console.log("loginsuccess");
+                localStorage.setItem("mobile",mobile);
+
+                getInterface().html_jump_href(service+'/html/gethb_sc.html', 'no');
+            }
+            else
+            {
+                getInterface().callAndroidLog("请输入正确的验证码！");
+                // alert(result.err);
+            }
+                }
+                // error:function(result){
+                    
+                // }
+            });
+        }
+
+        
+    }
+
+
+$(".sign_button").on('tap',function () {         
+               validate();                
+})
+//监听输入框
+ $(document).ready(function(){  
+            $(".tab").attr('style','padding-top:'+localStorage.topH+'px');
+            $(".box").attr('style','padding-top:'+localStorage.topH+'px');
+// $('#phonenumber').bind('input onchange', function() {
+//  $('#checkcode').bind('input onchange', function() {
+//     $(".sign_button").attr('style','background-color:#FFE15B;color:#FF576A;')
+// });  
+  
+// });
+});
+</script>
+</body>
+</html>

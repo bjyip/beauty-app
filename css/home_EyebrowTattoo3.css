@@ -1,0 +1,445 @@
+body{
+    width: 1080px;
+}
+.top-padding{
+    width: 1080px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.lay{
+    width: 1080px;
+    margin-top: 126px;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+/*中间部分*/
+/*拍照*/
+.middle{
+    height: 1081px;
+}
+.camer{
+    width: 1080px;
+    height: 1080px;
+    background-color: #8c8c8c;
+    position: relative;
+    background:url(../image/home_Baike/camer.jpg) no-repeat center;
+    background-size: cover;
+}
+.compare{
+    display: inline-block;
+    width: 121px;
+    height: 121px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    position: relative;
+    margin-left: 940px;
+    margin-top: 742px;
+}
+.compare span:nth-child(1){
+    font-size: 25px;
+    position: absolute;
+    left: 35px;
+    top: 64px;
+}
+.compare span:nth-child(2){
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/A-_-B-.png") no-repeat;
+    width: 62px;
+    height: 27px;
+    position: absolute;
+    left: 31px;
+    top: 35px;
+}
+.ask{
+    display: inline-block;
+    width: 121px;
+    height: 121px;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.5;
+    position: relative;
+    margin-left: 940px;
+    margin-top: 10px;
+}
+.ask span:nth-child(1){
+    font-size: 25px;
+    position: absolute;
+    left: 24px;
+    top: 68px;
+}
+.ask span:nth-child(2){
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/friend.png") no-repeat;
+    width: 62px;
+    height: 42px;
+    position: absolute;
+    left: 39px;
+    top: 26px;
+}
+/*选色区*/
+.color{
+    height: 140px;
+}
+.color_l{
+    float: left;
+    width: 559px;
+    height: 140px;
+}
+.color_font{
+    font-size: 48px;
+    background-image: -webkit-linear-gradient(left,RGB(255,104,150),RGB(255,132,111));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    float: left;
+    padding-top: 34px;
+    padding-left: 68px;
+    font-family: SourceHanSansCN-Normal;
+}
+.color_l ul{
+    padding-top: 32px;
+    padding-left: 11px;
+}
+.color_l li{
+    float: left;
+    height: 81px;
+    width: 81px;
+    border-radius: 10%;
+    margin-left: 9px;
+}
+.tick-mark{
+    background: url(../image/home_EyebrowTattoo/tick-mark.png) no-repeat center;
+}
+.color_a{
+    background-color: #734748;;
+}
+.color_b{
+    background-color: #6C3030;
+}
+.color_c{
+    background-color: #373131;
+}
+.color_d{
+    background-color:#1C1C1C;
+}
+/*粗细*/
+.color_r{
+    float: left;
+    width: 220px;
+    margin-left: 150px;
+    height: 140px;
+}
+.color_thick{
+    font-size: 48px;
+    background-image: -webkit-linear-gradient(left,RGB(255,104,150),RGB(255,132,111));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    float: left;
+    font-family: SourceHanSansCN-Normal;
+    padding-top: 34px;
+}
+.color_r ul{
+    padding-top: 32px;
+    padding-left: 11px;
+}
+.color_r li{
+    float: left;
+    height: 82px;
+    width: 82px;
+    border-radius: 50%;
+    margin-left: 29px;
+    text-align: center;
+    background-color: #B4B5B5;
+}
+.color_r .size_li{
+    float: left;
+    height: 82px;
+    width: 82px;
+    border-radius: 50%;
+    margin-left: 29px;
+    text-align: center;
+    background-color: #FF7682;
+    display: none;
+}
+.color_r li span {
+    display: block;
+    color: #fff;
+    font-size: 28px;
+    margin-top: 2px;
+}
+
+.eyebrow-li{
+    display: inline-block;
+    border: 8px solid #E4E5E9;
+    box-sizing: content-box;
+    background-size: contain;
+    background-position: center 55px;
+    background-repeat: no-repeat;
+}
+/*选中样式*/
+.eyebrow_seled{
+    display: inline-block;
+    border: 8px solid #FF6896;
+}
+
+/*眉形区*/
+.nna{
+    height: 286px;
+    overflow: hidden;
+}
+.eyebrow{
+    white-space: nowrap;
+    overflow: auto;
+    background-color: #E4E5E9;
+    padding: 30px 20px;
+    height: 270px;
+    vertical-align: middle;
+}
+.eyebrow::-webkit-scrollbar {/*隐藏滚轮*/
+    display: none;
+}
+.eyebrow ul{
+    zoom: 1;
+    white-space: nowrap;
+}
+.eyebrow ul:first-child{
+    margin-left:-23px;
+}
+.eyebrow li{
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    margin-left: 23px;
+    border-radius: 15px;
+}
+
+.eyebrow li > span{
+    display: inline-block;
+    background-color: #8a9099;
+    text-align: center;
+    font-size: 42px;
+    width: 235px;
+    color:#FCFCFC;
+    font-family:PingFang-SC-Medium ;
+    margin-top: 175px;;
+}
+.eyebrow_c{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: 73px 80px ;
+    /*background-position: center;*/
+}
+.eyebrow_b{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -156px  80px ;
+}
+.eyebrow_a{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -415px  80px ;
+}
+.eyebrow_ye{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -670px  80px ;
+}
+.eyebrow_lai{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -916px  80px ;
+}
+/*眉形的意义*/
+
+.eyebrow_title{
+    display: block;
+    font-family: SourceHanSansCN-Normal;
+    font-size: 48px;
+    background-image: -webkit-linear-gradient(left,RGB(255,104,150),RGB(255,132,111));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    height: 90px;
+    line-height: 90px;
+}
+#botm{
+    width: 1080px;
+    /*height: 200px;*/
+}
+.show{
+    display:block!important;
+}
+.eyebrow_cont{
+    display: block;
+    font-size: 27px;
+    color: #333;
+    width: 899px;
+    padding-left: 89px;
+    height: 153px;
+}
+/*验证手机*/
+.mark{
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+.phone_box{
+    /*background: url(../image/star/img_Physiognomy_bg.png) no-repeat;*/
+    background-size: cover;
+    width: 800px;
+    height: 710px;
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -280px;
+    background-color: #fff;
+}
+.mark .top{
+    width: 100%;
+    height: 150px;
+    background-color: #FF7781;
+    color: #fff;
+    font-size: 46px;
+    text-align: center;
+    line-height: 150px;
+}
+.group{
+    width: 800px;
+    margin: 0 auto;
+}
+.group div{
+    margin: 0 auto;
+}
+.group #phone{
+    display: block;
+    background: #F5F5F5 url(../image/star/smartphone.png) no-repeat 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 80px;
+    background-size: 40px;
+    color: #949494;
+    border: 1px solid #FF6D90;
+    font-size: 40px;
+    margin: 50px auto 0;
+    padding-left: 80px;
+    color: #333;
+}
+.group #phone::-webkit-input-placeholder { /* WebKit browsers */
+    color:#949494;
+}
+.group #phone:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#949494;
+}
+.group #phone::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#949494;
+}
+.group #phone:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#949494;
+}
+.ma{
+    width: 602px;
+    margin: 0 auto;
+}
+.ma #ma{
+    background: #F5F5F5 url(../image/star/verificationcode.png) no-repeat 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 260px;
+    height: 80px;
+    background-size: 44px;
+    color: #949494;
+    border: 1px solid #FF6D90;
+    font-size: 40px;
+    margin: 50px auto;
+    padding-left: 80px;
+    color: #333;
+}
+.ma #ma::-webkit-input-placeholder { /* WebKit browsers */
+    color:#949494;
+}
+.ma #ma:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#949494;
+}
+.ma #ma::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#949494;
+}
+.ma #ma:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#949494;
+}
+.ma_btn{
+    text-align: center;
+    padding: 20px;
+    width: 214px;
+    height: 120px;
+    margin: 0;
+    border-radius: 5px;
+    font-size: 34px;
+    color:#fff;
+    border: solid 1px #f12c41;
+    background: #f12c41;
+    cursor: pointer;
+    margin-left: 10px;
+    background: linear-gradient(to right, #FB7576, #F04D68);
+    background: -webkit-linear-gradient(to right, #FB7576, #F04D68);
+    background: -moz-linear-gradient(to right, #FB7576, #F04D68);
+}
+.commit{
+    display: block;
+    padding: 20px;
+    border-radius: 60px;
+    width: 602px;
+    height: 122px;
+    background-size: 40px;
+    color: #949494;
+    font-size: 50px;
+    margin: 0 auto 0;
+    color: #fff;
+    background-color: #B4B6B5;
+}
+.ma-active{
+    background: linear-gradient(to right, #FB7576, #F04D68);
+}
+.share {
+    width: 760px;
+    height: 1066px;
+    background: url(../image/star/public.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+.share_code {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -200px;
+}
+.public{
+    background: url("../image/hb_qr.jpg") no-repeat center;
+    background-size: cover;
+}
+@media only screen and (min-device-width: 680px) {
+    .mark{
+        position: fixed;
+        z-index: 99999999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        display: none;
+    }
+}

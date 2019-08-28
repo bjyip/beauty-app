@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>home</title>
+    <link rel="stylesheet" href="base/base.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/home.css">
+     <style>
+    /*取消长按事件*/
+    * {  
+        -webkit-touch-callout: none;  
+        -webkit-user-select: none;  
+        -khtml-user-select: none;  
+        -moz-user-select: none;  
+        -ms-user-select: none;  
+        user-select: none;  
+    }
+         .swiper-container{
+             z-index: 99;
+         }
+         .tab{
+             z-index: 999;
+         }
+
+    </style>
+</head>
+<body>
+     <!--顶部通栏-->
+    <div class="tab">
+    <!-- 登录 -->
+    <img class="home_login" src="image/home_new(1)/member.png" alt="" >
+    <span class="login_word" >会员号</span>
+       <!--标题-->
+        <div class="title-word">爱咋整智能医美自助平台</div>
+        <!--二维码-->
+            <img class="qr_img" src="image/home_new(1)/qr.png" alt="">
+            <span class="qr_font">二维码</span>
+            <div class="maskqr">
+                <img src="image/qc.png" alt="" class="qrcode">
+            </div>
+    </div>
+     <div class="box">
+     <!--轮播图-->
+     <div class="swiper-container">
+         <div class="swiper-wrapper">
+             <div class="swiper-slide" id="swiper_ad1"><img src="image/top/1.gif"></div>
+             <div class="swiper-slide" id="swiper_ad2"><img src="image/top/1.png"></div>
+             <div class="swiper-slide" id="swiper_ad3"><img src="image/top/4.jpg"></div>
+         </div>
+         <!-- 如果需要分页器 -->
+         <div class="swiper-pagination"></div>
+     </div>
+
+        <!--导航栏-->
+        <div class="nav">
+            <ul>
+                    <li class="value">
+                        <img src="image/yan1.gif" alt="" class="value_img">
+                        <!-- <span class="bj_1"></span> -->
+                        <span class="value_font">颜值测试</span>
+                    </li>
+
+                    <li class="star">
+                        <img src="image/home_new(1)/facetoface.png" alt="" class="star-img">
+                        <img src="image/home_new(1)/hot.png" alt="" class="star-hot">
+                        <!-- <span class="bj_2"></span> -->
+                        <span class="star_font">明星面对面</span>
+                    </li>
+                    <li class="tattoo">
+                        <img src="image/home_new(1)/tatto.png" alt="" class="tattoo-img" >
+                        <img src="image/home_new(1)/hot.png" alt="" class="tattoo-hot">
+                        <!-- <span class="bj_3"></span> -->
+                        <span class="tattoo_font">纹眉神器</span>
+                    </li>
+                    <li class="zazheng">
+                        <img src="image/home_new(1)/baike.png" alt="">
+                       <!--  <span class="bj_4"></span> -->
+                        <span class="zazheng_font">咋整百科</span>
+                    </li>
+                <li class="case">
+                    <img src="image/home_new(1)/case.png" alt="">
+                    <!-- <span class="bj_5" ></span> -->
+                    <span class="case_font">案例图</span>
+                </li>
+
+                 <li class="time">
+                    <img src="image/home_new(1)/limited.png" alt="">
+                    <!-- <span class="bj_7"></span> -->
+                    <span class="time_font">限时优惠</span>
+                </li>
+
+                <li class="game">
+                    <img src="image/home_LotteryG games/LotteryGames.gif" alt="">
+                    <!-- <span class="bj_8"></span> -->
+                    <span class="game_font">抽奖游戏</span>
+                </li>
+                <li class="price">
+                    <img src="image/home_LotteryG games/checkprice.png" alt="">
+                   <!--  <span class="bj_6"></span> -->
+                    <span class="price_font">查价格</span>
+                </li>
+
+               <!--  <li class="nail">
+                    <img src="image/home_Nails.png" alt="">
+                    <span class="bj_9"></span>
+                    <span class="nail_font">美甲</span>
+                </li> -->
+               
+               <!--  <li class="more">
+                    <img src="image/home_Nails.png" alt="">
+                    <span class="bj_10"></span>
+                    <span class="more_font">更多</span>
+                </li> -->
+            </ul>
+            <div id="hb">
+                <img src="image/home_LotteryG games/envelope_forever.gif" alt="">
+
+            </div>
+            <div class="marsk_lay">
+            <div class="hb_1">
+            <img src="image/kaihb2.png" alt="" class="hbimage-1" style="">
+           <!--  <div class="hbimage-2"  style="display:none">
+                <img src="image/3.khb-top.png" alt="">
+                <div class="phone">
+                <input type="text" name="phone" id="phonenumber" placeholder="手机号码" onclick="this.style.background='none'">
+                 </div>
+                <div class="check_code">
+                <input type="text" name="checkcode" id="checkcode" placeholder="验证码" onclick="this.style.background='none'" value="">
+                <div class="line"></div>
+                <div class="sendcode" onclick="">发送验证码</div>
+                </div>
+                <button class="sign_button" type="submit" formmethod="post">验证手机号码领取红包</button>
+
+                </div> -->
+                <div id="check-hb"></div>
+            </div>
+        </div></div>
+        <!-- 广告 -->
+        <div class="ad">
+            <div class="ad_1"></div>
+            <!--<div class="ad_2"></div>-->
+            <!--视频-->
+            <div class="mask_video">
+                <video id="video_on" src="http://androidazz.oss-cn-shenzhen.aliyuncs.com/%E7%88%B1%E5%92%8B%E6%95%B4%E9%A1%B5%E9%9D%A2%E8%A7%86%E9%A2%913.mp4"  loop preload="auto"  controls></video>
+            </div>
+            <!--<div class="ve" onload="playVideo();">-->
+                <!--<video  id="ad_2" src="http://androidazz.oss-cn-shenzhen.aliyuncs.com/%E7%88%B1%E5%92%8B%E6%95%B4%E9%A1%B5%E9%9D%A2%E8%A7%86%E9%A2%913.mp4#t=0,10" preload="none"  autoplay="autoplay" loop="loop"  type="video/mp4"></video>-->
+            <!--</div>-->
+            <div class="ve">
+
+            </div>
+            <div id="ad_2">
+                <video id=ad_video width="1" height="1" loop  preload="auto" controls>
+                    <source src="http://androidazz.oss-cn-shenzhen.aliyuncs.com/%E7%88%B1%E5%92%8B%E6%95%B4%E9%A1%B5%E9%9D%A2%E8%A7%86%E9%A2%913.mp4"  type="video/mp4" loop>
+                </video>
+            </div>
+
+
+            <div class="ad_3"></div>
+        </div>
+        <div class="ad-2"></div>
+        <div class="ad-3"></div>
+        <div class="push"></div>
+        </div>
+        <!--底部栏-->
+        <!-- <hr class="zhixian"/> -->
+        <div class="bottom">
+            <ul>
+                <li class="online">
+                    <span class="online_font">在线咨询</span>
+                </li>
+                <li class="rese">
+                    <span class="rese_font">预约</span>
+                </li>
+                <li class="nail">
+                    <img class="nail_img" src="image/meij.png" alt="">
+                    <span class="nail_font" >智能美甲</span>
+                </li>
+                <li class="vip">
+                    <span class="vip_font">成为会员</span>
+                </li>
+                <li class="join">
+                    <span class="join_font">加入群</span>
+                </li>
+            </ul>
+    <div class="vipqr">
+                <img src="image/vipqr.png" alt="" class="vipqrcode">
+            </div>
+            <div class="joinqr">
+                <img src="image/joinqr.png" alt="" class="joinqrcode">
+            </div>
+        </div>
+     <div class="play_video"></div>
+     <div class="pause_video"></div>
+    <script src="js/android.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/bbmis.js"></script>
+    <script src="js/mui.min.js"></script>
+    <script src="js/layer/layer.min.js"></script>
+        <script>
+         //加入群遮罩层
+        $(document).ready(function () {
+                $(".vip").click(function (event) {
+                    // console.log("aaa");
+                    event.stopPropagation();
+
+                    $(".vipqr").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").click(function (event) {
+                    var con=$(".vipqrcode");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".vipqr").hide();
+                    }
+                })
+            });
+//         $('.box,#bg').bind("touchmove",function(e){
+//             e.preventDefault();
+//         });
+        //成为会员遮罩层
+        $(document).ready(function () {
+                $(".join").click(function (event) {
+                    // console.log("aaa");
+                    event.stopPropagation();
+                    $(".joinqr").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").click(function (event) {
+                    var con=$(".joinqrcode");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".joinqr").hide();
+                    }
+                })
+            });
+        //取消双击事件
+        mui.init({
+    gestureConfig:{
+    tap: true, //默认为true
+    doubletap: true, //默认为false
+    longtap: true, //默认为false
+    swipe: true, //默认为true
+    drag: true, //默认为true
+    hold:false,//默认为false，不监听
+    release:false//默认为false，不监听
+  }
+});
+        var top_height;
+var bottom_height;
+                // $.mobile.autoInitializePage = false;
+        //二维码遮罩层
+        $(document).ready(function () {
+                $(".qr_img").click(function (event) {
+                    // console.log("aaa");
+                    event.stopPropagation();
+                    $(".maskqr").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").click(function (event) {
+                    var con=$(".qrcode");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".maskqr").hide();
+                    }
+                })
+            });
+                
+         //跳转
+            //在线咨询
+            $('.online').on('tap',function () {
+                    getInterface().html_jump_href(service+'/html/dibu.html','no');
+                });
+            //预约
+            $('.rese').on('tap',function () {
+//                    console.log(1234)
+                    getInterface().html_jump_href(service+'/html/dibu.html','no');
+                })
+            //页面
+             $(".value").on('tap',function () {
+                // alert("111");
+                getInterface().html_jump_href(service+'/html/home_Physiognomy.html','no');
+
+            });
+            //面对面
+            $(".star").on('tap',function () {
+                // alert("222");
+                getInterface().html_jump_href(service+'/html/star1.html','no');
+            });
+            //纹眉
+             $(".tattoo").on('tap',function () {
+                // alert("333");
+                getInterface().html_jump_href(service+'/html/home_EyebrowTattoo1.html','no');
+            });
+            //百科
+             $(".zazheng").on('tap',function () {
+                // alert("444");
+                getInterface().html_jump_href(service+'/html/home_baike1.html','no');
+            });
+            //案例图
+             $(".case").on('tap',function () {
+                // alert("555");
+                getInterface().html_jump_href(service+'/html/home_CaseDiagram1.html','no');
+            });
+             //查价格
+              $(".price").on('tap',function () {
+                // alert("666");
+                getInterface().html_jump_href(service+'/html/checkprice.html','no');
+            });
+            //优惠
+             $(".time").on('tap',function () {
+                // alert("777");
+                getInterface().html_jump_href(service+'/html/limitTime.html','no');
+            });
+            //游戏
+             $(".game").on('tap',function () {
+            getInterface().html_jump_href(service+'/html/game.html','no');});
+            //美甲
+            var packageName='com.o2nails.v11'
+        $('.nail').on('tap',function () {
+            getInterface().launchOtherApp(packageName)
+            })
+
+            //更多
+                //广告
+
+                //轮播图第一个广告
+                $('#swiper_ad1').on('tap',function () {
+//                     console.log("777");
+                    getInterface().html_jump_href(service+'/html/swiper_ad3.html','no');
+                });
+                $('#swiper_ad2').on('tap',function () {
+
+                    getInterface().html_jump_href(service+'/html/swiper_ad2.html','no');
+                });
+                $('#swiper_ad3').on('tap',function () {
+
+                    getInterface().html_jump_href(service+'/html/swiper_ad1.html','no');
+                });
+
+
+                $('.ad_1').on('tap',function () {
+//                    console.log(1234)
+                    getInterface().html_jump_href(service+'/html/ad1.html','no');
+                })
+//                $('.ad_2').on('tap',function () {
+//
+//                    getInterface().html_jump_href(service+'/html/ad2.html','no');
+//                })
+                $('.ad_3').on('tap',function () {
+
+                    getInterface().html_jump_href(service+'/html/ad3.html','no');
+                })
+                $('.ad-2').on('tap',function () {
+
+                    getInterface().html_jump_href('http://m.yuemei.com/tao_zt/2590.html','no');
+                })
+                $('.ad-3').on('tap',function () {
+                    getInterface().html_jump_href('http://m.yuemei.com/tao_zt/2590.html','no');
+                })
+
+            var swiper=new Swiper('.swiper-container',{
+                initialSlide:0,
+                speed:300, //滑动速度
+                autoplay:3000,   //可选选项，自动滑动,自动切换时间的间隔
+                autoplayDisableOnInteraction:false,  //设置为false，操作sw之后自动切换不会停止
+                autoplayStopOnLast:false, //如果设置为true，切换到最后一张图时，就是会停止自动切换
+                direction:'horizontal', //滑动方向 平滑
+                loop:true,
+                preventClicks : false,
+                simulateTouch : true,
+//        需要分页器
+                pagination:'.swiper-pagination',
+            })
+
+//         $('body').bind("click",function(){
+//             event.preventDefault();
+//         });
+            $(document).ready(function () {
+                $("#hb").click(function (event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    $(".marsk_lay").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").on('click',function (event) {
+                    var con=$(".hb_1");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".marsk_lay").hide();
+                    }
+                })
+            });
+            //红包
+               $("#check-hb").on('tap',function () {
+                // if(localStorage.mobile){
+                        $.ajax({
+                                    type:"POST",
+                                    url:"http://test.legle.cc:82/redpackMobile",
+                                    data:{mobile:localStorage.mobile},
+                                    datatype:"json",
+                                    xhrFields:{
+                                    withCredentials:true
+                                     },
+                                    crossDomain:true,
+                                    success:function(result){
+                                        // console.log(result);
+                                            if(result.code==1){
+                                            if(result.sended=="yes"){
+                                                layer.msg("您已领取红包，请点击底部空白处返回首页！")
+                                            }
+                                            else{
+                                                if (result.mobile=="yes") {
+                                                    getInterface().html_jump_href(service+'/html/gethb_sc.html','no');
+                                                }
+                                                else{
+                                                    getInterface().html_jump_href(service+'/html/gethb.html','no');
+                                                }
+                                            }
+                                            }
+                                            else{console.log(result.err);}
+                                    },
+                                // error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                //                 console.log(XMLHttpRequest.status);
+                                //                 console.log(XMLHttpRequest.readyState);
+                                //                 console.log(textStatus);
+                                // },
+                      
+                      });
+                // }
+                // else{
+                //     getInterface().html_jump_href(service+'/html/gethb.html','no');
+                // }
+            });
+           
+                       
+                    
+        //ad
+         $(document).ready(function(){
+            $.get('http://test.legle.cc:82/pcAds',function (result){
+                console.log(result);
+            });
+         });
+        // /getAd
+
+//视频
+//
+//
+//         $("video").one('loadeddata', function() {
+//             // 暂停，但下载还在继续
+//             video.pause()
+//
+//             // 启动定时器检测视频下载进度
+//             var timer = setInterval(function() {
+//                 var end = getEnd('video'),
+//                         duration = video.duration
+//
+//                 if(end < duration) {
+//                     return
+//                 }
+//
+//                 var width = $('video').parent().width()
+//
+//                 // 下载完了，开始播放吧
+//                 $('video').attr{
+//                     width: width,
+//                             height: width
+//                 }
+//                 video.play()
+//
+//                 clearInterval(timer)
+//             }, 1000)
+//         })
+function return_getStatusBarHeight(top_height,bottom_height){
+
+            $(".tab").attr('style','padding-top:'+top_height+'px');
+            $(".box").attr('style','padding-top:'+top_height+'px');
+            // bottom_height=bottom_height-40;
+            $(".bottom").attr('style','bottom:'+bottom_height+'px');
+            $(".push").attr('style','margin-top:'+bottom_height+'px');
+            localStorage.setItem('topH',top_height);
+            localStorage.setItem('botH',bottom_height);
+    //触发预览视频行为
+            $(".ve").trigger('click');
+    }
+$(document).ready(function  () {
+
+    $(".ve").on("click",function () {
+        document.getElementById("ad_video").play();
+        alert("ad_video")
+    setTimeout(function () {
+    $("#ad_video").css("width","540").css("height","271");
+    },1000);
+        setTimeout(function(){
+            $('.ve').hide();
+        },2100);
+    })
+
+    getInterface().getStatusBarHeight();
+    
+});
+
+//弹出全屏
+$('#ad_video').on("click",function (event) {
+    alert("fullpage")
+    event.stopPropagation();
+    $('.mask_video').toggle();
+//    $('.pause_video').trigger("click");
+    document.getElementById("video_on").play();
+    document.getElementById("ad_video").pause();
+    //退出全屏
+    $("body").on('click',function (event) {
+        alert('body')
+        var con=$(".video_on");
+        if(!con.is(event.target)&& con.has(event.target).length ==0) {
+            $(".mask_video").hide();
+            document.getElementById("video_on").pause();
+            document.getElementById("ad_video").play();
+        }
+    })
+})
+
+$(".home_login").on('tap',function(){
+     getInterface().html_jump_href(service+'/html/sign-in.html','no');
+});
+
+function reload_html(){
+    // alert("!111");
+            $(".tab").attr('style','padding-top:'+localStorage.topH+'px');
+            $(".box").attr('style','padding-top:'+localStorage.topH+'px');
+            
+            $(".bottom").attr('style','bottom:'+localStorage.botH+'px');
+            $(".push").attr('style','margin-top:'+localStorage.botH+'px');
+    //触发预览视频行为
+    $(".ve").trigger('click');
+}
+
+//            视频
+
+    var toolId = getQueryStringByName('toolId');
+            getInterface().post_action("pcAds",JSON.stringify({toolId:toolId}),'get');
+//        layer.alert(toolId)
+            function  return_action(data,data2) {
+//                alert(data.code)
+                if(data2 == "pcAds"){
+                   $('#ad_2').on('tap',function () {
+
+                   })
+                    if(data.code == 1){
+                        analysis(data);
+
+                    }
+                }
+            }
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_Nails.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="lay">
+        <!--顶部tab-->
+        <div class="value_tab">
+            <!--后退-->
+            <img id="back" src="../image/icon-right.png" alt="">
+            <!--关闭-->
+            <!--标题-->
+            <span class="vf">美甲</span>
+            <!--更多-->
+        </div>
+    <!--扫描二维码-->
+    <div class="scan"></div>
+    <!--中间图片-->
+    <div class="middle">
+        <span></span>
+        <span></span>
+    </div>
+    <!--底部-->
+    <div class="bom">
+        <ul>
+            <li>搜索微信号</li>
+            <li>定制美甲</li>
+            <li>分享朋友</li>
+        </ul>
+    </div>
+</div>
+<script>
+    var back =document.getElementById("back");
+    back.onclick=function () {
+//        console.log("aa");
+        history.back();
+    }
+</script>
+</body>
+</html>

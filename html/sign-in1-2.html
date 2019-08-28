@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置新密码</title>
+	<link rel="stylesheet" href="../css/sign-in1-2.css">
+	<link rel="stylesheet" href="../css/sign-all.css">
+</head>
+<body>
+<div class="back">
+	<img src="../image/register and login/Left.png" alt="">
+</div>
+	<div class="sign_headword">设置新密码</div>
+	<div class="sign_input">	
+		<div class="password">
+		<input type="password" name="newpassword" id="newpassword" placeholder="密码" onclick="this.style.background='none'">
+		</div>
+		
+	</div>
+	<button class="sign_button" type="submit" formmethod="post">进入爱咋整</button>
+	 <script src="../js/android.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/layer/layer.min.js"></script>
+     <script src="../js/bbmis.js"></script>
+     <script src="../js/mui.min.js"></script>
+	<script>
+    //监听输入框
+ $(document).ready(function(){  
+  
+$('#newpassword').bind('input onchange', function() {
+ 
+    $(".sign_button").attr('style','background-color:#61478B;');  
+  
+});
+});
+//        后退
+             $(".back").on('tap',function () {
+                getInterface().leftBtnClick();
+            });
+
+
+             $(document).ready(function(){
+		if(localStorage.mobile==null){
+			getInterface().callAndroidLog("非法操作！请先登录！");
+			getInterface().html_jump_href(service+'/html/sign-in.html','no');
+        }
+			
+		else{
+             $(".sign_button").on('tap',function () {
+             		var password=$("#newpassword").val();
+                    $.ajax({
+                type:"POST",
+                url:HOSTNAME+"/updatePassword",
+                dataType:'json',
+                data:{password:password},
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                success:function(result){
+                        // alert(result.err);
+                    if(result.code==1){
+                        getInterface().callAndroidLog("设置密码成功！");
+                        getInterface().html_jump_href(service+'/home.html','no');
+                    }
+                    else
+                    {
+                        getInterface().callAndroidLog("设置失败，请重新输入密码！");
+                    }
+                },
+                error:function() {}
+                });
+             
+             
+         });
+         }
+     });
+	</script>
+</body>
+</html>

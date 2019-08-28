@@ -1,0 +1,75 @@
+
+.sign_head img{
+margin-bottom: 25px;
+margin-top: 80px;
+margin-left: 195px;
+}
+.sign_input{
+
+	color: #9F9F9F;
+	/*margin-left: 20px;*/
+	font-size: 60px;
+}
+#back{
+	margin-top: 100px;
+	margin-left: 100px;
+	margin-bottom: -200px;
+}
+.phone{
+	width: 898px;
+	height: 175px;
+	border:3px solid #B4B5B5;
+	background-color: #fff;
+	margin-bottom: 102px;
+	border-radius: 10px;
+	margin-left: 92px;
+	}
+.phone input{
+	background:url("../image/register and login/phone-icon.png") no-repeat 40px 30px;
+	color: #9F9F9F;
+}
+.check_code{
+	margin-left: 92px;
+	width: 898px;
+	height: 175px;
+	background-color: #fff;
+	border:3px solid #B4B5B5;
+	border-radius: 10px;
+	margin-bottom: 100px;
+
+}
+.check_code input{
+	display: block;
+	float: left;
+	background:url("../image/register and login/code-icon.png") no-repeat 40px 30px;
+	color: #9F9F9F;
+}
+.line{
+	width: 2px;
+	background-color: #B4B5B5;
+	height: 70px;
+	float: left;
+	margin-top: 70px;
+	position: absolute;
+	left: 650px
+}
+.sendcode{
+	float: left;
+	padding-top: 60px;
+	text-indent: 20px;
+	position: absolute;
+	left: 650px;
+	font-size: 60px;
+	color: #61478B;
+	font-family: "SourceHanSansSC-Light";
+}
+
+.sign_changeway{
+	color: #61478B;
+	display: block;
+	float: right;
+	margin-top: 150px;
+	margin-right: 95px;
+	font-size: 60px;
+
+}

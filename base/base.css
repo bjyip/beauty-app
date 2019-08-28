@@ -1,0 +1,151 @@
+*{margin:0; padding:0;    border: 0;
+    outline: 0; list-style:none; font-weight:normal; text-decoration:none;
+    /*transition: all 1s linear;*/
+}
+html {font-size:-moz-calc(100vw/3.75); font-size:-webkit-calc(100vw/3.75); font-size:calc(100vw/3.75);}
+table{border-collapse:collapse;border-spacing:0;}
+body, article, section.bottom_wrapper{width:100%;}
+body{background:#fff; font-family:"Hiragino Sans GB", "STHeiti", Helvetica, "Microsoft Yahei", 微软雅黑, Arial, "Lucida Grande","PingFangSC-Medium, sans-serif" sans-serif; position:relative;}
+.clearfix:before, .clearfix:after {content:''; display:table;}
+.clearfix:after{clear:both;}
+.clearfix{*zoom: 1;/*ie6,7*/}
+
+@media only screen and (max-width: 1080px), only screen and (max-device-width:1080px) {
+    html,body {
+        font-size:288px;
+    }
+}
+@media only screen and (max-width: 960px), only screen and (max-device-width:960px) {
+    html,body {
+        font-size:256px;
+    }
+}
+@media only screen and (max-width: 800px), only screen and (max-device-width:800px) {
+    html,body {
+        font-size:213.33333333333334px;
+    }
+}
+@media only screen and (max-width: 720px), only screen and (max-device-width:720px) {
+    html,body {
+        font-size:192px;
+    }
+}
+@media only screen and (max-width: 640px), only screen and (max-device-width:640px) {
+    html,body {
+        font-size:170.66666666666669px;
+    }
+}
+@media only screen and (max-width: 600px), only screen and (max-device-width:600px) {
+    html,body {
+        font-size:160px;
+    }
+}
+@media only screen and (max-width: 540px), only screen and (max-device-width:540px) {
+    html,body {
+        font-size:144px;
+    }
+}
+@media only screen and (max-width: 480px), only screen and (max-device-width:480px) {
+    html,body {
+        font-size:128px;
+    }
+}
+@media only screen and (max-width: 414px), only screen and (max-device-width:414px) {
+    html,body {
+        font-size:110.4px;
+    }
+}
+@media only screen and (max-width: 400px), only screen and (max-device-width:400px) {
+    html,body {
+        font-size:106.66666666666667px;
+    }
+}
+@media only screen and (max-width: 375px), only screen and (max-device-width:375px) {
+    html,body {
+        font-size:100px;
+    }
+}
+@media only screen and (max-width: 360px), only screen and (max-device-width:360px) {
+    html,body {
+        font-size:96px;
+    }
+}
+@media only screen and (max-width: 320px), only screen and (max-device-width:320px) {
+    html,body {
+        font-size:85.33333333333334px;
+    }
+}
+@media only screen and (max-width: 240px), only screen and (max-device-width:240px) {
+    html,body {
+        font-size:64px;
+    }
+}
+*, body{font-size:.16rem;}
+/* 正文 */
+article{padding:.15rem; box-sizing:border-box;}
+/* 标题 */
+h4{font-size:.18rem; color:#35343c; line-height:.32rem; padding:.09rem 0; margin-bottom:.15rem; text-align:justify;}
+h4 span{font-size:.15rem; color:#8a9099; }
+span.right{float:right;}
+/* 文章信息 */
+.article_ifo{margin-bottom:.25rem;}
+.article_ifo span{color:#8a9099; font-size:.14rem; letter-spacing:1px;}
+
+/* banner */
+div.banner{margin-bottom:.25rem;}
+/* 图片 */
+div.image{height:1.84rem; margin-bottom:.2rem;border:1px solid #dfdfe3; border-radius:.03rem; overflow:hidden;}
+div.image img{width:100%; height:100%; display:inline-block;}
+p img{width:100%; height:auto;}
+/* 正文小标题 */
+h5{color:#2989f6; font-size:.18rem; line-height:.42rem;}
+/* 正文文字段落 */
+/*p{ font-size:.15rem; line-height:.28rem; margin-bottom:.15rem; text-align:justify;}*/
+.a {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: .1rem .2rem .1rem;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .3em;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+.a:hover {
+    text-decoration: none;
+
+}
+.a:active {
+    position: relative;
+    top: 1px;
+
+
+}
+/*//放射性*/
+@-webkit-keyframes greenPulse {
+    from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+    50% { background-color: #91bd09; -webkit-box-shadow: 0 0 8px #91bd09; }
+    to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+a.green.a {
+    color:#fff;
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+}
+.hidden{
+    display: none;
+}
+.visible{
+    visibility: hidden;
+}
+a:hover, a:visited, a:link, a:active {
+    color: #000000;
+    text-decoration: underline;
+}

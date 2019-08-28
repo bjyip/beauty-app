@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_EyebrowTattoo4.css">
+    <script src="../js/iscroll.js"></script>
+    <title>纹眉神器</title>
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="top-padding">
+
+        <div class="value_tab">
+            <!--后退-->
+            <img id="back" src="../image/icon-right.png" alt="">
+            <!--关闭-->
+            <!--标题-->
+            <span class="vf">纹眉神器</span>
+            <!--更多-->
+        </div>
+    </div>
+    <div class="middle">
+        <!--照片-->
+        <div class="camer" id="camer">
+            <!--当前眉形-->
+            <div class="cmaer_current">
+                <span class="cur_font">当前眉形</span>
+                <span class="cur_img"></span>
+            </div>
+            <!--已选眉形-->
+            <div class="camaer_select">
+                <span class="select_font" id="name">一字眉A</span>
+                <span class="select_img"></span>
+            </div>
+            <!--粗细-->
+            <div class="camaer_thick">
+                <span class="thick_font" id="size">中</span>
+                <span class="thick_img"></span>
+            </div>
+            <!--已选颜色-->
+            <div class="camaer_color">
+                <span class="color_font" id="color">棕色</span>
+                <span class="color_img"></span>
+            </div>
+        </div>
+    </div>
+    <!--询问眉形-->
+    <span class="eyebrow_ask">
+        请选择需要问朋友的眉形
+    </span>
+    <!--眉型区-->
+    <div class="eyebrow" id="eyebrow">
+        <ul id="eyebrow_ul">
+           
+        </ul>
+    </div>
+<div class="botm">
+    <button class="eyebrow_cancel show" id="cancle">取消分享</button>
+    <button class="eyebrow_confirm" id="confirm">确认分享</button>
+</div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script>
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    $('.top-padding').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('margin-bottom',parseInt(data2)+'px');
+}
+//后退
+ $("#back").on('tap',function () {
+    getInterface().leftBtnClick();
+});
+//获取url参数
+var sex=decodeURI(getQueryStringByName('sex'));
+var improPic=getQueryStringByName('file');
+var faceData=getQueryStringByName('faceData');
+var color=decodeURI(getQueryStringByName('color'));
+var name=decodeURI(getQueryStringByName('name'));
+var file=getQueryStringByName('file');
+var size=decodeURI(getQueryStringByName('size'));
+var nowPic=getQueryStringByName('nowPic');
+var url = 'http://106.75.99.42:85/service/NewChangeEyeBrow.ashx';
+var eyebrowArr = [];
+var bgPic = '';
+var picSex = '';
+if (sex == '男') {
+    picSex = 'male/';
+}else{
+    picSex = 'female/';
+}
+//加载眉毛信息
+$("#camer").css({'background-image':'url(http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+nowPic+')'});
+$('#name').text(name);
+$('#size').text(size);
+$('#color').text(color);
+
+var data =JSON.parse(localStorage.getItem('eyebrowData'));
+eyebrowShow(data);
+function eyebrowShow(data){
+    if(data.result == 1){
+        var eyebrowData = data.data;
+        for(var i in eyebrowData){
+            var li = '<li style="background-image:url(../image/home_EyebrowTattoo/'+picSex+eyebrowData[i].EyeBrowID+'.png)" class="eyebrow-li" data-name='+eyebrowData[i].EyeBrowName+' data-bgPic="../image/home_EyebrowTattoo/'+picSex+eyebrowData[i].EyeBrowID+'.png" data-content='+eyebrowData[i].EyeBrowContent+' data-faceData='+JSON.stringify(data.landmark)+' data-liSize='+eyebrowData[i].EyeBrowSize+' data-url='+data.url+'><span>'+eyebrowData[i].EyeBrowName+'</span></li>';
+            $('#eyebrow_ul').append(li);
+        }
+        //眉形边框
+        $('.eyebrow-li').each(function(){
+            if(name == $(this).attr('data-name')){
+                $(this).addClass('eyebrow_seled');
+                // this.classList.add("eyebrow_seled");
+                //储存数组
+                bgPic = $(this).attr('data-bgPic');
+            }
+        })
+        //往眉形数组增加元素
+        var eyebrowObj = {};
+        eyebrowObj.name = name;
+        eyebrowObj.bgPic = bgPic;
+        eyebrowObj.nowPic = nowPic;
+        eyebrowArr.push(eyebrowObj);
+        // layer.alert(bgPic+name+nowPic)
+
+        //眉形选择
+        var liAtrr = $(".eyebrow-li");
+        for(var i=0;i<liAtrr.length;i++){
+            liAtrr[i].index=i;
+            $(liAtrr[i]).on('tap',function () {
+                //loading
+                getInterface().hud_loading();
+
+                // var index = layer.load(1, {
+                //     shade: [0.1,'#fff'], //0.1透明度的白色背景
+                // });
+                // // $('.layui-layer-content').css({'width':'50px','height':'50px','background-size':'50px','left':'60%'});
+                // $('.layui-layer').css({'width':'37px','left':'50%','margin-left':'-19px'});
+
+                if($(this).hasClass('eyebrow_seled')){//已经选中
+                    $(this).removeClass("eyebrow_seled");
+                    //删除数组中取消选择的那项
+                    for(var i in eyebrowArr){
+                        if(eyebrowArr[i].name == $(this).attr('data-name')){
+                            eyebrowArr.splice(i,1);
+                        }
+                    }
+                    //解除loading
+                    getInterface().hud_hide();
+
+                    // layer.closeAll("loading");
+
+                }else{//未选中
+                    //最多五个
+                    if(eyebrowArr.length >= 5){
+                        //解除loading
+                        getInterface().hud_hide();
+                        getInterface().callAndroidLog('最多只能选择五种眉形哦！');
+                    }else{
+                        $(this).addClass("eyebrow_seled");
+                        // 调接口
+                        faceData = $(this).attr('data-faceData');
+                        name = $(this).attr('data-name');
+                        file = $(this).attr('data-url');
+                        size = $(this).attr('data-liSize');
+                        bgPic = $(this).attr('data-bgPic');
+                        // layer.alert(url+sex+faceData+color+name+file)
+                        getInterface().changeEyeBrow(url,sex,faceData,color,name,file);
+                    }
+                }
+            });
+        }
+    }
+}
+
+//换眉形/眉色的回调
+function return_changeEyeBrow(data){
+    if(data.result == 1){
+        nowPic = data.url;
+        //储存选择
+        var eyebrowObj = {};
+        eyebrowObj.name = name;
+        eyebrowObj.bgPic = bgPic;
+        eyebrowObj.nowPic = nowPic;
+        eyebrowArr.push(eyebrowObj);
+        //渲染右上角
+        $('#name').text(name);
+        $('#size').text(size);
+        $('#color').text(color);
+        //缓存图片
+        var img=new Image();  
+        img.onload=function(){
+            $("#camer").css({'background-image':'url(http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+nowPic+')'});
+        };  
+        img.src='http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+nowPic+'';
+        //解除loading
+        getInterface().hud_hide();
+        // layer.closeAll("loading");
+    }
+}
+//取消分享
+$('#cancle').on('tap',function(){
+    getInterface().leftBtnClick();
+})
+//确定分享
+$('#confirm').on('tap',function(){
+    if(eyebrowArr.length < 1){
+        getInterface().toast('请选择需要问朋友的眉形');
+        return false;
+    }
+
+    //保存测试数据
+    getInterface().post_action("eyebrowSave",JSON.stringify({improPic:improPic,eyebrowArr:eyebrowArr}),'post');
+
+    // localStorage.setItem('eyebrowArr',JSON.stringify(eyebrowArr));
+// var eyebrowArr = localStorage.getItem('eyebrowArr');
+
+    
+})
+function return_action(data,data2){
+    if(data2 == 'eyebrowSave'){
+        if(data.code == 1){
+            getInterface().html_jump_href(service+'/html/home_EyebrowTattoo5.html?uuid='+data.uuid,'yes');
+        }else{
+            getInterface().toast('请验证手机');
+        }
+    }
+}
+
+
+
+                    
+
+// var data = {
+//     "result": 1,
+//     "data": [
+//         {
+//             "EyeBrowID": "31",
+//             "EyeBrowName": "八字眉",
+//             "EyeBrowSize": "细",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "32",
+//             "EyeBrowName": "大短促眉",
+//             "EyeBrowSize": "中",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "33",
+//             "EyeBrowName": "短促秀眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "34",
+//             "EyeBrowName": "汉眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "35",
+//             "EyeBrowName": "虎眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "36",
+//             "EyeBrowName": "尖刀眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "37",
+//             "EyeBrowName": "剑眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "38",
+//             "EyeBrowName": "柳叶眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "39",
+//             "EyeBrowName": "龙眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "40",
+//             "EyeBrowName": "罗汉眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "41",
+//             "EyeBrowName": "罗旋眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "42",
+//             "EyeBrowName": "男士眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "43",
+//             "EyeBrowName": "平眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "44",
+//             "EyeBrowName": "前清后疏眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "45",
+//             "EyeBrowName": "狮子眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "46",
+//             "EyeBrowName": "卧蛋眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "47",
+//             "EyeBrowName": "弦月眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "48",
+//             "EyeBrowName": "自然眉",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "暗红色",
+//                 "浅红色",
+//                 "黑色",
+//                 "浅黑色"
+//             ],
+//             "EyeBrowContent": "相理衡真——兄弟蛇鼠,刀眉粗惡主家管。性暴軒貪狗盜人。兄弟生來貪狗盜人。兄弟生來還隔膜。終歸於惡喪其身。"
+//         },
+//         {
+//             "EyeBrowID": "45294d5b-3718-4de4-b183-6f8d7284a650",
+//             "EyeBrowName": "新眉毛1",
+//             "EyeBrowSize": "粗",
+//             "EyeBrowColor": [
+//                 "浅黑色",
+//                 "黑色"
+//             ],
+//             "EyeBrowContent": "qweqweq"
+//         }
+//     ]
+// }
+// if(data.result == 1){
+//     var eyebrowData = data.data;
+//     for(var i in eyebrowData){
+//         var li = '<li style="background-image:url(../image/home_EyebrowTattoo/'+picSex+eyebrowData[i].EyeBrowID+'.png)" class="eyebrow-li" data-name='+eyebrowData[i].EyeBrowName+' data-bgPic="url(../image/home_EyebrowTattoo/'+picSex+eyebrowData[i].EyeBrowID+'.png)" data-content='+eyebrowData[i].EyeBrowContent+' data-faceData='+JSON.stringify(data.landmark)+' data-liSize='+eyebrowData[i].EyeBrowSize+' data-url='+data.url+'><span>'+eyebrowData[i].EyeBrowName+'</span></li>';
+//         $('#eyebrow_ul').append(li);
+//     }
+//     //眉形边框
+//     $('.eyebrow-li').each(function(){
+//         if(name == $(this).attr('data-name')){
+//             $(this).addClass('eyebrow_seled');
+//             // this.classList.add("eyebrow_seled");
+//         }
+//     })
+//     //眉形选择
+//     var liAtrr = $(".eyebrow-li");
+//     for(var i=0;i<liAtrr.length;i++){
+//         liAtrr[i].index=i;
+//         $(liAtrr[i]).on('tap',function () {
+//             if($(this).hasClass('eyebrow_seled')){
+//                 //已经选中
+//                 $(this).removeClass("eyebrow_seled");
+//                 //删除数组中取消选择的那项
+//                 for(var i in eyebrowArr){
+//                     if(eyebrowArr[i].name == $(this).attr('data-name')){
+//                         eyebrowArr.splice(i,1);
+//                         console.log(eyebrowArr);
+//                     }
+//                 }
+//             }else{
+//                 //未选中
+//                 $(this).addClass("eyebrow_seled");
+//                 // 调接口
+//                 faceData = $(this).attr('data-faceData');
+//                 name = $(this).attr('data-name');
+//                 file = $(this).attr('data-url');
+//                 size = $(this).attr('data-liSize');
+
+//                 // layer.alert(url+sex+faceData+color+name+file)
+//                 // getInterface().changeEyeBrow(url,sex,faceData,color,name,file);
+//                 //储存选择
+//                 var eyebrowObj = {};
+//                 eyebrowObj.name = name;
+//                 eyebrowObj.bgPic = $(this).attr('data-bgPic');
+//                 eyebrowObj.nowPic = 'nowPic';
+//                 eyebrowArr.push(eyebrowObj);
+//                 console.log(eyebrowArr);
+//             }
+//         });
+//     }
+// }
+
+
+</script>
+</body>
+</html>

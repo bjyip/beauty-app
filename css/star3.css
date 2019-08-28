@@ -1,0 +1,613 @@
+body{
+    width: 100%;
+    background-color: #FCF9FE;
+}
+
+/*顶部栏*/
+.top-padding{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #FFFFFF;
+}
+.value_tab {
+    width: 100%;
+    height: 126px;
+    background-color: #FFFFFF;
+
+}
+.vf {
+    height: 126px;
+    line-height: 126px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 0;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg2{
+    width: 100%;
+    margin-top: 126px;
+    display: none;
+}
+.obt {
+    width: 100%;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 126px;
+}
+.obt p {
+    font-size: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.obt img {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    color: #ffffff;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+/*头像对比部分*/
+.imgVs{
+    margin: 0 auto;
+    width: 860px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.img1{
+    background-color: transparent;
+    width: 380px;
+    height: 450px;
+    border:1px solid #1abc9d;
+    overflow: hidden;
+    position: relative;
+}
+.dashed{
+    width: 340px;
+    height: 410px;
+    border:1px dashed rgba(97,196,239,0.6);
+    background-color: transparent;
+    position: absolute;
+    z-index: 2;
+    margin-left: 50%;
+    left: -170px;
+    top: 50%;
+    margin-top: -205px;
+}
+.img1 .me_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover!important;
+}
+.img2{
+    background-color: transparent;
+    width: 380px;
+    height: 450px;
+    border:1px solid #1abc9d;
+    overflow: hidden;
+    position: relative;
+    border:2px solid #eb34a6;
+}
+.img2 .ta_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+}
+.img2 .title{
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 70px;
+    background-color: rgba(97,196,239,0.5);
+    text-align: center;
+    color: #ff2472;
+    font-size: 40px;
+}
+.vs{
+    background: url("../image/star/share02.png") no-repeat;
+    background-size: 100% 100%;
+    width: 85px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+/*小图片*/
+.small_pic {
+    width: 880px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.pic_list{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.pic_list .img_div {
+    display: inline-block;
+    background-color: #fff;
+    height: 220px;
+    flex-grow: 1;
+    margin-right: 4px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #E4E5E9;
+}
+.pic_list .img_div1 {
+    border: 1px solid #eb34a6;
+}
+.img_div .img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover!important;
+}
+.pic_list .img_div .title{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(97,196,239,0.5);
+    text-align: center;
+    color: #ff2472;
+    line-height: 40px;
+    font-size: 30px;
+}
+/*数据显示*/
+.information{
+    margin: 0 auto;
+    width: 740px;
+    margin-top: 20px;
+    height: 142px;
+}
+/*相似*/
+.information_content{
+    color:black;
+    font-weight: 900;
+    background-color: #f4f5f5;
+    margin: 0 auto;
+    width: 100%;
+    border:1px solid rgba(220,220,220,0.8);
+    border: 1px solid #ecbacd;
+    vertical-align: middle;
+    height: 142px;
+    position: relative;
+}
+.information_message_bg{
+    height: 120px;
+    width: 320px;
+    padding: 10px 20px;
+    vertical-align: middle;
+    font-size: 48px;
+    text-align:center;
+    line-height: 120px;
+    float: left;
+    white-space:nowrap; 
+    overflow:hidden; 
+    text-overflow:ellipsis;
+}
+.totalScore{
+    width:300px;
+    height: 100px;
+    background: url("../image/star/share03.png") no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    margin-top: -50px;
+}
+.totalScore .look-like {
+    display: inline-block;
+    font-size: 40px;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    margin-top: -26px;
+    width: 120px;
+    height: 52px;
+    line-height: 52px; 
+}
+.totalScore .fen{
+    height: 100px;
+    width: 140px;
+    display: inline-block;
+    font-size: 60px;
+    text-align:center;
+    color: #f12d49;
+    font-family: 微软雅黑;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#FF386A), to(#FE6548));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    line-height: 100px;
+}
+/*简介*/
+.info{
+    margin: 0 auto;
+    width: 740px;
+    color:#818998;
+    background-color: #f4f5f5;
+    margin-top: -1px;
+    border:1px solid rgba(220,220,220,0.8);
+    border: 1px solid #ecbacd
+}
+.info_content{
+    margin: 10px;
+    font-weight: normal;
+    /*text-indent: ;*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    font-size: 34px;
+}
+
+
+
+
+/*扫码*/
+.sao{
+    margin: 20px auto 0;
+    width: 500px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.sao .er{
+    display: inline-block;
+    width: 280px;
+    height: 280px;
+    background-size: 100% 100%;
+    border: solid 3px #FE7584;
+    border-radius: 3px;
+}
+.addAi {
+    font-size: 40px;
+    width: 740px;
+    height: 80px;
+    line-height: 80px;
+    margin: 20px auto 0;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    color: #18F1FF;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+/*验证手机*/
+.mark{
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.phone_box{
+    /*background: url(../image/star/img_Physiognomy_bg.png) no-repeat;*/
+    background-size: cover;
+    width: 800px;
+    height: 710px;
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -280px;
+    background-color: #fff;
+}
+.mark .top{
+    width: 100%;
+    height: 150px;
+    background-color: #FF7781;
+    color: #fff;
+    font-size: 46px;
+    text-align: center;
+    line-height: 150px;
+}
+.group{
+    width: 800px;
+    margin: 0 auto;
+}
+.group div{
+    margin: 0 auto;
+}
+.group #phone{
+    display: block;
+    background: #F5F5F5 url(../image/star/smartphone.png) no-repeat 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 80px;
+    background-size: 40px;
+    color: #949494;
+    border: 1px solid #FF6D90;
+    font-size: 40px;
+    margin: 50px auto 0;
+    padding-left: 80px;
+    color: #333;
+}
+.group #phone::-webkit-input-placeholder { /* WebKit browsers */
+    color:#949494;
+}
+.group #phone:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#949494;
+}
+.group #phone::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#949494;
+}
+.group #phone:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#949494;
+}
+.ma{
+    width: 602px;
+    margin: 0 auto;
+}
+.ma #ma{
+    background: #F5F5F5 url(../image/star/verificationcode.png) no-repeat 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 260px;
+    height: 80px;
+    background-size: 44px;
+    color: #949494;
+    border: 1px solid #FF6D90;
+    font-size: 40px;
+    margin: 50px auto;
+    padding-left: 80px;
+    color: #333;
+}
+.ma #ma::-webkit-input-placeholder { /* WebKit browsers */
+    color:#949494;
+}
+.ma #ma:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#949494;
+}
+.ma #ma::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#949494;
+}
+.ma #ma:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#949494;
+}
+.ma_btn{
+    text-align: center;
+    padding: 20px;
+    width: 214px;
+    height: 120px;
+    margin: 0;
+    border-radius: 5px;
+    font-size: 34px;
+    color:#fff;
+    border: solid 1px #f12c41;
+    background: #f12c41;
+    cursor: pointer;
+    margin-left: 10px;
+    background: linear-gradient(to right, #FB7576, #F04D68);
+    background: -webkit-linear-gradient(to right, #FB7576, #F04D68);
+    background: -moz-linear-gradient(to right, #FB7576, #F04D68);
+}
+.commit{
+    display: block;
+    padding: 20px;
+    border-radius: 60px;
+    width: 602px;
+    height: 122px;
+    background-size: 40px;
+    color: #949494;
+    font-size: 50px;
+    margin: 0 auto 0;
+    color: #fff;
+    background-color: #B4B6B5;
+}
+.ma-active{
+    background: linear-gradient(to right, #FB7576, #F04D68);
+}
+/*分享*/
+.share {
+    width: 760px;
+    height: 1066px;
+    background: url(../image/star/share.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+.focus {
+    width: 760px;
+    height: 1066px;
+    background: url(../image/star/public.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+.share_code {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -200px;
+}
+.public{
+    background: url("../image/hb_qr.jpg") no-repeat center;
+    background-size: cover;
+}
+/*loading*/
+.bg{
+    height: 100%;
+    width: 100%;
+    background: url("../image/star/vstartbg.png") no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+}
+.start_body1 {
+    margin-top: 300px;
+}
+/*主体部分*/
+.img_box{
+    cursor: pointer;
+    margin: 0 auto;
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+/*图片*/
+.start_body1 img {
+    width: 600px;
+    height: 600px;
+}
+/*按钮*/
+.start_btn1{
+    width: 300px;
+    margin: 80px auto;
+    background-image: linear-gradient(90deg,#F12C43 ,#EB34A1 );
+    border-radius: 10px;
+}
+.start_btn1 button{
+    cursor: pointer;
+    width: 100%;
+    height: 90px;
+    line-height: 80px;
+    color: #fef4e9;
+    background: url("../image/star/share03-1.png") no-repeat center;
+    background-size: contain;
+    font-size: 40px;
+}
+.find_star{
+    color: #fff;
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.progress_bar{
+    cursor: pointer;
+    margin: 0 auto;
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.mypro{
+    background:#999;
+    border:1px solid red;
+    border:2px solid #000;
+    width:600px;
+    height: 30px;
+    border-radius: 20px;
+    -webkit-appearance: none;
+ }
+::-ms-fill{
+    background:#999;
+    border-radius: 20px;
+}
+::-moz-progress-bar{
+    background:#999;
+    border-radius: 20px;
+ }
+::-webkit-progress-bar{
+    background:#999;
+    border-radius: 20px;
+ }
+::-webkit-progress-value{
+    background:#1aa4d5;
+    border-radius: 20px;
+ }
+/*微信浏览器*/
+ .wxtip{
+    background: rgba(0,0,0,0.8); 
+    text-align: center; 
+    position: fixed; 
+    left:0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 998; 
+    display: none;
+}
+.wxtip-icon{
+    width: 104px; 
+    height: 431px;
+    background: url(../image/star/weixin-tip.png) no-repeat;
+    background-size: 100%;
+    display: block; 
+    position: absolute; 
+    right: 100px; 
+    top: 50px;
+}
+.wxtip-txt{
+    margin-top: 107px; 
+    color: #fff; 
+    font-size: 32px; 
+    line-height: 1.5;
+}
+.other{
+    margin-top: 700px; 
+    font-size: 60px;
+}
+/*适配广告机*/
+@media only screen and (min-device-width: 680px) {
+    body{
+        width: 1080px;
+        background-color: #FCF9FE;
+    }
+    .share_code {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        margin-left: -200px;
+    }
+    .imgVs {
+        margin-top: 40px;
+    }
+    .small_pic{
+        margin-top: 30px;
+    }
+    .information{
+        margin-top: 40px;
+    }
+    .sao{
+        margin-top: 40px;
+    }
+    .addAi{
+        margin-top: 41px;
+    }
+}

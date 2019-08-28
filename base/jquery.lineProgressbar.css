@@ -1,0 +1,22 @@
+.progressbar {
+    width: 598px;
+	/*margin-top: 5px;*/
+	/*margin-bottom: 35px;*/
+	height: 28px;
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,.1);
+	float: left;
+	line-height:28px;
+}
+
+.proggress{
+	height: 28px;
+	width: 10px;
+	background-color: red;
+}
+
+.percentCount{
+	float:right;
+	margin-top: -48px;
+	clear: both;
+	font-weight: bold;
+}

@@ -1,0 +1,96 @@
+.lay{
+    width: 1080px;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+.cont{
+    height: 1720px;
+    background: url("../image/home_physiognomy/img_Physiognomy_bg.png") no-repeat;
+    position: relative;
+}
+.cont_pic{
+    height: 1190px;
+    position: relative;
+    /*background: url("../image/home_EyebrowTattoo/img.png") no-repeat;*/
+/*    width: 820px;
+    height: 1045px;
+    position: absolute;
+    top: 144px;
+    left: 50%;
+    margin-left: -410px;
+    border-radius: 30px;
+    border: 6px solid #FF7880;*/
+}
+.cont-photo{
+    width: 820px;
+    height: 1045px;
+    position: absolute;
+    top: 144px;
+    left: 50%;
+    margin-left: -410px;
+    /*border: 6px solid #FF7880;*/
+    border-radius: 30px;
+    background:url(../image/home_Baike/baike.jpg) no-repeat center;
+    background-size: cover;
+
+}
+.boy{
+    background: url("../image/home_EyebrowTattoo/thrush_Male.png") no-repeat;
+    background-position: center;
+    width: 148px;
+    height: 197px;
+    position: absolute;
+    top: 1239px;
+    left: 253px;
+    color: #EE65AF;
+}
+.boy_{
+    display: inline-block;
+    font-size: 37px;
+    margin-top: 180px;
+}
+.gril{
+    font-size: 37px;
+    background: url("../image/home_EyebrowTattoo/thrush_Female.png") no-repeat ;
+    width: 148px;
+    height: 197px;
+    position: absolute;
+    left: 710px;
+    top: 1239px;
+    background-position: center ;
+    color: #EE65AF;
+}
+.gril_{
+    display: inline-block;
+    font-size: 37px;
+    margin-top: 180px;
+}
+.tip {
+    background: url(../image/home_EyebrowTattoo/tip.png) no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 150px;
+    height: 150px;
+}
+.help {
+    width: 927px;
+    height: 1112px;
+    background: url(../image/home_EyebrowTattoo/help.png) no-repeat center;
+    background-size: cover;
+}
+@media only screen and (min-device-width: 680px) {
+    .cont{
+        background: url("../image/home_physiognomy/img_Physiognomy_bg.png") no-repeat;
+        height: 1790px;
+        position: relative;
+    }
+}

@@ -1,0 +1,46 @@
+.lay{
+    width: 1080px;
+}
+/*内容区*/
+.cont{
+    height: 1000px;
+    width: 935px;
+    margin: 0 auto;
+}
+.fengbi{
+    display: inline-block;
+    font-size: 52px;
+    color:#FB7981 ;
+    margin-top: 56px;
+
+}
+.nose_list{
+    margin-top: 22px;
+    height: 130px;
+    position: relative;
+}
+.fengbi_font{
+    position: absolute;
+    font-size: 36px;
+    left: 128px;
+    line-height: 130px;
+}
+.black_nose{
+    display: inline-block;
+    background: url("../image/black_nose.png") no-repeat;
+    width: 77px;
+    height: 80px;
+    position: absolute;
+    left: 10px;
+    top: 24px;
+}
+.arrow{
+    display: inline-block;
+    background: url("../image/icon.png") no-repeat;
+    width: 23px;
+    height: 43px;
+    position: absolute;
+    right: 0px;
+    top: 41px;
+}
+

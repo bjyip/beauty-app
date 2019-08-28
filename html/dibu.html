@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/dibu.css">
+    <style>
+        *{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+<div class="lay">
+<!--顶部tab-->
+<div class="value_tab">
+    <!--后退-->
+    <img id="back" src="../image/icon-right.png" alt="">
+    <!--关闭-->
+    <!--标题-->
+    <span class="vf"></span>
+    <!--更多-->
+</div>
+    <div id="adv"></div>
+
+    </div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/android.js"></script>
+<script>
+    //后退
+    $('#back').on('tap',function () {
+        getInterface().leftBtnClick();
+    }) ;
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="../css/game.css">
+	<link rel="stylesheet" href="../css/headandall.css">
+	<link rel="stylesheet" href="../base/tab.css">
+	<link rel="stylesheet" href="../base/base.css">
+
+	<meta charset="UTF-8">
+	<title>抽奖游戏</title>
+	<style>
+    /*取消长按事件*/
+    * {  
+        -webkit-touch-callout: none;  
+        -webkit-user-select: none;  
+        -khtml-user-select: none;  
+        -moz-user-select: none;  
+        -ms-user-select: none;  
+        user-select: none;  
+    }
+        .value_tab{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<!--顶部tab-->
+<div class="value_tab">
+    <!--后退-->
+    <div id="back"></div>
+    <!--关闭-->
+    <!--标题-->
+    <span class="vf">抽奖游戏</span>
+    <!--更多-->
+</div>
+	</div>
+	<div class="box">
+	<span class="title" >玩游戏 赚奖金</span>
+	<img src="../image/game/hot.gif" alt="" class="game" id="game1">
+	
+	<img src="../image/game/others1.jpg" alt="" class="game" id="game2">
+		
+	<img src="../image/game/others2.jpg" alt="" class="game" id="game3">
+
+	
+	<img src="../image/game/tap.png" alt="" class="tap1">
+	<span class="gl">活动攻略</span>
+	<img src="../image/game/tap.png" alt="" class="tap2">
+	
+	</div>
+	  <script src="../js/android.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/bbmis.js"></script>
+	<script>
+
+	//取消双击事件
+        mui.init({
+    gestureConfig:{
+    tap: true, //默认为true
+    doubletap: true, //默认为false
+    longtap: true, //默认为false
+    swipe: true, //默认为true
+    drag: true, //默认为true
+    hold:false,//默认为false，不监听
+    release:false//默认为false，不监听
+  }
+});
+ //        后退
+             $("#back").on('tap',function () {
+                getInterface().leftBtnClick();
+            })
+ //跳转游戏
+ $("#game1").on('tap',function () {
+ 			alert("1111");
+                getInterface().html_jump_href(service+'/html/hitegg.html', 'no');
+            });
+ $("#game2").on('tap',function () {
+                getInterface().html_jump_href(service+'/html/setgame.html', 'no');                
+            });
+ $("#game3").on('tap',function () {
+                getInterface().html_jump_href(service+'/html/setgame.html', 'no');                
+            });
+    $(function(){
+        //获取状态栏导航栏高度
+        getInterface().getStatusBarHeight();
+    })
+    //获取状态栏导航栏高度
+    function return_getStatusBarHeight(data1,data2){
+        // alert(parseInt(data1)+10+'px')
+        alert(data1)
+        $('.value_tab').css('padding-top',data1+'px');
+    }
+
+// 		 //二维码遮罩层
+//         $(document).ready(function () {
+//                 $(".follow-block").click(function (event) {
+//                     // console.log("aaa");
+//                     event.stopPropagation();
+//                     $(".maskqr").toggle();
+//                 });
+// //                点击空白处隐藏弹出
+//                 $("body").click(function (event) {
+//                     var con=$(".qrcode");
+//                     if(!con.is(event.target)&& con.has(event.target).length ==0){
+//                         $(".maskqr").hide();
+//                     }
+//                 })
+//             });
+		// localStorage.topH;
+//
+//		$(document).ready(function(){
+//
+//            $(".tab").attr('style','padding-top:'+localStorage.topH+'px');
+//            $(".box").attr('style','margin-top:'+localStorage.topH+'px');
+//            alert(localStorage.topH);
+//        });
+	</script>
+</body>
+</html>

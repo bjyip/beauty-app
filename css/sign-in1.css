@@ -1,0 +1,61 @@
+
+.sign_head img{
+margin-bottom: 25px;
+margin-top: 80px;
+margin-left: 195px;
+}
+#back{
+	margin-top: 100px;
+	margin-left: 100px;
+	margin-bottom: -200px;
+}
+.sign_input{
+	color: #9F9F9F;
+	
+	font-size: 60px;
+}
+.phone{
+	width: 898px;
+	height: 175px;
+	border:3px solid #B4B5B5;
+	background-color: #fff;
+	margin-bottom: 102px;
+	border-radius: 10px;
+	margin-left: 92px;
+	}
+.phone input{
+	background:url("../image/register and login/phone-icon.png") no-repeat 30px;
+}
+.password{
+	margin-left: 92px;
+	width: 898px;
+	height: 175px;
+	background-color: #fff;
+	border:3px solid #B4B5B5;
+	border-radius: 10px;
+	margin-bottom: 100px;
+
+}
+.password input{
+	display: block;
+	float: left;
+	background:url("../image/register and login/pw-icon.png") no-repeat 30px;
+}
+.sign_changeway{
+	color:#61478B;
+	display: block;
+	float: right;
+	margin-top: 150px;
+	margin-right: 91px;
+	font-size: 60px;
+	font-family: "SourceHanSansSC-Light";
+}
+.sign_forgetpw{
+	color: #61478B;
+	font-family: "SourceHanSansSC-Light";
+	display: block;
+	float: left;
+	margin-top: 155px;
+	margin-left: 91px;
+	font-size: 60px;
+}

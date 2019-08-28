@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_baike4.css">
+    <title>咋整百科</title>
+    <style>
+        /*取消长按事件*/
+        * {  
+            -webkit-touch-callout: none;  
+            -webkit-user-select: none;  
+            -khtml-user-select: none;  
+            -moz-user-select: none;  
+            -ms-user-select: none;  
+            user-select: none;  
+        }  
+    </style> 
+</head>
+<body ondblclick="return false;">
+    <div class="lay">
+        <!--顶部tab-->
+        <div class="value_tab">
+            <!--后退-->
+            <img id="back" src="../image/icon-right.png" alt="">
+            <!--关闭-->
+            <!--标题-->
+            <span class="vf" id="title"></span>
+            <!--更多-->
+        </div>
+        <div class="cont">
+
+            <!--在线咨询-->
+            <div class="adv">
+                <img src="../image/tab/icon-zixun--pre.png" alt="">
+                在线咨询
+            </div>
+            <!--信息-->
+            <div class="info">
+                <!--第一个头像-->
+                <div class="bns_img" id="collationschematic"></div>
+                <div class="rightInfo">
+                    <ul>
+                        <li>参考价格</li>
+                        <li id="price"></li>
+                    </ul>
+                    <ul>
+                     <li>持续时间</li>
+                     <li id="time"></li>
+                 </ul>
+                 <ul>
+                     <li>操作方法</li>
+                     <li id="method"></li>
+                 </ul>
+
+             </div>
+             
+         </div>
+
+         <!--简介-->
+         <div class="introd">
+            <span class="introd_first">简介</span>
+            <!--<b>简介</b>-->
+            <br>
+            <div class="bor" id="introduction">
+
+            </div>
+        </div>
+        <!--适合人群-->
+        <div class="suit">
+            <span class="suit_first">适合人群</span>
+            <br>
+            <div class="suit_bor">
+                <ol id="fitPeople">
+
+                </ol>
+
+                <span class="suit_thir">禁忌人群</span>
+                <ol id="tabooPeople">
+
+                </ol>
+            </div>
+        </div>
+        <!--优点-->
+        <div class="point">
+            <span class="point_first">优点</span>
+            <br>
+            <div class="point_bor">
+                <ol id="advantage">
+
+                </ol>
+                <span class="point_four">缺点</span>
+                <ol id="weak">
+
+                </ol>
+            </div>
+        </div>
+        <!--手术-->
+        <div class="surgery">
+            <div class="surgery_one">
+                <ul>
+                    <li>手术时长</li>
+                    <li>疗程</li>
+                    <li>恢复时间</li>
+                </ul>
+            </div>
+            <div class="surgery_bor">
+                <div class="surgery_two">
+                    <ul>
+                        <li id="timeing"></li>
+                        <li id=""></li>
+                        <li id="cover"></li>
+                    </ul>
+                </div>
+                <div class="surgery_three">
+                    <ul>
+                        <li id="">风险</li>
+                        <li id="">是否麻醉</li>
+                        <li id="">住院治疗</li>
+                    </ul>
+                </div>
+                <div class="surgery_four">
+                    <ul>
+                        <li id="risk"></li>
+                        <li id="anesthesia"></li>
+                        <li id="inhospital"></li>
+                    </ul>
+                </div>
+            </div>
+            <!--项目原理-->
+            <div class="proj">
+                <span class="proj_first">项目原理及手术详细事宜</span>
+                <span class="proj_sec">术前准备:</span>
+                <ol id="surgicalPre">
+
+                </ol>
+                <span class="proj_sec">治疗过程:</span>
+                <ol id="treatProcess">
+
+                </ol>
+                <span class="proj_sec">术后康复:</span>
+                <ol id="surgicalCare">
+
+                </ol>
+                <ul id="schematicschematic">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script>
+$(document).ready(function(){
+    getInterface().getStatusBarHeight();
+});
+
+function return_getStatusBarHeight(data1,data2){
+    // localStorage.setItem('topH',data1);
+    // localStorage.setItem('botH',data2);
+    $('.lay').css('padding-bottom',data2+'px');
+}
+setTimeout(function(){
+    $('.lay').css('display','block')
+},50)
+
+//后退
+var back =document.getElementById("back");
+back.onclick=function () {
+    getInterface().leftBtnClick();
+}
+
+var partId = getQueryStringByName('partId');
+var title = '';
+console.log(partId)
+// 获取数据
+getInterface().post_action("getOperation",'','get');
+function return_action(data,data2){
+    if(data2 == 'getOperation'){
+        if(data.code == 1){
+           for (var i in data.operations){
+                //渲染title
+                if(data.operations[i].id == partId){
+                    title = data.operations[i].name;
+                    $('#title').text(title);
+
+
+                    //展示图
+                    var showUrl = data.operations[i].collationschematic == ''?'url(../image/home_Baike/home_Baike_Watermark2.png)':'url('+data.operations[i].collationschematic+')';
+                    $('#collationschematic').css('background-image',showUrl);
+                    //价格
+                    $('#price').text(data.operations[i].price.indexOf('￥') >= 0?data.operations[i].price:'￥'+data.operations[i].price);
+                    //时长
+                    $('#time').text(data.operations[i].time);
+                    //方法
+                    $('#method').text(data.operations[i].method);
+                    // 简介
+                    var intorArr = data.operations[i].introduction.split('\n');
+                    for(var j in intorArr){
+                        $('#introduction').append('<span class="introd_nose">'+intorArr[j]+'</span>');
+                    }
+                    // 适合人群
+                    var fitArr = data.operations[i].fitPeople.split('\n');
+                    for(var j in fitArr){
+                        $('#fitPeople').append('<li class="introd_nose">'+fitArr[j]+'</li>');
+                    }
+                     // 禁忌人群
+                    var tabooArr = data.operations[i].tabooPeople.split('\n');
+                    for(var j in tabooArr){
+                        $('#tabooPeople').append('<li class="introd_nose">'+tabooArr[j]+'</li>');
+                    }
+                     // 优点
+                    var advanArr = data.operations[i].advantage.split('\n');
+                    for(var j in advanArr){
+                        $('#advantage').append('<li class="introd_nose">'+advanArr[j]+'</li>');
+                    }
+                     // 缺点
+                    var weakArr = data.operations[i].weak.split('\n');
+                    for(var j in weakArr){
+                        $('#weak').append('<li class="introd_nose">'+weakArr[j]+'</li>');
+                    }
+                     // 术前准备
+                    var preArr = data.operations[i].surgicalPre.split('\n');
+                    for(var j in preArr){
+                        $('#surgicalPre').append('<li class="introd_nose">'+preArr[j]+'</li>');
+                    }
+                     // 治疗过程
+                    var ProcessArr = data.operations[i].treatProcess.split('\n');
+                    for(var j in ProcessArr){
+                        $('#treatProcess').append('<li class="introd_nose">'+ProcessArr[j]+'</li>');
+                    }
+                     // 术后康复
+                    var careArr = data.operations[i].surgicalCare.split('\n');
+                    for(var j in careArr){
+                        $('#surgicalCare').append('<li class="introd_nose">'+careArr[j]+'</li>');
+                    }
+                     // 手术图
+                    var schemArr = data.operations[i].schematicschematic;
+                    console.log(schemArr)
+                    for(var j in schemArr){
+                        $('#schematicschematic').append('<li class="proj_one">'+schemArr[j].title+'</li>');
+                        // $('#schematicschematic').find('.proj_one')[j].css('background-image','url('+schemArr[j].url+')');
+                    }
+                    $('.proj_one').each(function(k,ele){
+                        $(ele).css('background-image','url('+schemArr[k].url+')');
+                        console.log( $(ele));
+                    });
+
+                    //手术时长
+                     $('#timeing').text(data.operations[i].timeing)
+                    //疗程
+                     $('#treatment').text(data.operations[i].treatment)
+                    //恢复时间
+                     $('#cover').text(data.operations[i].cover)
+                    //风险
+                     $('#risk').text(data.operations[i].risk)
+                    //是否麻醉
+                     $('#anesthesia').text(data.operations[i].anesthesia)
+                    //是否住院
+                     $('#inhospital').text(data.operations[i].inhospital)
+                }
+            }
+        }
+    }
+}
+
+
+</script>
+</body>
+</html>

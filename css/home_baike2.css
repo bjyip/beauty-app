@@ -1,0 +1,183 @@
+.lay{
+    width: 1080px;
+}
+.top-padding{
+    background-color: #fff;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+/*中部*/
+.middle{
+    height: 1794px;
+    background-image:-webkit-gradient(linear, 0 0, 0 bottom, from(#ADAAA9), to(#DCD8D7));
+    position: relative;
+}
+.circular-box{
+    height: 800px;
+    position: relative;
+}
+.nose_title{
+    display: block;
+    font-size: 63px;
+    text-align: center;
+    color: #ffffff;
+    font-family: "SourceHanSerifSC-Regular";
+    padding-top: 36px;
+}
+.circular{
+    text-align: center;
+}
+/*缩鼻头*/
+.circular0{
+    width: 377px;
+    height: 377px;
+    border-radius: 50%;
+    border: 4px solid #BBCEFD;
+    position: absolute;
+    top: 382px;
+    left: 343px;
+    padding-top: 101.5px;
+}
+
+/*缩鼻翼*/
+.circular1{
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 4px solid #FFD199;
+    position: relative;
+    position: absolute;
+    top: 612px;
+    left: 40px;
+    padding-top: 83px;
+}
+
+/*垫鼻尖*/
+.circular2{
+    width: 322px;
+    height: 322px;
+    border-radius: 50%;
+    border: 4px solid #AEF1B3;
+    position: relative;
+    position: absolute;
+    top: 770px;
+    left: 368px;
+    padding-top: 74px;
+}
+
+/*鼻部*/
+.circular5{
+    width: 259px;
+    height: 259px;
+    border-radius: 50%;
+    border: 4px solid #95F1EE;
+    position: relative;
+    position: absolute;
+    top: 981px;
+    left: 118px;
+    padding-top: 42.5px;
+}
+
+/*右边的鼻部*/
+.circular4{
+    width: 275px;
+    height: 275px;
+    border-radius: 50%;
+    border: 4px solid #FED3D3;
+    position: relative;
+    position: absolute;
+    top: 988px;
+    left: 645px;
+    padding-top: 50.5px;
+}
+
+/*丰鼻*/
+.circular3{
+    width: 368px;
+    height: 368px;
+    border-radius: 50%;
+    border: 4px solid #F1CAFA;
+    position: relative;
+    position: absolute;
+    top: 587px;
+    left: 678px;
+    padding-top: 97px;
+
+}
+
+.circular8{
+    width: 368px;
+    height: 368px;
+    border-radius: 50%;
+    border: 4px solid #95B7D1;
+    position: relative;
+    position: absolute;
+    top: 1160px;
+    left: 320px;
+    padding-top: 97px;
+}
+
+.circular7{
+    width: 322px;
+    height: 322px;
+    border-radius: 50%;
+    border: 4px solid #ECE6A6;
+    position: relative;
+    position: absolute;
+    top: 252px;
+    left: 34px;
+    padding-top: 74px;
+}
+
+.circular6{
+    width: 275px;
+    height: 275px;
+    border-radius: 50%;
+    border: 4px solid #FDA7A7;
+    position: relative;
+    position: absolute;
+    top: 290px;
+    left: 730px;
+    padding-top: 50.5px;
+}
+
+.circular{
+    display: none;
+    box-sizing: border-box;
+}
+.circular :first-child{
+    display: block;
+    width: 100%;
+    height: 127px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.circular :last-child{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.nose_clicked{
+    background-color: #fff;
+}
+.nose_clicked :first-child{
+     color: #FF6896;
+}
+@media only screen and (min-device-width: 680px) {
+    .middle{
+        height: 1794px;
+    }
+}
+        

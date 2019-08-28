@@ -1,0 +1,68 @@
+body{
+    background-color: #FCF9FE;
+}
+.lay{
+    width: 1080px;
+    padding-bottom: 20px;
+}
+.top-padding{
+    width: 1080px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+/*内容区*/
+.cont{
+    margin-top: 126px;
+}
+.fengbi{
+    display: inline-block;
+    font-size: 52px;
+    color:#FB7981 ;
+    margin-top: 56px;
+    margin-left: 50px;
+}
+.nose_list{
+    margin-top: 22px;
+    height: 130px;
+    position: relative;
+    border-bottom: 1px solid #cecece;
+    display: none;
+}
+.fengbi_font{
+    position: absolute;
+    font-size: 36px;
+    left: 170px;
+    line-height: 130px;
+}
+.black_nose{
+    display: inline-block;
+    background: url("../image/black_nose.png") no-repeat;
+    background-size: contain;
+    width: 77px;
+    height: 80px;
+    position: absolute;
+    left: 50px;
+    top: 24px;
+}
+.arrow{
+    display: inline-block;
+    background: url("../image/icon.png") no-repeat;
+    width: 23px;
+    height: 43px;
+    position: absolute;
+    right: 40px;
+    top: 41px;
+}
+

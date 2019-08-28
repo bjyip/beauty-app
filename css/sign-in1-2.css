@@ -1,0 +1,30 @@
+
+.sign_headword{
+	text-indent: 200px;
+	font-size: 100px;
+	color: #947FBA;
+	margin-bottom: 300px;
+	margin-top: 180px;
+	margin-left: 95px;
+	letter-spacing:8px;
+}
+.sign_input{
+	color: gray;
+	margin-left: 20px;
+	font-size: 50px;
+
+}
+.password{
+	width: 898px;
+	height: 175px;
+	border:3px solid #B4B5B5;
+	background-color: #fff;
+	margin-bottom: 102px;
+	border-radius: 10px;
+	margin-left: 92px;
+}
+.password input{
+	display: block;
+	float: left;
+	background:url("../image/register and login/pw-icon.png") no-repeat 30px;
+}

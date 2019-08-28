@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_FaceToFace3.css">
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+        <!--标题-->
+        <span class="vf">明星面对面</span>
+        <!--更多-->
+    </div>
+    <!--微信获取-->
+    <div class="obt">
+        <span class="obt_img"></span>
+        <p>让你的朋友围观你和哪位大明星最想吧</p>
+        <br/>
+            <p>分享，让你朋友参与测试</p>
+            <img src="../image/Tap.png" alt="">
+    </div>
+    <!--明星VS-->
+    <div class="star_big">
+        <span class="big_l"></span>
+        <b class="vs"></b>
+        <span class="big_r"></span>
+    </div>
+    <!--明星列表-->
+        <ul class="star_list">
+            <li class="star_list_first"></li>
+            <li class="star_list_second"></li>
+            <li class="star_list_third"></li>
+            <li class="star_list_fourth"></li>
+            <li class="star_list_fifth"></li>
+        </ul>
+    <!--与明星相似度-->
+        <div class="introduction_top">
+            <b>相似度</b>
+            <span></span>
+        </div>
+        <div class="introduction_buttom"></div>
+    <!--二维码-->
+    <div class="qr">
+        <span></span>
+    </div>
+
+    <!--加入爱咋整-->
+    <div class="addAi">
+        加入爱咋整，更多乐趣美颜新科技！
+    </div>
+    </div>
+<script>
+   //        后退
+             $(".back").on('click',function () {
+                getInterface().leftBtnClick();
+            });
+</script>
+</body>
+</html>

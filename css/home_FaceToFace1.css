@@ -1,0 +1,110 @@
+body{
+    background-image: url(../image/home_physiognomy/img_Physiognomy_bg.png) ;
+}
+.lay{
+    width: 1080px;
+
+}
+.tool_face{
+    position: absolute;
+    font-size: 40px;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 9999;
+    top: 329px;
+    width: 1080px;
+    text-align: center;
+
+}
+/*相机*/
+.camer{
+    position: absolute;
+    left: 50%;
+    /*top: 50%;*/
+    width:498px;
+    height:570px;
+    top: 440px;
+    margin-left:-200px;
+    /*margin-top:-50px;*/
+}
+/*性别选择*/
+.start_select{
+    position: absolute;
+    top: 1240px;
+    left: 263px;
+}
+#tag{
+    font-size:  45px;
+}
+.regular-radio{
+   width: 61px;
+   height: 62px;
+   position: relative;
+   z-index: 100;
+   opacity:0;
+   right: 33px;
+}
+.radio-icon{
+    float: left;
+}
+.start_select span{
+    font-size:  50px;
+    color: #606060;
+   /* margin-right: 27px;*/
+    position: relative;
+    right: 40px;
+}
+#radio-icon-1{
+    
+    position: absolute;
+   
+    top: 2px;
+    left: 212px;
+}
+#radio-icon-2{
+   
+    position: absolute;
+    
+     top: 2px;
+    left: 388px;
+}
+.button-holder label{
+ /*    
+     position: relative;
+    right: 58px;
+    bottom: 4px;
+    margin-bottom: 5px;
+    max-width: 100%;*/
+     display: inline-block;
+     width: 48px;
+    height: 48px;
+}
+.regular-radio:checked + label{
+    width: 48px;
+    height: 48px;
+    background-color: #FF637C;
+    border-radius: 100%;
+   
+    position: relative;
+    right: 58px;
+    bottom: 4px;
+}
+
+/*开始测试*/
+.beg{
+    position: absolute;
+    width: 498px;
+    height: 152px;
+    top: 1358px;
+    /*left: 268px;*/
+    left: 50%;
+    margin-left: -199px;
+}
+/*如何使用*/
+.use p{
+    position: absolute;
+    font-size: 45px;
+    top: 1571px;
+    left: 439px;
+}

@@ -1,0 +1,547 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>砸金蛋</title>
+<link rel="stylesheet" href="../base/base.css">
+<link rel="stylesheet" href="../css/hitegg.css" />
+<link rel="stylesheet" href="../css/headandall.css">
+	<link rel="stylesheet" href="../base/tab.css">
+</head>
+
+<body>
+<!--顶部tab-->
+<div class="value_tab">
+    <!--后退-->
+    <div id="back"></div>
+    <!--关闭-->
+    <!--标题-->
+    <span class="vf">砸金蛋</span>
+    <!--更多-->
+</div>
+	<audio src="../mp3/hit.mp3" controls="controls" id="hitmusic" hidden preload="auto" >
+	</audio>
+<div id="main" class="box">
+	<audio src="../mp3/bg.mp3" autoplay="autoplay" controls="controls"  hidden id="bgmusic" loop="loop">
+	</audio>
+	<div  onclick="music_control();" class="music">
+		<img src="../image/egg/music_on.png" alt="" class="music_on" style="display:none;">
+		<img src="../image/egg/music_off.png" alt="" class="music_off">
+	</div>
+	<img src="../image/egg/rule.png" alt="" class="rule">
+	<div class="rule_mask" style="display:none" >
+		<div class="rule_text">
+			<span>活动规则</span>
+			<span>1、一人只能砸一次</span>
+
+		</div>
+	</div>
+	<div class="egg">
+
+		<img src="../image/egg/eg.png" alt="" class="eg">
+		<ul class="eggList">
+			<p class="hammer" id="hammer">锤子</p>
+			<p class="resultTip" id="resultTip"><b id="result"></b></p>
+			<li>
+			<img src="../image/egg/dan3.png" alt="" class="set">
+			
+			<sup></sup>
+			</li>
+			<li>
+			<img src="../image/egg/dan3.png" alt="" class="set">
+			
+			<sup></sup>
+			</li>
+			<li>
+			<img src="../image/egg/dan3.png" alt="" class="set">
+			
+			<sup></sup>
+			</li>
+			<!-- <li><span>4</span><sup></sup></li> -->
+		</ul>
+	</div>
+	<div class="mask" style="display:none;">
+		<div class="tc">
+			<span class="tc_font1">恭喜你</span>
+			<span class="tc_font2">获得</span>
+			<span class="tc_font2" id="hb_price"></span>
+			<!-- <span class="tc_font2">元店铺优惠券</span> -->
+			<div class="tc_num1">
+				<div class="hb">
+				<span class="hb_title"></span>
+				<span class="hb_mark">￥</span>
+				<span class="hb_price"></span>
+				<span class="hb_limited">满</span>
+				<span class="hb_limited" id="hb_limited"></span>
+				<span class="hb_limited">元可用</span>
+				<span class="hb_time">有效期：</span>
+				<span class="hb_time1" id="hb_time">2018.1.1-2018.1.18</span>
+			</div>
+			<div class="hb_bottun">立即领取</div>
+			</div>
+			<div class="tc_num2" style="display:none;">
+				<div class="phone">
+				<img src="../image/home_FaceToFace2/Smartphone.png" alt="">
+            <input type="text" name="phone" id="phonenumber" placeholder="输入手机号">
+        </div>
+        <div class="phone_code">
+        <img src="../image/home_FaceToFace2/phonecode.png" alt="">
+            <input type="text" name="" id="checkcode" placeholder="输入验证码"> 
+            <div class="checkcode">获取验证码</div>
+        </div>
+        	<div class="hb_bottun">优惠到手</div>
+			</div>
+			<div class="tc_num3" style="display:none;">
+			<span class="hb_code">输入</span>
+				<span class="hb_code2">优惠码【</span>
+				<span class="hb_code2" id="code">5858</span>
+				<span class="hb_code2">】</span>
+				<span class="hb_code">领取此券</span>
+				<img src="../image/hb_qr.jpg" alt="" class="hb_qrcode">
+				<span class="hb_qrfont">关注公众号</span>
+				
+				<button class="hb_care">关注一下，优惠进卡包</button>
+			</div>
+			<span class="hb_footer">领券：关注公众号，领取优惠券</span>
+			
+			
+		</div>
+	</div>
+	<div class="footer">
+		<img src="../image/egg/1.png" alt="" class="goods">
+		<img src="../image/egg/1_13.png" alt="" class="goods">
+		<img src="../image/egg/1_24.png" alt="" class="goods">
+		<img src="../image/egg/1_33.png" alt="" class="goods">
+		<img src="../image/egg/1_92.png" alt="" class="goods">
+	</div>
+	<br/>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+ <script src="../js/android.js"></script>
+ <script src="../js/mui.min.js"></script>
+ <script src="../js/bbmis.js"></script>
+<script type="text/javascript">
+
+//取消双击事件
+        mui.init({
+    gestureConfig:{
+    tap: true, //默认为true
+    doubletap: true, //默认为false
+    longtap: true, //默认为false
+    swipe: true, //默认为true
+    drag: true, //默认为true
+    hold:false,//默认为false，不监听
+    release:false//默认为false，不监听
+  }
+});
+
+var code = 0 ; //在全局定义验证码
+//产生验证码
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount;//当前剩余秒数
+$("#back").on('tap',function () {
+                getInterface().leftBtnClick();
+            })
+
+// 背景音乐控制
+// $(document).ready(function(){ 
+// var audio = document.getElementById('bgmusic'); 
+// 	setTimeout("audio.play()",1000);
+
+// });
+function music_control(){
+	var audio = document.getElementById('bgmusic'); 
+	if(audio!==null){ 
+		if(audio.paused){ 
+			audio.play();// 播放 
+			$(".music_on").attr('style','display:none;');
+			$(".music_off").attr('style','display:block;');
+			console.log("1");
+		}else{
+			audio.pause();// 暂停
+			$(".music_off").attr('style','display:none;');
+			$(".music_on").attr('style','display:block;');
+			console.log("2");
+		}
+	} 
+}
+//弹窗显示切换
+	var click_num=0;
+	$(".hb_bottun").on('tap',function () {
+                click_num=click_num+1;
+                changetc(click_num);               
+            });
+	$(".hb_care").on('tap',function () {
+                click_num=click_num+1;
+                changetc(click_num);               
+            });
+
+
+
+	function changetc(click_num){
+		console.log(click_num);
+		if(click_num==0){
+
+		}
+		 if(click_num==1){
+		$(".tc_num1").attr('style','display:none;');	
+		$(".tc_num2").attr('style','display:block;');
+		console.log(localStorage.mobile)
+		//验证
+		while(localStorage.mobile==''){
+			// 短信验证
+		$('.checkcode').on('tap',function(e) {
+   			 createCode();
+    
+			});
+		$(".hb_bottun").on('tap',function () {         
+               validate();
+                
+			});		
+	}
+	getq();
+	}
+	if(click_num==2){
+		$(".tc_num2").attr('style','display:none;');
+		$(".tc_num3").attr('style','display:block;');
+		
+
+	}
+	if(click_num==3){
+
+		getInterface().html_jump_href('http://test.legle.cc:8080/azz/home.html','no');
+		getInterface().leftBtnClick();
+	}
+	else{
+		
+	}
+	}
+
+//砸金蛋
+	var click=0;
+	var index;
+$(".eggList li").click(function () {
+    	index = $(".eggList li").index(this);
+    	console.log(index);
+    });
+function eggClick(obj) {
+	if(click==0){
+		var hitegg = document.getElementById('hitmusic'); 
+		setTimeout(function(){
+			hitegg.play();
+		},200)
+		
+	var _this = obj;
+	// $.getJSON("data.php",function(res){
+		var res = {
+			msg: 1,
+			prize: '100红包'
+		};
+		if(_this.hasClass("curr")){
+			alert("蛋都碎了，别砸了！刷新再来.");
+			return false;
+		}
+		if(index==0){
+			$(".hammer").animate({
+			"top":'525px',
+			"left":'95px',
+			},1000,function(){
+				var i=0;
+				var move=setInterval(function(){
+									$(".hammer").css("transform","rotate("+i+"deg)");
+									i--;
+									// console.log(i);
+									if(i<=-50){
+										clearInterval(move);
+									}
+								},5);
+
+				// _this.addClass("curr"); //蛋碎效果
+				// _this.find("sup").show(); //金花四溅
+				setTimeout(function(){
+					$(".eggList li").eq(0).css("background","url(../image/egg/egg_2.png) no-repeat bottom");					
+				},150);
+				setTimeout(function(){
+					_this.addClass("curr"); 
+				},600);
+								}		
+			
+		);
+		}
+		if(index==1){
+			$(".hammer").animate({
+			"top":'530px',
+			"left":'465px',
+			},1000,function(){
+				var i=0;
+				var move=setInterval(function(){
+									$(".hammer").css("transform","rotate("+i+"deg)");
+									i--;
+									// console.log(i);
+									if(i<=-50){
+										clearInterval(move);
+									}
+								},5);
+
+				// _this.addClass("curr"); //蛋碎效果
+				// _this.find("sup").show(); //金花四溅
+				setTimeout(function(){
+					$(".eggList li").eq(1).css("background","url(../image/egg/egg_2.png) no-repeat bottom");					
+				},150);
+				setTimeout(function(){
+					_this.addClass("curr"); 
+				},600);
+								}		
+			
+		);
+		}
+		if(index==2){
+			$(".hammer").animate({
+			"top":'530px',
+			"left":'800px',
+			},1000,function(){
+				var i=0;
+				var move=setInterval(function(){
+									$(".hammer").css("transform","rotate("+i+"deg)");
+									i--;
+									// console.log(i);
+									if(i<=-50){
+										clearInterval(move);
+									}
+								},5);
+
+				// _this.addClass("curr"); //蛋碎效果
+				// _this.find("sup").show(); //金花四溅
+				setTimeout(function(){
+					$(".eggList li").eq(2).css("background","url(../image/egg/egg_2.png) no-repeat bottom");					
+				},150);
+				setTimeout(function(){
+					_this.addClass("curr"); 
+				},600);
+								}		
+			
+		);
+		}
+		//_this.unbind('click');
+		// $(".hammer").css({"top":_this.position().top-55,"left":_this.position().left+185});
+		// $(".hammer").hide();
+		
+			winner ();
+			
+
+	// });
+}
+else{
+	getInterface().callAndroidLog("您已砸过金蛋！");
+}
+}
+
+
+// $(".eggList li").hover(function() {
+// 	var posL = $(this).position().left + $(this).width();
+// 	$("#hammer").show().css('left', posL);
+// })
+$(".eggList li").click(function() {
+	eggClick($(this));
+});
+$(document).ready(function(){ 
+            $(".tab").attr('style','padding-top:'+localStorage.topH+'px');
+            $(".box").attr('style','margin-top:'+localStorage.topH+'px');
+            });
+//加入规则遮罩层
+        $(document).ready(function () {
+                $(".rule").on('click',function () {
+                    // console.log("aaa");
+                    event.stopPropagation();
+                    $(".rule_mask").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").click(function (event) {
+                    var con=$(".rule_text");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".rule_mask").hide();
+                    }
+                })
+            });
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    alert(data1)
+    $('.value_tab').css('padding-top',data1+'px');
+     $(".egg").trigger('click');
+     $("#main").css('top',data1+126+'px');
+}
+            
+            
+       
+$(document).ready(function  () {
+	$(".egg").one("click",function () {
+		document.getElementById('bgmusic').play();  
+    })
+    getInterface().getStatusBarHeight();
+
+});
+
+
+function winner () {
+	$.ajax({
+		 		 type:"GET",
+                url:HOSTNAME+"/win",
+                datatype:"json",
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                success:function(result){  
+                console.log(result.win.id);              	
+                		if(result.win.id==null){
+                			getInterface().callAndroidLog("太可惜了，您没有砸中！");
+                        click=0;
+                    
+                		}
+                		else{
+                		localStorage.setItem('id',result.win.id);
+                		if(result.win.category=='A'){
+                	$(".hb_title").html(result.win.title);
+                	
+                	$("#hb_price").html(result.win.des.match(/\d+/g)[1]+"元店铺优惠券");
+                	$(".hb_price").html(result.win.des.match(/\d+/g)[1]);
+                	$("#hb_limited").html(result.win.des.match(/\d+/g)[0]);
+                		}
+                		if(result.win.category=='B'){
+                			$("#hb_price").html(result.win.title);
+                			$(".hb_mark").html(result.win.des);
+                				$(".hb_title").html(result.win.area);
+                		}
+                		if(result.win.category=='C'){
+                			$("#hb_price").html(result.win.des);
+                			$(".hb_title").html(result.win.area);
+                			$(".hb_limited").hide();
+                			$(".hb_mark").hide();
+                		}
+                		setTimeout(function(){
+            			$(".mask").attr('style','display:block;');
+            			//                点击空白处隐藏弹出
+               				 // $("body").click(function (event) {
+                    //     		$(".mask").hide();
+                    // 	});
+            
+        },2000);
+                		}
+                },
+                error: function() {toast(result.err);}
+		 	})
+	// body...
+}
+
+function getq () {
+					// body...
+						
+		$.ajax({
+                type:"POST",
+                url:HOSTNAME+"/couponMobile",
+                data:{mobile:localStorage.mobile,couponid:localStorage.id},
+                datatype:"json",
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                success:function(result){
+                         console.log(result);
+                         if(result.sended=='yes'){
+                         	getInterface().callAndroidLog("您已经领取过优惠券！")
+                         }
+                         else{
+                         	$("#code").html(result.code);
+
+                         }
+
+           },
+            error:function(result){}
+	});
+}
+
+	function createCode(){
+    curCount = count;
+    $('#code').attr("disabled","true" );
+    // console.log($('#phonenumber').val());
+    var mobile = $("#phonenumber").val();
+    if( mobile == ''){
+        getInterface().callAndroidLog("手机号不能为空！");
+    }else{
+        $.get(HOSTNAME+'/sendVerifyCode?mobile='+mobile,function (result) {
+
+            if(result.code==1)
+            {
+                InterValObj = window.setInterval(SetRemainTime, 1000);
+                $('.sendcode').html("重发(" + curCount + ")");
+                getInterface().callAndroidLog("短信验证码已发到您的手机,请查收");
+                console.log(curCount);
+            }
+            else{
+                getInterface().callAndroidLog("短信验证码发送失败，请重新点击获取验证码");
+            }
+        });
+    }
+}
+//倒时开始
+function SetRemainTime() {
+    if (curCount == 0) {
+        window.clearInterval(InterValObj);// 停止计时器
+        $('.checkcode').html("获取验证码");
+        $('.checkcode').removeAttr("disabled");
+    }else {
+        curCount--;
+        $('.checkcode').html("重发(" + curCount + ")");
+        $('.checkcode').attr("disabled","disabled" );
+    }
+}
+//校验验证码
+function validate(){
+
+    var inputCode = document.getElementById("checkcode").value.toUpperCase(); //取得输入的验证码并转化为大写
+    if(inputCode.length <= 0) { //若输入的验证码长度为0
+        getInterface().callAndroidLog("请输入验证码！"); //则弹出请输入验证码
+    }
+    else{ //若输入的验证码与产生的验证码不一致时
+        var code = $("#checkcode").val();
+        var mobile = $("#phonenumber").val();
+        // var uuid = localStorage.getItem("wxarpt-my-uuid");
+            // console.log(uuid);
+            // console.log(mobile,code);
+            $.ajax({
+                type:"POST",
+                url:HOSTNAME+"/userCodeLogin",
+                data:{mobile:mobile,code:code},
+                datatype:"json",
+                xhrFields:{
+                    withCredentials:true
+                },
+                crossDomain:true,
+                success:function(result){
+                         // console.log(result);
+
+            if(result.code==1)
+            {   
+                // console.log("loginsuccess");
+                localStorage.setItem("mobile",mobile);
+                getq();
+            }
+            else
+            {
+                getInterface().callAndroidLog("请输入正确的验证码！");
+                // alert(result.err);
+            }
+                }
+                // error:function(result){
+                    
+                // }
+            });
+        }
+}
+        
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+body{width: 1080px;height: 1920px;background-color: #FCF9FE;margin: 0;}
+
+.limited-img{margin-bottom: 27px; position: relative;}
+.follow-block{width: 84px;height: 301px;background-color: #E4E5E9;position: absolute;z-index: 100;left: 996px; top: 1103px;
+				 border-top-left-radius: 36px;    border-bottom-left-radius: 36px;}
+.follow-word{color: #FB7981;font-size: 36px;font-family: "PingFang-SC-Medium";width: 34px;line-height:35px;margin-left: 29px;}
+.follow-icon{margin-top: 16px;margin-left: 20px;}
+.title-word{    margin-top: 85px;
+    margin-left: 284px;font-family: "PingFang-SC-Regular"; font-size: 53px; background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;}
+

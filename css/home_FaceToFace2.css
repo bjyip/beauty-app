@@ -1,0 +1,107 @@
+.lay{
+    width: 1080px;
+    height: 1920px;
+}
+.bg{
+    background: url("../image/home_physiognomy/img_Physiognomy_bg.png") no-repeat;
+    height: 1736px;
+    width: 1080px;
+    opacity: 0.5;
+}
+/*明星大图*/
+/*明星小图*/
+.star_sm{
+    position: absolute;
+    left: 94px;
+    top: 986px;
+    z-index: 9999;
+}
+.star_sm li{
+    width: 217px;
+    height: 272px;
+    float: left;
+    background-color: #fff;
+    padding:0 4px 0 4px;
+
+}
+/*文字*/
+.star_font{
+    position: absolute;
+    top: 1292px;
+    left: 53px;
+    font-size: 42px;
+    text-align: center;
+}
+.star_font p{
+    display: inline-block;
+    font-size: 42px;
+    text-align: center;
+}
+.star_font b{
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 42px;
+}
+/*验证区域*/
+.phone input{
+    position: absolute;
+    left:252px;
+    top: 1446px;
+    font-size: 36px;
+    width: 542px;
+    height: 97px;
+    border-radius: 3%;
+    background: url("../image/home_FaceToFace2/Smartphone.png") no-repeat 34px;
+    z-index: 9999;
+    border: solid 1px #FF6E90;
+    /*text-align: center;*/
+}
+.phone_code input{
+    position: absolute;
+    left: 252px;
+    top: 1568px;
+    width: 316px;
+    height: 98px;
+    font-size: 36px;
+    border-radius: 3%;
+    background: url("../image/home_FaceToFace2/phonecode.png") no-repeat 29px;
+    border: solid 1px #FF6E90;
+}
+input::-ms-input-placeholder{
+    /*left: 50px;*/
+    /*text-align: left;*/
+}
+input::-webkit-input-placeholder{
+    text-align: left;
+    padding-left: 89px;
+}
+.phone_code span{
+    position: absolute;
+    left: 579px;
+    top: 1567px;
+    width: 216px;
+    height: 98px;
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 98px;
+    text-align: center;
+    background: linear-gradient(to right, #ED4264, #F97575,#ED4264);
+    border-radius:3% ;
+}
+.conf p{
+    position: absolute;
+    width: 523px;
+    height: 101px;
+    left: 258px;
+    top: 1710px;
+    font-size: 60px;
+    text-align: center;
+    line-height: 101px;
+    border-radius: 3%;
+    color: #ffffff;
+    background: linear-gradient(to right, #ED4264, #F97575,#ED4264);
+}
+input:focus{
+    background-image: none;
+}

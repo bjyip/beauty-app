@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_baike1.css">
+    <title>咋整百科</title>
+    <style>
+    /*取消长按事件*/
+    * {  
+        -webkit-touch-callout: none;  
+        -webkit-user-select: none;  
+        -khtml-user-select: none;  
+        -moz-user-select: none;  
+        -ms-user-select: none;  
+        user-select: none;  
+    }  
+    </style>  
+</head>
+<body>
+<div class="lay">
+    <div class="top-padding">
+
+        <!--顶部tab-->
+        <div class="value_tab">
+            <!--后退-->
+            <img id="back" src="../image/icon-right.png" alt="">
+            <!--关闭-->
+            <!--标题-->
+            <span class="vf">咋整百科</span>
+            <!--更多-->
+        </div>
+    </div>
+    <div class="zaz_list">
+        <ul class="list-ul">
+
+        </ul>
+    </div>
+    <!--中间的大图-->
+    <div class="baike_img">
+        <div class="part" id="part">
+            <div data-partId="5tnd94ii" id="eyebrow" class="part-div eyebrow"></div>
+            <div data-partId="jr6j96ix" id="eye" class="part-div eye"></div>
+            <div data-partId="erduolc1" id="ears" class="part-div ears"></div>
+            <div data-partId="xyjadma8" id="nose" class="part-div nose"></div>
+            <div data-partId="3civrquh" id="face" class="part-div face"></div>
+            <div data-partId="xagv4r6a" id="mouth" class="part-div mouth"></div>
+            <div data-partId="xiabac1" id="chin" class="part-div chin"></div>
+        </div>
+    </div>
+    <div class="tishi">
+        请点击您感兴趣想了解的部位，系统会推送相关的内容，
+        <br>
+        如双眼皮，请点击眼睛。
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script>
+    //loading
+    getInterface().hud_loading();
+     //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+    function return_getStatusBarHeight(data1,data2){
+        $('.top-padding').css('padding-top',parseInt(data1)+'px');
+    }
+    var back =document.getElementById("back");
+    back.onclick=function () {
+        getInterface().leftBtnClick();
+    }
+
+
+
+    // 获取数据
+    getInterface().post_action("getOperation",'','get');
+    function return_action(data,data2){
+        if(data2 == 'getOperation'){
+            if(data.code == 1){
+                for (var i in data.operations){
+                    if(data.operations[i].parentid == 0){
+                        var li = '<li data-partId="'+data.operations[i].id+'">'+data.operations[i].name+'</li>';
+                        $('.list-ul').append(li);
+                    }
+                }
+                //解除loading
+                getInterface().hud_hide();
+            }
+        }
+    }
+
+
+    //点击按钮跳转
+    $('.zaz_list').on('tap','li',function(){
+        var partId = $(this).attr('data-partId');
+        getInterface().html_jump_href(service+'/html/home_baike2.html?partId='+partId, 'yes');
+    });
+    //点击图片跳转
+    $('#part').on('tap','.part-div',function(){
+        var partId = $(this).attr('data-partId');
+        getInterface().html_jump_href(service+'/html/home_baike2.html?partId='+partId, 'yes');
+    });
+
+</script>
+</body>
+</html>

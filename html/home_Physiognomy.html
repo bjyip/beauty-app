@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>-->
+    <title>颜值分析</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <!--<link rel="stylesheet" href="../base/tab.css">-->
+    <link rel="stylesheet" href="../css/home_Physiognomy.css">
+</head>
+<body>
+<!--顶部兰-->
+<div class="tab">
+    <!--后退-->
+    <div id="back"></div>
+    <!--说明-->
+    <div id="bg"></div>
+</div>
+<!--使用说明遮罩层-->
+<div class="mask_bg">
+    <div class="mask_bg_img"></div>
+</div>
+<!--摄像区-->
+
+    <!--相机-->
+    <div id="camer"></div>
+<!--照片替换区-->
+    <div id="pic"></div>
+    <!--分析图-->
+    <div class="tool"></div>
+
+    <div class="figure">  </div>
+    <div class="jx ">开始分析</div>
+    <!--测试-->
+    <img class="beg" src="../image/face/paizhao.png" alt="">
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/android.js"></script>
+    <script src="../js/bbmis.js"></script>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/layer/layer.min.js"></script>
+    <script>
+        $(function(){
+            //判断设备
+            getInterface().getAppInfo();
+        });
+
+        //后退
+           $('#back').on('tap',function () {
+               getInterface().leftBtnClick();
+           }) ;
+//  使用说明遮罩层
+       $(document).ready(function () {
+           $("#bg").on("click",function (event) {
+               event.stopPropagation();
+               event.preventDefault();
+               $('.mask_bg').toggle();
+           })
+          // 点击空白处隐藏弹出
+           $("body").on('click',function (event) {
+
+               var con=$("#bg");
+               if(!con.is(event.target)&& con.has(event.target).length ==0){
+                   $(".mask_bg").hide();
+
+               }
+           })
+       })
+
+        var clientId='59f6e1064467027c0c1c786f';
+        var deviceId='123';
+        var file='';
+        var uuid='';
+        var verification='';
+
+        $('.beg').on('tap',function () {
+            getInterface().post_photo('other','face','face');
+        });
+        $('#pic').on('tap',function () {
+            getInterface().post_photo('other','face','face');
+        });
+
+        function return_photo(data1,data2) {
+                file=data1;
+            var img=new Image();
+            img.onload=function () {
+                $('#pic').css('background-image','url('+file+')').css('background-position','center').css('background-size','cover').css('z-index','99');
+            };
+            img.src=file;
+            localStorage.setItem('image_path',file);
+            $('.figure').hide();
+            $('.beg').hide();
+            $('.jx').addClass("jx_show");
+//            alert(file)
+            if(data1){
+                getInterface().post_action('lookTestUrl',JSON.stringify({clientId:clientId,deviceId:deviceId,file:file}),'post')
+
+            }
+            getInterface().getPictureQA(file);
+        }
+        function return_getPictureQA(data){
+            if(data.faces.length == 0){
+                jumpFlag = false;
+                getInterface().callAndroidLog('请平视摄像头拍照');
+
+            }else{
+
+                jumpFlag = true;
+
+            }
+        }
+
+        function return_action(data,data2) {
+            if(data2 == 'lookTestUrl'){
+                    alert(data.code)
+                if(data.code==1){
+                //验证通过
+                verification=1;
+                uuid =data.uuid;
+            }else{
+                //照片没验证
+                verification = 2;
+            }
+            }
+        }
+
+        // 开始测试跳转
+        $('.jx').on('tap',function () {
+            if(file &&  jumpFlag){
+//                alert("here");
+                if(verification==1){
+                    getInterface().html_jump_href(service+'/html/home_Physiognomy3.html?uuid='+uuid+'&clientId=59f6e1064467027c0c1c786f','yes');
+                }else{
+                    getInterface().callAndroidLog("请拍照或者选择照片");
+                }
+            }
+            });
+
+
+    </script>
+</body>
+</html>

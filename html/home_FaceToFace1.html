@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_FaceToFace1.css">
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+
+        <!--标题-->
+        <span class="vf">颜值测试</span>
+        <!--更多-->
+    </div>
+    <!--背景图片-->
+    <div class="bg"></div>
+    <!--中部-->
+    <span class="tool_face">测测你和哪个明星最像</span>
+    <!--相机-->
+    <div class="use">
+        <!--相机-->
+        <img class="camer" src="../image/home_physiognomy/img_photo.png" alt="">
+        <!--选择性别-->
+        <div class="start_select case" id="sex_radio">
+            <div class="button-holder">
+                <span id="tag">选择性别:</span>
+                  <div class="radio-icon" id="radio-icon-1">
+                      <img src="../image/home_FaceToFace2/btn_img (1).png" alt="">
+                  </div>
+                <input value="0" type="radio" id="radio-1-1" name="radio-1-set" class="regular-radio" checked />
+                <label for="radio-1-1"></label><span>女</span>
+                <div class="radio-icon" id="radio-icon-2">
+                    <img src="../image/home_FaceToFace2/btn_img (1).png" alt="">
+                </div>
+                <input value="1" type="radio" id="radio-1-2" name="radio-1-set" class="regular-radio" /><label for="radio-1-2"></label><span>男</span>
+            </div>
+        </div>  
+        <!--测试-->
+        <a href="home_FaceToFace2.html">
+        <img class="beg" src="../image/facetoface.png" alt="">
+            </a>
+        <!--使用-->
+        <p>如何使用？</p>
+    </div>
+</div>
+<script>
+   //        后退
+             $(".back").on('click',function () {
+                getInterface().leftBtnClick();
+            });
+</script>
+</body>
+</html>

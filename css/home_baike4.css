@@ -1,0 +1,386 @@
+body{
+    background-color: #FCF9FE;
+}
+.lay{
+    width: 1080px;
+    display: none;
+    padding-bottom: 20px;
+}
+.top-padding{
+    width: 1080px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    width: 1080px;
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+    text-align: center;
+}
+
+/*内容区*/
+.cont{
+    /*width: 1015px;*/
+    padding: 0;
+    margin: 146px 0 0 65px;
+    /*position: relative;*/
+}
+.bns_img{
+    display: inline-block;
+    width: 283px;
+    height: 283px;
+    background: url("../image/home_Baike/six.png") no-repeat center;
+    background-size: cover;
+}
+/*在线咨询*/
+.adv{
+    display: inline-block;
+    width: 248px;
+    height: 87px;
+    position: fixed;
+    top: 1000px;
+    left: 833px;
+    font-size: 30px;
+    color:#FB7981 ;
+    background-color: #E4E5E9;
+    float: right;
+    text-indent: 30px;
+    border-radius:36px 0 0 36px;
+    box-shadow: 2px 2px 10px rgba(133, 132, 132, 0.71);
+}
+/*信息区*/
+.info{
+    margin-top: 53px;
+    clear: right;
+}
+.info ul{
+    vertical-align: super;
+    display: inline-block;
+    padding-left: 30px;
+    height: 100%;
+}
+.info li{
+    max-width: 208px;
+    font-size: 36px;
+    text-align: center;
+    color: #5A5A5A;
+    vertical-align: super;
+    height: 48px;
+}
+.info .rightInfo {
+    display: inline-block;
+    vertical-align: super;
+}
+.rightInfo table{
+    margin-left: 40px;
+    width: 650px;
+}
+.rightInfo thead td{
+    font-size: 46px;
+    color: #A19E9D;
+    text-align: center;
+    width: 216px;
+}
+.rightInfo tbody td{
+    font-size: 36px;
+    color: #5A5A5A;
+    text-align: center;
+    padding: 0 10px;
+    width: 216px;
+}
+/*简介*/
+.introd{
+    margin-top: 100px;
+
+}
+.introd_first{
+    display: inline-block;
+    background: url("../image/home_Baike/Tasks.png") no-repeat;
+    width: 188px;
+    font-size: 48px;
+    padding-left: 71px;
+    color:#A19E9D;
+    margin-bottom: 10px;
+}
+.bor{
+    border-left: 5px solid #CBCBCB;
+}
+.introd_nose{
+    display: block;
+    font-size: 36px;
+    color: #000000;
+    width: 899px;
+    margin-top:10px ;
+    padding-left: 31px;
+    line-height: 48px;
+}
+.nose_mic{
+
+    display: block;
+    background: url("../image/home_Baike/icon_nose.png") no-repeat 1px 1px;
+    width: 200px;
+    height: 60px;
+    font-size: 36px;
+    color: #FB7981;
+    margin-top: 23px;
+    padding-left: 55px;
+}
+/*适合人群*/
+.suit{
+    margin-top: 50px;
+}
+.suit_bor{
+    border-left: 5px solid #CBCBCB;
+}
+.suit_first{
+    display: inline-block;
+    background: url("../image/home_Baike/Group.png") no-repeat;
+    width: 280px;
+    font-size: 48px;
+    padding-left: 86px;
+    color:#A19E9D;
+    margin-bottom: 10px;
+}
+
+.suit_sec li{
+    font-size: 36px;
+    color: #000000;
+    padding-left: 30px;
+    line-height: 42px;
+}
+/*禁忌人群*/
+.suit_thir{
+    display: inline-block;
+    height: 65px;
+    font-size: 48px;
+    padding-left: 71px;
+    color: #A19E9D;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.suit_four li{
+    display: block;
+    font-size: 36px;
+    color: #000000;
+    padding-left: 30px;
+    line-height: 42px;
+}
+/*优点*/
+.point{
+    margin-top: 60px;
+}
+.point_bor{
+    /*height: 350px;*/
+    border-left: 5px solid #CBCBCB;
+}
+.point_first{
+    background: url("../image/home_Baike/dianzan.png") no-repeat;
+    display: inline-block;
+    width: 188px;
+    height: 65px;
+    font-size: 48px;
+    padding-left: 71px;
+    color:#A19E9D;
+    margin-bottom: 10px;
+}
+
+.point_thir li{
+    font-size: 36px;
+    color: #000000;
+    padding-left: 30px;
+    line-height: 42px;
+}
+/*缺点*/
+.point_four{
+    display: inline-block;
+    width: 188px;
+    height: 65px;
+    font-size: 48px;
+    padding-left: 71px;
+    color:#A19E9D;
+    margin-bottom: 10px;
+}
+
+.point_five li{
+    font-size: 36px;
+   color: #000000;
+    padding-left: 30px;
+    line-height: 42px;
+
+}
+/*手术时长*/
+.surgery{
+    margin-top: 60px;
+}
+
+.surgery_bor{
+    height: 210px;
+    border-left: 5px solid #CBCBCB;
+}
+.surgery_one{
+    padding-left: 60px;
+    background: url("../image/home_Baike/Hospital-Clamp.png") no-repeat;
+    width: 950px;
+    height: 51px;
+}
+.surgery_one ul{
+    clear: right;
+}
+.surgery_one ul > li{
+    display: inline-block;
+    font-size: 48px;
+    clear: right;
+    color: #A19E9D;
+}
+.surgery_one ul :nth-child(2){
+    margin-left: 130px;
+}
+.surgery_one ul :nth-child(3){
+    margin-left: 256px;
+}
+.surgery_two{
+    padding-left: 60px;
+    margin: 20px 0;
+}
+.surgery_two ul > li{
+    display: inline-block;
+    font-size: 48px;
+}
+.surgery_two ul :nth-child(2){
+    margin-left: 159px;
+}
+.surgery_two ul :nth-child(3){
+    margin-left: 279px;
+    margin-right: 11px;
+}
+.surgery_three{
+    padding-left: 60px;
+}
+.surgery_three ul > li{
+    display: inline-block;
+    font-size: 48px;
+    /*clear: right;*/
+    color: #A19E9D;
+}
+.surgery_three ul :nth-child(2){
+    margin-left: 216px;
+}
+.surgery_three ul :nth-child(3){
+    margin-left: 160px;
+}
+
+.surgery_four{
+    padding-left: 60px;
+}
+
+.surgery_four ul > li{
+    display: inline-block;
+    font-size: 48px;
+}
+.surgery_four ul li:first-child{
+    width: 162px;
+    height: 52px;
+    /*position: relative;
+    z-index: 100;
+    top: 187px;*/
+    display: inline-block;
+}
+.surgery_four ul :nth-child(2){
+    display: inline-block;
+    width: 192px;
+    margin-left: 150px;
+}
+.surgery_four ul :nth-child(3){
+    margin-left: 180px;
+    display: inline-block;
+     width: 192px;
+}
+
+/*项目原理及手术详细事宜*/
+.proj{
+    margin-top: 70px;
+}
+.proj_first{
+    font-size: 48px;
+    color: #A19E9D;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+.proj_sec{
+    display: inline-block;
+    height: 65px;
+    font-size: 48px;
+    padding-left: 31px;
+    color: #A19E9D;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.proj ol{
+    overflow: hidden;
+}
+
+.proj ul{
+    margin-top: 43px;
+
+
+}
+.proj ul > li{
+    float: left;
+    font-size: 28px;
+    color:  #FB7981;
+
+}
+
+.proj_one{
+    background: url("../image/home_Baike/tc_2.png") no-repeat;
+    width: 227px;
+    height: 170px;
+    padding-top: 252px;
+    margin-right: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.proj_two{
+    background: url("../image/home_Baike/tc_3.png") no-repeat;
+    width: 227px;
+    height: 226px;
+    padding-top: 252px;
+    margin-left: 8px;
+}
+.proj_three{
+    background: url("../image/home_Baike/tc_4.png") no-repeat;
+    width: 227px;
+    height: 226px;
+    padding-top: 252px;
+    margin-left: 8px;
+}
+.proj_four{
+   background: url("../image/home_Baike/tc_5.png") no-repeat;
+    width: 227px;
+    height: 226px;
+    padding-top: 252px;
+    margin-left: 8px;
+}
+.clear{
+    clear:both;
+    height: 0;
+    line-height: 0;
+    font-size: 0
+}
+.more{
+    font-size: 60px;
+    color: #FB7981;
+    text-align: center;
+}
+

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>限时优惠</title>
+    <link rel="stylesheet" href="../css/limitTime.css">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <style>
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .value_tab{
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<!--顶部tab-->
+<div class="value_tab">
+    <!--后退-->
+    <div id="back"></div>
+    <!--关闭-->
+    <!--标题-->
+    <span class="vf">限时优惠</span>
+    <!--更多-->
+</div>
+<div class="box"></div>
+<div class="content">
+    <p>医美自助平台为你推荐</p>
+    <span class="eng">THE BEST RECOMMENDATION FOR YOU</span>
+    <div class="first">
+        <ul>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                    <span class="priceL"></span><del></del>
+
+
+            </li>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"> </span><del></del>
+            </li>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"> </span><del></del>
+            </li>
+        </ul>
+    </div>
+    <div class="second">
+        <ul>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"> </span><del></del>
+            </li>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"> </span><del></del>
+            </li>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"> </span><del></del>
+            </li>
+        </ul>
+    </div>
+    <div class="third">
+        <ul>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"></span><del></del>
+            </li>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"></span><del></del>
+            </li>
+            <li>
+                <span class="pic"></span>
+                <span class="project"></span>
+                <span class="hos"></span>
+                <span class="priceL"></span><del></del>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="botm"></div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script>
+
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    alert(data1)
+    $('.value_tab').css('padding-top',data1+'px');
+}
+
+    $('.botm').attr('style','height:'+localStorage.getItem('botH')+'pt')
+    //后退
+    $('#back').on('tap',function () {
+        getInterface().leftBtnClick();
+    }) ;
+    $('li').on('tap',function () {
+        getInterface().html_jump_href(service+'/html/coupon.html','no');
+    })
+//    请求数据
+//        var title = getQueryStringByName("title");
+        var title = getQueryStringByName("title");
+
+         getInterface().post_action("timeprices","",'get');
+
+//        alert(JSON.stringify("timeprices"))
+         function return_action(data,data2) {
+//             alert(data2)
+             if(data2 == 'timeprices'){
+//                 alert(data.ret)
+                 if(data.ret == 1){
+                    var json=data.timeprices;
+                     var arr=[];
+                     var arr_title=[];
+                     var arr_des=[];
+                     var arr_img=[];
+                     var arr_priceH=[];
+                     $.each(json,function (idx,obj) {
+                         arr.push(obj.price),
+                         arr_title.push(obj.title),
+                         arr_des.push(obj.des),
+                         arr_img.push(obj.img),
+                         arr_priceH.push(obj.priceH);
+                     })
+                     // 促销价
+                     $(".priceL:eq(0)").html("¥"+arr[0]);
+                     $(".priceL:eq(1)").html("¥"+arr[1]);
+                     $(".priceL:eq(2)").html("¥"+arr[2]);
+                     $(".priceL:eq(3)").html("¥"+arr[3]);
+                     $(".priceL:eq(4)").html("¥"+arr[4]);
+                     $(".priceL:eq(5)").html("¥"+arr[5]);
+                     $(".priceL:eq(6)").html("¥"+arr[6]);
+                     $(".priceL:eq(7)").html("¥"+arr[7]);
+                     $(".priceL:eq(7)").html("¥"+arr[7]);
+                     $(".priceL:eq(8)").html("¥"+arr[8]);
+                     $(".priceL:eq(9)").html("¥"+arr[9]);
+
+
+                     //原价
+                     $('del:eq(0)').html("¥"+arr_priceH[0]);
+                     $('del:eq(1)').html("¥"+arr_priceH[1]);
+                     $('del:eq(2)').html("¥"+arr_priceH[2]);
+                     $('del:eq(3)').html("¥"+arr_priceH[3]);
+                     $('del:eq(4)').html("¥"+arr_priceH[4]);
+                     $('del:eq(5)').html("¥"+arr_priceH[5]);
+                     $('del:eq(6)').html("¥"+arr_priceH[6]);
+                     $('del:eq(7)').html("¥"+arr_priceH[7]);
+                     $('del:eq(8)').html("¥"+arr_priceH[8]);
+                     $('del:eq(9)').html("¥"+arr_priceH[9]);
+                     //项目标题
+                     $('.project:eq(0)').html(arr_title[0]);
+                     $('.project:eq(1)').html(arr_title[1]);
+                     $('.project:eq(2)').html(arr_title[2]);
+                     $('.project:eq(3)').html(arr_title[3]);
+                     $('.project:eq(4)').html(arr_title[4]);
+                     $('.project:eq(5)').html(arr_title[5]);
+                     $('.project:eq(6)').html(arr_title[6]);
+                     $('.project:eq(7)').html(arr_title[7]);
+                     $('.project:eq(8)').html(arr_title[8]);
+                     $('.project:eq(9)').html(arr_title[9]);
+                    //美容院名字
+                     $('.hos:eq(0)').html(arr_des[0]);
+                     $('.hos:eq(1)').html(arr_des[1]);
+                     $('.hos:eq(2)').html(arr_des[2]);
+                     $('.hos:eq(3)').html(arr_des[3]);
+                     $('.hos:eq(4)').html(arr_des[4]);
+                     $('.hos:eq(5)').html(arr_des[5]);
+                     $('.hos:eq(6)').html(arr_des[6]);
+                     $('.hos:eq(7)').html(arr_des[7]);
+                     $('.hos:eq(8)').html(arr_des[8]);
+                     $('.hos:eq(9)').html(arr_des[9]);
+                    //图片
+                     $('.pic:eq(0)').css("background","url("+arr_img[0]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(1)').css("background","url("+arr_img[1]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(2)').css("background","url("+arr_img[2]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(3)').css("background","url("+arr_img[3]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(4)').css("background","url("+arr_img[4]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(5)').css("background","url("+arr_img[5]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(6)').css("background","url("+arr_img[6]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(7)').css("background","url("+arr_img[7]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(8)').css("background","url("+arr_img[8]+")").css('background-position','center').css('background-size','cover');
+                     $('.pic:eq(9)').css("background","url("+arr_img[9]+")").css('background-position','center').css('background-size','cover');
+                 }
+             }
+         }
+
+</script>
+</body>
+</html>

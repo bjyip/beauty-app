@@ -1,0 +1,47 @@
+body{
+	width: 1080px;
+	/*height: 1920px;*/
+	background-color: #FCF9FE;
+	margin: 0;
+	/*margin: 80px;*/
+}
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #9F9F9F; 
+} 
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #9F9F9F; 
+} 
+input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #9F9F9F; 
+} 
+input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #9F9F9F; 
+} 
+input{
+	border: 0px;
+	font-size: 60px;
+	text-indent: 140px;
+	width: 898px;
+	height: 176px;
+	outline:none;
+}
+button{
+	outline:none;
+}
+.sign_button{
+	width: 899px;
+	height: 175px;
+	background-color: #B4B5B5;
+	color: #fff;
+	font-size: 60px;
+	border-radius: 10px;
+	margin-left: 89px;
+}
+.back{
+	margin-top: 154px;
+	margin-left: 94px;
+}
+a{
+	text-decoration:none;
+}

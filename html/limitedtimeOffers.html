@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/limitedtimeoffers.css">
+	<link rel="stylesheet" type="text/css" href="../css/headandall.css">
+	<link rel="stylesheet" href="../base/tab.css">
+	<meta charset="UTF-8">
+	<title>限时优惠</title>
+</head>
+<body>
+	<div class="head-block tab">
+		<div class="head-icon-l left-float">
+			<img id="back" src="../image/home_CheckPrice/Path002.png" alt="">
+		</div>
+		<!--<div class="head-icon-l left-float">-->
+			<!--<img src="../image/home_CheckPrice/Cross.jpg" alt="">-->
+		<!--</div>-->
+		<div class="title-word left-float">限时优惠</div>
+		<!--<div class="head-icon-r right-float">-->
+			<!--<img src="../image/home_CheckPrice/Path0.jpg" alt="">-->
+		<!--</div>-->
+	</div>
+	<div class="box">
+	<div class="limited-img">
+	<img src="../image/home_LimitedtimeOffers/3.png" alt="">
+		
+	</div>
+	<div class="limited-img">
+	<img src="../image/home_LimitedtimeOffers/1.jpg" alt="">
+		
+	</div>
+
+	<div class="follow-block">
+		<img class="follow-icon" src="../image/home_CheckPrice/Clock-pre.png" alt="" />
+		<div class="follow-word">关注限时优惠</div>
+	</div>
+	<div class="maskqr">
+                <img src="../image/qc.png" alt="" class="qrcode">
+            </div>
+	<div class="limited-img">
+		<img src="../image/home_LimitedtimeOffers/2.png" alt="">
+	</div>
+	</div>
+	  <script src="../js/android.js"></script>
+    <script src="../js/jquery.min.js"></script>
+	<script>
+ //        后退
+             $("#back").on('click',function () {
+                getInterface().leftBtnClick();
+            })
+		 //二维码遮罩层
+        $(document).ready(function () {
+                $(".follow-block").click(function (event) {
+                    // console.log("aaa");
+                    event.stopPropagation();
+                    $(".maskqr").toggle();
+                });
+//                点击空白处隐藏弹出
+                $("body").click(function (event) {
+                    var con=$(".qrcode");
+                    if(!con.is(event.target)&& con.has(event.target).length ==0){
+                        $(".maskqr").hide();
+                    }
+                })
+            });
+		// localStorage.topH;
+		$(document).ready(function(){  
+            $(".tab").attr('style','padding-top:'+localStorage.topH+'px');
+            $(".box").attr('style','padding-top:'+localStorage.topH+'px');
+        });
+	</script>
+</body>
+</html>

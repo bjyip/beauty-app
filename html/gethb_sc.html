@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../css/gethb_sc.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/headandall.css">
+	<title>扫描二维码领取现金红包</title>
+</head>
+<body>
+<div class="head-block tab">
+		<div class="head-icon-l left-float">
+			<img id="back" src="../image/icon-right.png" alt="">
+		</div>		
+		<div class="title-word left-float">领取现金红包</div>
+		
+	</div>
+	<div class="box">
+  <img src="../image/4.qr.png" alt="" class="hbimage-3">
+            <img src="../image/hb_qr.jpg" alt="" class="hbqrimg" style="display:none;">
+		</div>
+
+
+             <script src="../js/android.js"></script>
+    			<script src="../js/jquery.min.js"></script>
+    			<script src="../js/swiper.min.js"></script>
+    			<script src="../js/bbmis.js"></script>
+    			<script src="../js/mui.min.js"></script>
+    			<script src="../js/layer/layer.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var move=1135;
+
+                        var moveID;                       
+                           moveID=setInterval(function  () {
+                               // body...
+                               if (move>600) {
+                            move=move-55;
+                             $('.hbimage-3').css("bottom",move+"px");
+                             // console.log("move");
+                           }else{
+                            clearInterval(moveID);
+                            $('.hbqrimg').attr('style','');
+                           }
+                           },100)
+	})
+	 $("#back").on('tap',function () {
+                 getInterface().html_jump_href(service+'/home.html','no');
+            });
+   $(document).ready(function(){  
+            $(".tab").attr('style','padding-top:'+localStorage.topH/2+'px');
+            $(".box").attr('style','padding-top:'+localStorage.topH/2+'px');
+          });
+</script>	
+</body>
+</html>

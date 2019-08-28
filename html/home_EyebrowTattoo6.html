@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_EyebrowTattoo6.css">
+    <script src="../js/iscroll.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+        <!--标题-->
+        <span class="vf">AI-Beauty</span>
+        <!--更多-->
+    </div>
+    <div class="middle">
+        <!--照片-->
+        <div class="camer">
+            <!--当前眉形-->
+            <div class="cmaer_current">
+                <span class="cur_font">当前眉形</span>
+                <span class="cur_img"></span>
+            </div>
+            <!--已选眉形-->
+            <div class="camaer_select">
+                <span class="select_font">一字眉A</span>
+                <span class="select_img"></span>
+            </div>
+            <!--粗细-->
+            <div class="camaer_thick">
+                <span class="thick_font">中</span>
+                <span class="thick_img"></span>
+            </div>
+            <!--已选颜色-->
+            <div class="camaer_color">
+                <span class="color_font">棕色</span>
+                <span class="color_img"></span>
+            </div>
+            <div class="botm">
+                <span class="botm_fontt">AI-Beauty</span>
+                <br>
+                <span class="botm_fontb">爱咋整自助医美平台</span>
+            </div>
+        </div>
+    </div>
+    <!--眉型区-->
+    <div class="nna">
+        <span class="eyebrow_help">帮助她选择适合的眉形吧</span>
+        <div class="eyebrow">
+            <ul>
+                <li dataNum="0" class="eyebrow_c eyebrow_seled">
+                    <span>一字眉C</span>
+                    <span class="eyebrow_tp">投票（已投0票）</span>
+                </li>
+                <li dataNum="0" class="eyebrow_b">
+                    <span>一字眉B</span>
+                    <span class="eyebrow_tp">投票（已投0票）</span>
+                </li>
+                <li dataNum="0" class="eyebrow_a">
+                    <span>一字眉A</span>
+                    <span class="eyebrow_tp">投票（已投0票）</span>
+                </li>
+                <li dataNum="0" class="eyebrow_ye">
+                    <span>柳叶眉</span>
+                    <span class="eyebrow_tp">投票（已投0票）</span>
+                </li>
+                <li dataNum="0" class="eyebrow_lai">
+                    <span>柳莱眉</span>
+                    <span class="eyebrow_tp">投票（已投0票）</span>
+                </li>
+            </ul>
+        </div>
+        <div class="app_img"></div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+//        后退
+             $(".back").on('click',function () {
+                getInterface().leftBtnClick();
+            });
+    //    m眉形选择
+        var liAtrr=document.getElementsByClassName("eyebrow")[0].getElementsByTagName("li");
+                console.log(liAtrr);
+                for(var i=0;i<liAtrr.length;i++){
+                    liAtrr[i].index=i;
+                    liAtrr[i].onclick=function () {
+                        console.log(this.index);
+                        for(var j=0;j<liAtrr.length;j++){
+                            liAtrr[j].classList.remove("eyebrow_seled");
+                        }
+                        this.classList.add("eyebrow_seled");
+                        console.log(123);
+                    }
+                }
+        $(".eyebrow li").on("click",function () {
+            var num=parseInt($(this).attr("dataNum"));
+            num++;
+            $(this).attr("dataNum",num);
+            $(this).find(".eyebrow_tp").html("投票（已投"+num+"票）");
+        })
+    </script>
+</div>
+</body>
+</html>

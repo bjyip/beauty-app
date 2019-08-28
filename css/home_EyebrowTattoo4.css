@@ -1,0 +1,299 @@
+.lay{
+    width: 1080px;
+    margin-top: 126px;
+    padding-bottom: 10px;
+}
+.top-padding{
+    width: 1080px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+/*中间部分*/
+/*拍照*/
+.middle{
+    height: 1080px;
+}
+.camer{
+    width: 1080px;
+    height: 1080px;
+    background-color: #8c8c8c;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+/*当前眉形*/
+.cmaer_current{
+    /*display: inline-block;*/
+    width: 235px;
+    height: 62px;
+    border: 2px solid #FF4A65;
+    border-radius: 31px;
+    /*position: absolute;*/
+    left: 761px;
+    top: 49px;
+    position: relative;
+}
+.cur_font{
+    display: inline-block;
+    font-size: 30px;
+    color: #FF4A65;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    left: 43px;
+    top: 18px;
+}
+.cur_img{
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/Diamond.png") no-repeat;
+    width: 49px;
+    height: 50px;
+    position: absolute;
+    left: 176px;
+    top: 6px;
+}
+/*已选眉形*/
+.camaer_select{
+    width: 275px;
+    height: 62px;
+    background-color: #000000;
+    border: 2px solid ;
+    border-radius: 31px;
+    /*position: absolute;*/
+    left: 721px;
+    top: 60px;
+    position: relative;
+}
+
+.select_font{
+    display: inline-block;
+    font-size: 30px;
+    color: #ffffff;
+    opacity: 0.5019607843137255;
+    position: absolute;
+    line-height: 62px;
+    right: 96px;
+}
+.select_img{
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/Eye-Closed.png") no-repeat;
+    width: 46px;
+    height: 35px;
+    position: absolute;
+    left: 215px;
+    top: 13px;
+}
+/*粗细*/
+.camaer_thick{
+    width: 275px;
+    height: 62px;
+    background-color: #000000;
+    border: 2px solid ;
+    border-radius: 31px;
+    /*position: absolute;*/
+    left: 721px;
+    top: 70px;
+    position: relative;
+}
+.thick_font{
+    display: inline-block;
+    font-size: 30px;
+    color: #ffffff;
+    opacity: 0.5019607843137255;
+    position: absolute;
+    line-height: 62px;
+    right: 96px;
+}
+.thick_img{
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/size.png") no-repeat;
+    width: 46px;
+    height: 17px;
+    position: absolute;
+    left: 211px;
+    top: 21px;
+}
+/*以选颜色*/
+.camaer_color{
+    width: 275px;
+    height: 62px;
+    background-color: #000000;
+    border: 2px solid ;
+    border-radius: 31px;
+    /*position: absolute;*/
+    left: 721px;
+    top: 80px;
+    position: relative;
+}
+.color_font{
+    display: inline-block;
+    font-size: 30px;
+    color: #ffffff;
+    opacity: 0.5019607843137255;
+    position: absolute;
+    line-height: 62px;
+    right: 96px;
+}
+.color_img{
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/Photos.png") no-repeat;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    left: 215px;
+    top: 11px;
+}
+.eyebrow_ask{
+    display: inline-block;
+    font-size: 48px;
+    background-image: -webkit-linear-gradient(left,RGB(255,104,150),RGB(255,132,111));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: 130px;
+    line-height: 130px;
+    padding-left: 277px;
+}
+.eyebrow-li{
+    display: inline-block;
+    border: 8px solid #E4E5E9;
+    box-sizing: content-box;
+    background-size: contain;
+    background-position: center 55px;
+    background-repeat: no-repeat;
+}
+/*选中的样式*/
+.eyebrow_seled{
+    display: inline-block;
+    border: 8px solid #FF6896;
+}
+/*.eyebrow_seled::before{
+    content: "";
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/Tick-mark.png") no-repeat;
+    background-position: center;
+    width: 70px;
+    height: 70px;
+    border: 8px solid #FF6896;
+    border-radius: 50%;
+    background-color: #E4E5E9;
+    position: absolute;
+    top: -28px;
+    left: 5px;
+}*/
+/*眉形区*/
+.nna{
+    height: 286px;
+    overflow: hidden;
+}
+.eyebrow{
+    white-space: nowrap;
+    overflow: auto;
+    background-color: #E4E5E9;
+    padding: 30px 20px;
+    height: 270px;
+    vertical-align: middle;
+}
+.eyebrow::-webkit-scrollbar {/*隐藏滚轮*/
+    display: none;
+}
+.eyebrow ul{
+    zoom: 1;
+    white-space: nowrap;
+}
+.eyebrow ul:first-child{
+    margin-left:-23px;
+}
+.eyebrow li{
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    background-color: #fff;
+    margin-left: 23px;
+    border-radius: 15px;
+
+}
+.eyebrow li > span{
+    display: block;
+    background-color: #8a9099;
+    text-align: center;
+    font-size: 42px;
+    width: 235px;
+    color:#FCFCFC;
+    font-family:PingFang-SC-Medium ;
+    margin-top: 175px;;
+}
+.eyebrow_c{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: 73px 80px ;
+    /*background-position: center;*/
+}
+.eyebrow_b{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -156px  80px ;
+}
+.eyebrow_a{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -415px  80px ;
+}
+.eyebrow_ye{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -670px  80px ;
+}
+.eyebrow_lai{
+    background: url("../image/home_EyebrowTattoo/meimao.png") no-repeat ;
+    background-position: -916px  80px ;
+}
+
+/*底部*/
+.botm{
+    height: 130px;
+    width: 775px;
+    margin: 30px auto;
+    padding-top: 50px;
+}
+.eyebrow_cancel{
+    display: inline-block;
+    width: 310px;
+    height: 90px;
+    line-height: 76px;
+    font-size: 48px;
+    text-align: center;
+    color: #707070;
+    border-radius: 15px;
+    border: 9px solid #E4E5E9;
+}
+.eyebrow_confirm{
+    display: inline-block;
+    width: 310px;
+    height: 90px;
+    line-height: 76px;
+    font-size: 48px;
+    color: #FF6896;
+    text-align: center;
+    border-radius: 15px;
+    border: 10px solid #E4E5E9;
+    background-color: #fff;
+    margin-left: 150px;
+}
+.show{
+    border-radius: 15px;
+    border: 9px solid #FF6896;
+}
+@media only screen and (min-device-width: 680px) {
+    .botm{
+        width: 791px;
+        margin: 30px auto;
+    }
+}

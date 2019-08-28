@@ -1,0 +1,20 @@
+#adv{
+    
+    background-position: center;
+    width: 1080px;
+    height: 1500px;
+}
+#adv span{
+	display: inline-block;
+	text-align: center;
+}
+#adv img{
+	display: inline-block;
+	margin-top:400px;
+	margin-left: 400px;
+	margin-bottom: 200px;
+	margin-right: -300px;
+}
+body{
+    background-color: #f5f5f5;
+}

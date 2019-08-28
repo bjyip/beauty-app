@@ -1,0 +1,35 @@
+.hbimage-3{
+    margin-top: 253px;
+    position: relative;
+    bottom: 1135px;
+    right: 66px;
+}
+body{
+	background: url(../image/home_physiognomy/img_Physiognomy_bg.png)no-repeat;
+	height: 1920px;
+	overflow: hidden;
+
+}
+.hbqrimg{
+    position: relative;
+    bottom: 1165px;
+    z-index: 999;
+    left: 405px;
+}
+.title-word{    
+    margin-top: 85px;
+    margin-left: 210px;
+    font-family: "PingFang-SC-Regular"; 
+    font-size: 53px; 
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hbqrimg{
+    position: ABSOLUTE;
+    width: 37%;
+    /* right: 210px; */
+    top: 865px;
+    left: 320px;
+
+}

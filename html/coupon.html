@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优惠券详情</title>
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/coupon.css">
+    <style>
+        /*取消长按事件*/
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .value_tab{
+            /*position: fixed;*/
+        }
+    </style>
+</head>
+<body>
+<!--顶部tab-->
+<div class="value_tab">
+    <!--后退-->
+    <div id="back"></div>
+    <!--关闭-->
+    <!--标题-->
+    <span class="vf">我的优惠</span>
+    <!--更多-->
+</div>
+<div class="content">
+    <div class="details">
+        <div class="deta_top">
+            <span class=hos_name>鹏爱医美整形</span>
+            <span class="price">¥888</span>
+            <span class='rule'>满9000可以用 2017-10-30至2018-8-30 限使用手机号为13837258945</span>
+
+        </div>
+        <div class="deta_botm">
+            <span class=genre>
+                限品类：鼻部整形、胸型整形、形体雕塑
+            </span>
+        </div>
+    </div>
+    <div class="more">
+        更多优惠，去领取
+    </div>
+    <div class="explain">
+        优惠券说明
+    </div>
+</div>
+<div class="botm"></div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script>
+
+    $(function(){
+        //获取状态栏导航栏高度
+        getInterface().getStatusBarHeight();
+    })
+    //获取状态栏导航栏高度
+    function return_getStatusBarHeight(data1,data2){
+        // alert(parseInt(data1)+10+'px')
+        alert(data1)
+        $('.value_tab').css('padding-top',data1+'px');
+    }
+
+    $('.botm').attr('style','height:'+localStorage.getItem('botH')+'pt')
+    //后退
+    $('#back').on('tap',function () {
+        getInterface().leftBtnClick();
+    }) ;
+
+
+</script>
+</body>
+</html>

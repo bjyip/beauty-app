@@ -1,0 +1,82 @@
+.lay{
+    width: 1080px;
+}
+/*中间部分*/
+/*拍照*/
+.middle{
+    height: 1081px;
+}
+.camer{
+    width: 1080px;
+    height: 1081px;
+    background: url("../image/home_EyebrowTattoo/duliang.png") no-repeat center ;
+    border: 1px solid #000000;
+    margin: 50px auto;
+    background-color: #8c8c8c;
+    position: relative;
+}
+.camer::before{
+    content: '';
+    display: inline-block;
+    background: url("../image/home_EyebrowTattoo/Photo-camera1.png") no-repeat;
+    background-size:97px 75px;
+    width: 97px;
+    height: 75px;
+   position: absolute;
+    left: 903px;
+    top: 17px;
+}
+/*证件照姿势*/
+.camer_font{
+    margin-top: 70px;
+    display: block;
+    height: 48px;;
+}
+.camer_font h4{
+    font-size: 48px;
+    background-image: -webkit-linear-gradient(left,RGB(255,104,150),RGB(255,132,111));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+/*取消符号*/
+.bom{
+    height: 450px;
+    position: relative;
+}
+.cancel{
+    display: inline-block;
+    width: 131px;
+    height: 131px;
+    background: url("../image/home_EyebrowTattoo/Remove.png") no-repeat ;
+    background-position: center;
+    background-color: #E4E5E9;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    left: 171px;
+}
+.camera{
+    display: inline-block;
+    width: 201px;
+    height: 201px;
+    background: url("../image/home_EyebrowTattoo/Photo-camera2.png") no-repeat ;
+    background-position: center;
+    background-color: #E4E5E9;
+    border-radius: 50%;
+    position: absolute;
+    top: 163px;
+    left: 439px;
+}
+.photo{
+    display: inline-block;
+    width: 131px;
+    height: 131px;
+    background: url("../image/home_EyebrowTattoo/Image.png") no-repeat ;
+    background-position: center;
+    background-color: #E4E5E9;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+    left: 777px;
+}

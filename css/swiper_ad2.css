@@ -1,0 +1,119 @@
+.title-word{
+	margin-top: 85px;
+    margin-left: 225px;
+    font-family: "PingFang-SC-Regular"; 
+    font-size: 53px; 
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+.box{
+	background-color:#8FEAFF; 
+	padding-top: 126px;
+	width: 1080px;
+}
+.top{}
+.p_block{
+	background: url(../image/swiper_ad2/blockbg.png) no-repeat;
+	margin-bottom: 45px;
+	margin-left: 10px;
+	padding-top: 45px;
+	padding-left: 95px;
+	height: 585px;
+}
+.p_img{
+	width: 506px;
+	height: 324px;
+	background-color: #8FEAFF;
+	display: inline-block;
+	margin-bottom: -45px;
+}
+.p_block span:nth-child(1){
+	display: block;
+	margin-top: 5px;
+	margin-left: 345px;
+	color:#0e8eb8; 
+	font-size:40px;
+	
+
+}
+.p_block span:nth-child(2){
+	display: inline-block;
+	font-size: 25px;
+	color:#0e8eb8;
+	margin-left: 245px;
+	margin-bottom: 60px;
+	width: 350px; 
+	text-align: center;
+	position: relative;
+	bottom: 20px;
+}
+.p_block span:nth-child(5){
+	display: inline-block;
+	font-size: 22px;
+	color: #2AB1CF;
+	position: relative;
+	top: 20px;
+	left: -375px;
+}
+.p_block img:nth-child(6){
+	display: inline-block;
+	position: relative;
+	bottom:215px;
+	left: -15px;
+}
+.p_block span:nth-child(7){
+	font-size: 57px;
+	color: #f787a9;
+	display: inline-block;
+	position: relative;
+	bottom: 240px;
+	left: 580px;
+}
+.p_block span:nth-child(8){
+	text-decoration: line-through;
+	display: inline-block;
+	font-size: 21px;
+	color: #6d6d6d;
+	position: relative;
+	bottom: 200px;
+	left: 405px;
+}
+.p_block span:nth-child(9){
+	display: inline-block;
+	width: 290px;
+	height: 53px;
+	background-color: #2AB1CF;
+	text-align: center;
+	color: #fff;
+	font-size: 36px;
+	position: relative;
+	bottom: 120px;
+	left: 235px;
+}
+.p_block span:nth-child(10){
+	display: inline-block;
+	color: #42afcb;
+	font-size: 20px;
+	position: relative;
+	bottom: 75px;
+	left: -85px;
+	width: 350px;
+	text-align: center;
+}
+/*轮播图*/
+.swiper-container{
+    left: 10px;
+    width: 300px;
+    height: 300px;
+}
+.swiper-container img{
+	width: 100%;
+}
+.footer img:nth-child(1){
+	margin-left: 135px;
+}
+.footer img:nth-child(2){
+	margin-left: 205px;
+	margin-bottom: 30px;
+}

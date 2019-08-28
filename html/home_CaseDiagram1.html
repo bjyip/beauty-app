@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <!-- <link rel="stylesheet" href="../base/tab.css"> -->
+    <link rel="stylesheet" href="../css/home_CaseDiagram1.css">
+    <title>案例图</title>
+    <style type="text/css">
+        /*取消长按事件*/
+        * {  
+            -webkit-touch-callout: none;  
+            -webkit-user-select: none;  
+            -khtml-user-select: none;  
+            -moz-user-select: none;  
+            -ms-user-select: none;  
+            user-select: none;  
+        } 
+    </style>
+</head>
+<body>
+<!--顶部tab-->
+<div class="big">
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+        <!--标题-->
+        <span class="vf">案例图</span>
+        <!--更多-->
+        
+    </div>
+    <div class="zaz_list">
+        <ul class="list-ul">
+           
+        </ul>
+    </div>
+</div>
+
+<!-- hah -->
+<div class="lay">
+    <!-- 借个地方来放一放 -->
+    <div class="case-box">
+        <div class="case-pic">
+            <div class="before">
+                <span>Before</span>
+            </div>
+            <div class="after">
+                <span>After</span>
+            </div>
+        </div>
+        <div class="case-content"></div>
+        <div class="case-title"></div>
+    </div>
+    <div class="content" id="content">
+        
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script>
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    $('.big').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('margin-bottom',parseInt(data2)+'px');
+}
+//后退
+ $("#back").on('tap',function () {
+    getInterface().leftBtnClick();
+});
+
+// 获取数据
+getInterface().post_action("cases",'','get');
+function return_action(data,data2){
+    if(data.ret == 1){
+        //储存数据
+        localStorage.setItem('contentData',JSON.stringify(data));
+        //加载tab
+        for (var i in data.parts){
+            var li = '<li class="case-li">'+data.parts[i]+'</li>';
+            $('.list-ul').append(li);
+        }
+        $('.big').css('display','block')
+
+        //点击菜单
+        var liAtrr = $(".list-ul li");
+        for(var i=0;i<liAtrr.length;i++){
+            liAtrr[i].index=i;
+            $(liAtrr[i]).on('tap',function () {
+                if($(this).hasClass('active-li')){
+
+                }else{
+                     for(var j=0;j<liAtrr.length;j++){
+                        liAtrr[j].classList.remove("active-li");
+                    }
+                    //改变样式
+                    $(this).addClass("active-li");
+                    //清空ul
+                    $('#content').empty();
+                    //加载内容
+                    for(var k in data.cases){
+                        if($(this).text() == data.cases[k].part){
+                            var caseBox = '<div class="case-box"><div class="case-pic"><div class="before" style="background-image:url('+data.cases[k].before+')"><span>Before</span></div><div class="after" style="background-image:url('+data.cases[k].after+')"><span>After</span></div></div><div class="case-content">'+data.cases[k].des+'</div><div class="case-title">'+data.cases[k].title+'</div></div>';
+                            $('#content').append(caseBox);
+                        }
+                        $('#content .case-box').css('display','inline-block')
+                    }
+                }
+            });
+        }
+        //默认点击第一个li
+        $('.case-li:first').trigger('tap');
+    }
+}
+
+// var data = {
+//     "ret": 1,
+//     "parts": [
+//         "鼻部微整",
+//         "123",
+//         "眼部"
+//     ],
+//     "cases": [
+//         {
+//             "_id": "5a1669101273297cc1dd70c0",
+//             "part": "鼻部微整",
+//             "title": "玻尿酸隆鼻",
+//             "des": "玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。",
+//             "before": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/before.jpg",
+//             "after": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/after.jpg",
+//             "id": "1sct6yuf",
+//             "__v": 0,
+//             "meta": {
+//                 "updatedAt": "2017-11-23T03:07:48.337Z",
+//                 "createdAt": "2017-11-23T03:07:48.337Z"
+//             }
+//         },
+//         {
+//             "_id": "5a16696b1273297cc1dd70c1",
+//             "part": "鼻部微整",
+//             "title": "收毛孔",
+//             "des": "玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。玻尿酸隆鼻属于非手术隆鼻，它以绝佳的隆鼻效果而深受爱美女性们的喜爱。",
+//             "before": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/before.jpg",
+//             "after": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/after.jpg",
+//             "id": "9ehupush",
+//             "__v": 0,
+//             "meta": {
+//                 "updatedAt": "2017-11-23T03:07:48.337Z",
+//                 "createdAt": "2017-11-23T03:07:48.337Z"
+//             }
+//         },
+//         {
+//             "_id": "5a16386e492aaf6b24cb936d",
+//             "part": "123",
+//             "title": "54665",
+//             "des": "4几瓶酒",
+//             "before": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/upPageAd_AFYhiKTTnC.jpg",
+//             "after": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/upPageAd_7JXse3TwSn.jpg",
+//             "id": "wm2cou61",
+//             "__v": 0,
+//             "meta": {
+//                 "updatedAt": "2017-11-22T10:39:47.065Z",
+//                 "createdAt": "2017-11-22T10:39:47.065Z"
+//             }
+//         },
+//         {
+//             "_id": "5a15423a54b36555c84bc2e5",
+//             "part": "眼部",
+//             "title": "切开双眼皮",
+//             "des": "切开法重睑术通过手术在上眼皮处作一切口，去除多余的皮肤及脂肪组织，然后将眼睑皮肤固定在所需高度的睑板上形成重睑",
+//             "before": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/WechatIMG5.jpeg",
+//             "after": "http://azz-test.oss-cn-shenzhen.aliyuncs.com/WechatIMG6.jpeg",
+//             "id": "gr3p7xgn",
+//             "__v": 0,
+//             "meta": {
+//                 "updatedAt": "2017-11-22T10:21:21.939Z",
+//                 "createdAt": "2017-11-22T09:14:30.218Z"
+//             }
+//         }
+//     ],
+//     "recordTotal": 4,
+//     "err": "ok"
+// }
+// if(data.ret == 1){
+//     //储存数据
+//     localStorage.setItem('contentData',JSON.stringify(data));
+//     //加载tab
+//     for (var i in data.parts){
+//         var li = '<li class="case-li">'+data.parts[i]+'</li>';
+//         $('.list-ul').append(li);
+//     }
+//     $('.big').css('display','block')
+
+//     //点击菜单
+//     var liAtrr = $(".list-ul li");
+//     for(var i=0;i<liAtrr.length;i++){
+//         liAtrr[i].index=i;
+//         $(liAtrr[i]).on('tap',function () {
+//             if($(this).hasClass('active-li')){
+
+//             }else{
+//                  for(var j=0;j<liAtrr.length;j++){
+//                     liAtrr[j].classList.remove("active-li");
+//                 }
+//                 //改变样式
+//                 $(this).addClass("active-li");
+//                 //清空ul
+//                 $('#content').empty();
+//                 //加载内容
+//                 for(var k in data.cases){
+//                     if($(this).text() == data.cases[k].part){
+//                         var caseBox = '<div class="case-box"><div class="case-pic"><div class="before" style="background-image:url('+data.cases[k].before+')"><span>Before</span></div><div class="after" style="background-image:url('+data.cases[k].after+')"><span>After</span></div></div><div class="case-content">'+data.cases[k].des+'</div><div class="case-title">'+data.cases[k].title+'</div></div>';
+//                         $('#content').append(caseBox);
+//                     }
+//                     $('#content .case-box').css('display','inline-block')
+//                 }
+//             }
+//         });
+//     }
+//     //默认点击第一个li
+//     $('.case-li:first').trigger('tap');
+// }
+
+//点击图片跳转
+$('.content').on('tap','.case-box',function(){
+    var title = $(this).find('.case-title').text();
+    getInterface().html_jump_href(service+'/html/home_CaseDiagram4.html?title='+title, 'yes');
+});
+
+</script>
+</body>
+</html>

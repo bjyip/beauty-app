@@ -1,0 +1,93 @@
+body{
+	background: url(../image/home_physiognomy/img_Physiognomy_bg.png)no-repeat;
+	height: 1920px;
+	/*overflow: hidden;*/
+
+}
+.title-word{    
+	margin-top: 85px;
+    margin-left: 245px;
+    font-family: "PingFang-SC-Regular"; 
+    font-size: 53px; 
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;}
+.hbimage-2 img{
+	position: relative;
+	bottom: 40px;
+}     
+.hbimage-2 input{
+	padding-top: 10px;
+text-indent: 170px;
+    width: 600px;
+    height: 120px;
+    font-size: 60px;
+    color: #d2cbcb;
+}
+.hbimage-2 button{
+}
+.phone{
+    width: 725px;
+    height: 146px;
+    border:3px solid #B4B5B5;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    bottom:575px;
+    left: 178px;
+    }
+.phone input{
+    
+    color: #D2CBCB;
+}
+input::-webkit-input-placeholder {
+         color: #D2CBCB;
+     }
+.check_code{
+    width: 725px;
+    height: 146px;
+    background-color: #fff;
+    border:3px solid #B4B5B5;
+    border-radius: 10px;
+    position: relative;
+    bottom:555px;
+    left: 178px;
+
+}
+.check_code input{
+    display: block;
+    float: left;
+    color: #D2CBCB;
+    font-size: 60px;
+}
+.line{
+    width: 7px;
+    background-color: #B4B5B5;
+    height: 99px;
+    float: left;
+    margin-top: 20px;
+    position: absolute;
+    left: 370px
+}
+.sendcode{
+    float: left;
+    padding-top: 25px;
+    text-indent: 20px;
+    position: absolute;
+    left: 375px;
+    font-size: 60px;
+    color: #FC7384;
+    font-family: "SourceHanSansHWSC-Regular";
+}
+.sign_button{
+    width: 725px;
+    height: 146px;
+    background-color: #FFE15B;
+    color: #FF576A;
+    font-size: 60px;
+    border-radius: 10px;
+    position: relative;
+    bottom: 530px;
+    left: 178px
+}
+/*#FFE15B*/

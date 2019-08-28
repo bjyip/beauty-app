@@ -1,0 +1,10 @@
+#adv{
+    /*height: 1000px;*/
+    background: url("../image/in.png") no-repeat;
+    background-position: center;
+    width: 1080px;
+    height: 1500px;
+}
+body{
+    background-color: #f5f5f5;
+}

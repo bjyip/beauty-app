@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_baike3.css">
+    <title>咋整百科</title>
+    <style>
+        /*取消长按事件*/
+        * {  
+            -webkit-touch-callout: none;  
+            -webkit-user-select: none;  
+            -khtml-user-select: none;  
+            -moz-user-select: none;  
+            -ms-user-select: none;  
+            user-select: none;  
+        }  
+    </style> 
+</head>
+<body>
+<div class="lay">
+    <div class="top-padding">
+
+        <!--顶部tab-->
+        <div class="value_tab">
+            <!--后退-->
+            <img id="back" src="../image/icon-right.png" alt="">
+            <!--关闭-->
+            <!--标题-->
+            <span class="vf">咋整百科</span>
+            <!--更多-->
+        </div>
+    </div>
+<div class="cont" id="cont">
+    <p class="fengbi" id="title"></p>
+
+     <div class="nose_list" id="nose_list">
+         <span class="fengbi_font" id="font"></span>
+         <span class="black_nose" id="pic"></span>
+         <span class="arrow"></span>
+     </div>
+</div>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script>
+//获取状态栏导航栏高度
+getInterface().getStatusBarHeight();
+function return_getStatusBarHeight(data1,data2){
+    $('.top-padding').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('margin-bottom',parseInt(data2)+'px');
+}
+//后退
+var back =document.getElementById("back");
+back.onclick=function () {
+    getInterface().leftBtnClick();
+}
+
+var partId = getQueryStringByName('partId');
+var picId = getQueryStringByName('picId');
+console.log(picId)
+var title = '';
+//loading
+getInterface().hud_loading();
+// 获取数据
+getInterface().post_action("getOperation",'','get');
+function return_action(data,data2){
+    if(data2 == 'getOperation'){
+        if(data.code == 1){
+            for (var i in data.operations){
+                //渲染title
+                if(data.operations[i].id == partId){
+                    title = data.operations[i].name;
+                }
+                //渲染菜单
+                var item = $('#nose_list').clone();
+                if(data.operations[i].parentid == partId){
+                    item.find('#font').text(data.operations[i].name);
+                    //加载图标
+                    if(picId == '5tnd94ii' || picId == 'erduolc1' || picId == 'jr6j96ix' || picId == 'xagv4r6a' || picId == 'xiabac1' || picId == 'xyjadma8'){
+                        item.find('#pic').css('background-image','url(../image/qie/icon_part'+picId+'.png)');
+                    }else{
+                        item.find('#pic').css('background-image','url(../image/qie/icon_part3civrquh.png)');
+                    }
+                    item.css('display','block').attr('data-partId',data.operations[i].id);
+                    $('#cont').append(item);
+                }
+            }
+        $('#title').text(title);
+        //解除loading
+        getInterface().hud_hide();
+        }
+    }
+}
+
+
+//跳转
+ $('#cont').on('tap','#nose_list',function(){
+    var partId = $(this).attr('data-partId');
+    getInterface().html_jump_href(service+'/html/home_baike4.html?partId='+partId, 'yes');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_EyebrowTattoo5.css">
+    <script src="../js/iscroll.js"></script>
+    <title>纹眉神器</title>
+
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="top-padding">
+
+        <div class="value_tab">
+            <!--后退-->
+            <img id="back" src="../image/icon-right.png" alt="">
+            <!--关闭-->
+            <!--标题-->
+            <span class="vf">纹眉神器</span>
+            <!--更多-->
+        </div>
+    </div>
+    <!--中部-->
+  <div class="middle">
+      <div class="eyebrow-div eyebrow_0">
+          <span class="eyebrow_font eyebrow_0_font">一字眉A</span>
+          <span class="eyebrow_icon eyebrow_0_icon"></span>
+      </div>
+      <div class="eyebrow-div eyebrow_1">
+          <span class="eyebrow_font eyebrow_1_font">一字眉B</span>
+          <span class="eyebrow_icon eyebrow_1_icon"></span>
+      </div>
+      <div class="eyebrow-div eyebrow_2">
+          <span class="eyebrow_font eyebrow_2_font">黛玉眉</span>
+          <span class="eyebrow_icon eyebrow_2_icon"></span>
+      </div>
+      <!--ai-beauty-->
+      <div class="beauty">
+          <span class="beauty_app"></span>
+          <span class="beauty_font">AI-Beauty
+              <br>
+              医美自助平台</span>
+      </div>
+      <div class="eyebrow-div eyebrow_3">
+          <span class="eyebrow_font eyebrow_3_font">女王挑眉</span>
+          <span class="eyebrow_icon eyebrow_3_icon"></span>
+      </div>
+      <div class="eyebrow-div eyebrow_4">
+          <span class="eyebrow_font eyebrow_4_font">一字眉C</span>
+          <span class="eyebrow_icon eyebrow_4_icon"></span>
+      </div>
+  </div>
+    <div class="obt" id="obt">
+        <span class="obt_font">向你的密友咨询建议，分享眉形效果图
+        <br/>
+        可以分享到朋友圈哦</span>
+    </div>
+    <!-- 微信浏览器 -->
+    <div class="wxtip" id="JweixinTip">
+        <span class="wxtip-icon"></span>
+        <p class="wxtip-txt">点击右上角<br/>分享给朋友或朋友圈</p>
+    </div>
+    <div class="wxtip" id="JQQTip">
+        <p class="wxtip-txt other">请使用微信扫描二维码</p>
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-qrcode-0.14.0.min.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script src="../js/weixin.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+$(function(){
+    //从url获取参数
+    var uuid=getQueryStringByName('uuid');
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger" ) {//微信打开
+        //提醒分享
+        setTimeout(function(){
+            $('#JweixinTip').show();
+            $('#JweixinTip').on('tap',function(){
+                $(this).fadeOut();
+            })
+        },2000);
+
+        //网页
+        $('.value_tab').remove();
+        $('#obt').remove();
+        $('.lay').css({'width':'100%'});
+        $('.eyebrow-div').css({'width':'470px','height':'470px','margin-left':'12px'});
+        $('.beauty').css({'width':'470px','height':'470px','margin-left':'12px'});
+        $('.eyebrow_font').css({'width':'470px'});
+        $('.lay').css({'margin-top':'0'});
+        $('.eyebrow_icon').css({'left':'340px','top':'340px'});
+        eyebrowGet(uuid);
+    }else if(ua.indexOf('chrome')>=0){//chrome打开
+        //获取状态栏导航栏高度
+        getInterface().getStatusBarHeight();
+        //后退
+        $('#back').on('tap',function(){
+            getInterface().leftBtnClick();
+        });
+        //获取测试数据
+        getInterface().post_action("eyebrowGet",JSON.stringify({uuid:uuid}),'get');
+    }else {//其他浏览器打开
+        $('.value_tab').remove();
+        $('#obt').remove();
+        setTimeout(function(){
+            $('#JQQTip').show();
+        },100);
+    }
+
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    $('.top-padding').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('margin-bottom',parseInt(data2)+'px');
+}
+
+//app
+function return_action(data,data2){
+    if(data2 == 'eyebrowGet'){
+        if(data.code == 1){
+            var eyebrowArr = data.data.eyebrowArr;
+            for(var i in eyebrowArr){
+                // layer.alert(eyebrowArr[i].bgPic)
+                $('.eyebrow_'+i+' span:first').text(eyebrowArr[i].name);
+                $('.eyebrow_'+i+' span:last').css('background-image','url('+eyebrowArr[i].bgPic+')');
+                $('.eyebrow_'+i+'').css({'background-image':'url(http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+eyebrowArr[i].nowPic+')'});
+                $('.eyebrow_'+i+'').css('display','inline-block');
+                
+            }
+            //分享链接
+            $('#obt').on('tap',function(){
+                //页面层
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 0,
+                    area:['927','1112'],
+                    shade: 0.7, //遮罩透明度
+                    closeBtn : 1,
+                    content: '<div class="share"><div class="share_code" id="share_code"></div></div>'
+                }); 
+                jQuery('#share_code').qrcode({width: 400,height: 400,text:data.data.shareUrl});
+                $('#share_code canvas').css({'width':'400px','height':'400px'});
+                $('.layui-layer').css({ 'background-color':'transparent','box-shadow':'none','left':'50%','margin-left':'-380px'});
+            });
+        }
+    }
+}
+//网页
+function eyebrowGet(uuid){
+    $.ajax({
+        type:"get",
+        url:HOSTNAME+"/eyebrowGet",
+        data:{
+            uuid:uuid
+        },
+        //返回数据的格式
+        datatype: "json",
+        //成功返回之后调用的函数             
+        success:function(data){
+            if(data.code == 1){
+                var eyebrowArr = data.data.eyebrowArr;
+                for(var i in eyebrowArr){
+                    // layer.alert(eyebrowArr[i].bgPic)
+                    $('.eyebrow_'+i+' span:first').text(eyebrowArr[i].name);
+                    $('.eyebrow_'+i+' span:last').css('background-image','url('+eyebrowArr[i].bgPic+')');
+                    $('.eyebrow_'+i+'').css({'background-image':'url(http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+eyebrowArr[i].nowPic+')'});
+                    $('.eyebrow_'+i+'').css('display','inline-block');
+                    //微信分享
+                    if(i == 0){
+                        initWeixinShare({
+                            // 分享给朋友
+                            onMenuShareAppMessage:{
+                                title: '宛若天生！找出最适合您的自然眉型', // 分享标题
+                                desc: '想改變氣質卻不知從何下手？其實，只需找到適合自己的一款眉形就夠了！適合自己的眉妝，不僅可以修飾臉型，更能體現生活態度。', // 分享描述
+                                link: document.URL, // 分享链接
+                                imgUrl: 'http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+eyebrowArr[i].nowPic, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            }
+                            // 分享到朋友圈
+                            ,onMenuShareTimeline:{
+                                title: '宛若天生！找出最适合您的自然眉型', // 分享标题
+                                link: document.URL, // 分享链接
+                                imgUrl: 'http://arpt-user.oss-cn-shenzhen.aliyuncs.com/'+eyebrowArr[i].nowPic, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        }       
+    });
+}
+</script>
+</body>
+</html>

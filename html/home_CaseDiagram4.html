@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_CaseDiagram4.css">
+    <title>案例图</title>
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+        <div class="top-padding">
+            <div class="value_tab">
+                <!--后退-->
+                <img id="back" src="../image/icon-right.png" alt="">
+                <!--关闭-->
+                <!--标题-->
+                <span class="vf" id="vf"></span>
+                <!--更多-->
+            </div>
+        </div>
+    <div class="case-box">
+        <div class="case-pic">
+            <div class="before" id="before">
+                <span>Before</span>
+            </div>
+            <div class="after" id="after">
+                <span class="after-span">After</span>
+            </div>
+        </div>
+    </div> 
+    <div class="dire">
+        <span class="dire_title">案例说明：</span>
+        <span class="content ellipsis" id="content">
+           
+        </span>
+        <div class="open" id="open">展开</div>
+    </div>
+    <div class="care-block">
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script>
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    $('.top-padding').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('padding-top',parseInt(data1)+'px');
+    $('.lay').css('margin-bottom',parseInt(data2)+'px');
+}
+//后退
+ $("#back").on('tap',function () {
+    getInterface().leftBtnClick();
+});
+var title=decodeURI(getQueryStringByName('title'));
+//取数据
+var data =JSON.parse(localStorage.getItem('contentData'));
+
+//加载内容
+for(var i in data.cases){
+    if(title == data.cases[i].title){
+        $('#vf').text(title);
+        $('#content').text(data.cases[i].des);
+        $('#before').css('background-image','url('+data.cases[i].before+')');
+        $('#after').css('background-image','url('+data.cases[i].after+')');
+    }
+}
+
+//判断是否显示展开按钮
+if(window.screen.width<=680){
+    if($('#content').height()<498){
+        $('#open').remove();
+    }
+}else{
+    if($('#content').height()<648){
+        $('#open').remove();
+    }
+}
+//点击展开按钮
+ $('#open').on('tap',function(){
+    if($('#content').hasClass('ellipsis')){
+        $('#content').removeClass('ellipsis');
+        $(this).text('收起');
+    }else{
+        $('#content').addClass('ellipsis');
+        $(this).text('展开');
+    }
+ })
+
+</script>
+</body>
+</html>

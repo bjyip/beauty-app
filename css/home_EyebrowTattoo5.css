@@ -1,0 +1,363 @@
+.lay{
+    width: 1080px;
+    margin-top: 126px;
+    background-color: #F1F1F1;
+}
+.top-padding{
+    width: 1080px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+.value_tab{
+    width: 1080px;
+    height: 126px;
+}
+.vf{
+    padding-top: 0;
+    height: 126px;
+    line-height: 126px;
+}
+.middle{
+    height: 1580px;
+    overflow-x: hidden;
+}
+.eyebrow_0{
+    width: 501px;
+    height: 501px;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 25px;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.eyebrow_0_font{
+    display: inline-block;
+    font-size: 49px;
+    color:#FCFCFC ;
+    width: 501px;
+    background-color: rgba(138,144,153,.5);
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.eyebrow_0_icon{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #FDE6CA;
+    position: absolute;
+    left: 366px;
+    top: 366px;
+    z-index: 99;
+    background-image: url(../image/home_EyebrowTattoo/female/1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*一字眉B*/
+.eyebrow_1{
+    display: inline-block;
+    width: 501px;
+    height: 501px;
+    position: relative;
+    margin-left: 24px;
+    margin-top: 25px;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.eyebrow_1_font{
+    display: inline-block;
+    font-size: 49px;
+    color:#FCFCFC ;
+    width: 501px;
+    background-color: rgba(138,144,153,.5);
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+
+.eyebrow_1_icon{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #FDCDF8;
+    position: absolute;
+    left: 366px;
+    top: 366px;
+    z-index: 99;
+    background-image: url(../image/home_EyebrowTattoo/female/1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+/*黛玉眉*/
+.eyebrow_2{
+    width: 501px;
+    height: 501px;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 14px;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.eyebrow_2_font{
+    display: inline-block;
+    font-size: 49px;
+    color:#FCFCFC ;
+    width: 501px;
+    background-color: rgba(138,144,153,.5);
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.eyebrow_2_icon{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #D4F2FF;
+    position: absolute;
+    left: 366px;
+    top: 366px;
+    z-index: 99;
+    background-image: url(../image/home_EyebrowTattoo/female/1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*ai-beauty*/
+
+.beauty{
+    width: 501px;
+    height: 501px;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 14px;
+    background-color: #fff;
+}
+.beauty_app{
+    display: inline-block;
+    width: 217px;
+    height: 217px;
+    border-radius: 35px;
+    position: absolute;
+    top: 58px;
+    left: 147px;
+    background-color:#E4E5E9;
+    box-shadow: 0 5px 10px #999;
+    background: url(../image/home_EyebrowTattoo/logo1.png) no-repeat center;
+    background-size: cover;
+}
+.beauty_font{
+    display: inline-block;
+    font-size: 48px;
+    color:#333333 ;
+    width: 501px;
+    text-align: center;
+    position: absolute;
+    top: 312px;
+}
+/*女王挑眉*/
+.eyebrow_3{
+    width: 501px;
+    height: 501px;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 14px;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.eyebrow_3_font{
+    display: inline-block;
+    font-size: 49px;
+    color:#FCFCFC ;
+    width: 501px;
+    background-color: rgba(138,144,153,.5);
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.eyebrow_3_icon{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #FDDEDE;
+    position: absolute;
+    left: 366px;
+    top: 366px;
+    z-index: 99;
+    background-image: url(../image/home_EyebrowTattoo/female/1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*一字眉C*/
+.eyebrow_4{
+    width: 501px;
+    height: 501px;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+    margin-top: 14px;
+        background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.eyebrow_4_font{
+    display: inline-block;
+    font-size: 49px;
+    color:#FCFCFC ;
+    width: 501px;
+    background-color: rgba(138,144,153,.5);
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+.eyebrow_4_icon{
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    position: absolute;
+    left: 366px;
+    top: 366px;
+    z-index: 99;
+    background-image: url(../image/home_EyebrowTattoo/female/1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.eyebrow-div{
+    /*background-color: #878787;*/
+    display: none;
+}
+/*底部*/
+.obt{
+    height: 150px;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    position: relative;
+}
+.obt_font{
+    display: inline-block;
+    width: 1080px;
+    text-align: center;
+    font-size: 40px;
+    color: #FDF5F5;
+    padding-top: 23px;
+    font-family: PingFangSC-Medium, sans-serif;
+}
+.obt::before{
+    content: "";
+    display: inline-block;
+    width: 94px;
+    height: 94px;
+    background: url("../image/Qr-code-free-icon.png") no-repeat;
+    position: absolute;
+    top: 19px;
+    left: 80px;
+}
+.obt::after{
+    content: "";
+    display: inline-block;
+    width: 51px;
+    height: 51px;
+    background: url("../image/Tap.png") no-repeat;
+    position: absolute;
+    top: 89px;
+    left: 731px;
+}
+/*分享*/
+.share {
+    width: 760px;
+    height: 1066px;
+    background: url(../image/star/share.png) no-repeat center;
+    background-size: cover;
+    position: relative;
+}
+.share_code {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -200px;
+}
+/*微信浏览器*/
+ .wxtip{
+    background: rgba(0,0,0,0.8); 
+    text-align: center; 
+    position: fixed; 
+    left:0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 998; 
+    display: none;
+}
+.wxtip-icon{
+    width: 104px; 
+    height: 431px;
+    background: url(../image/star/weixin-tip.png) no-repeat;
+    background-size: 100%;
+    display: block; 
+    position: absolute; 
+    right: 100px; 
+    top: 50px;
+}
+.wxtip-txt{
+    margin-top: 107px; 
+    color: #fff; 
+    font-size: 32px; 
+    line-height: 1.5;
+}
+.other{
+    margin-top: 700px; 
+    font-size: 60px;
+}
+/*适配广告机*/
+@media only screen and (min-device-width: 680px) {
+    .lay{
+        height: 1794px;
+        position: relative;
+    }
+    .share {
+        width: 760px;
+        height: 1066px;
+        background: url(../image/star/share.png) no-repeat center;
+        background-size: cover;
+        position: relative;
+    }
+    .share_code {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        margin-left: -200px;
+    }
+    .obt{
+        height: 150px;
+        background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+        position: absolute;
+        bottom: 0;
+    }
+}

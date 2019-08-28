@@ -1,0 +1,40 @@
+
+.sign_input{
+	color: gray;
+	margin-left: 20px;
+	font-size: 50px;
+	margin-top: 645px;
+
+}
+.password{
+	width: 898px;
+	height: 175px;
+	border: 1px;
+	background-color: #fff;
+	border:3px solid #B4B5B5;
+	border-radius: 10px;
+	margin-bottom: 111px;
+	text-indent: 50px;
+	margin-left: 85px;
+}
+.password input{
+	display: block;
+	background:url("../image/register and login/pw-icon.png") no-repeat 30px;
+}
+.gonext{
+	float: right;
+	margin-right: 90px;
+	margin-top: 154px;
+}
+.gonext img{
+	
+}
+.gonext p{
+	font-size: 50px;
+	color: gray;
+}
+.space{
+	width: 100px;
+	height: 100px;
+	margin-bottom: 200px;
+}

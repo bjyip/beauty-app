@@ -1,0 +1,378 @@
+ html, body, div, span, iframe, map, font, img, a img, samp, strong, hr, h1, h2, h3, h4, h5, h6, b, p, blockquote, a, address, code, dl, dt, dd, ol, ul, li, form, label, table, tr, td, th, button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-weight: normal;
+    font-family: "微软雅黑";
+} 
+body{
+    height: 100%;
+    background: url(../image/star/background-image.jpg) no-repeat top;
+    background-size: 100%;
+}
+html{
+    height: 100%;
+}
+/*顶部栏*/
+#back {
+    background: url(../image/star/back.png) no-repeat center;
+    background-size: 100% 100%;
+    position: fixed;
+    top: 0.22rem;
+    left: 0.15rem;
+    width: 0.3rem;
+    height: 0.3rem;
+}
+.case{
+    width: 100%;
+}
+/*头部*/
+.bg{
+    width: 100%;
+    height: 100%;
+    padding-top: 2.51rem;
+}
+
+.start_body{
+}
+/*主体部分*/
+.img_box{
+    cursor: pointer;
+    width: 2.2rem;
+    margin: 0 auto;
+    height: 2.6rem;
+    background-color:transparent;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+}
+.img_box .img{
+    width:1.87rem;
+    height: 2.3rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 999;
+    bottom: 0.18rem;
+    border-radius: 0.09rem;
+    box-sizing: border-box;
+    left: 50%;
+    margin-left: -0.935rem;
+}
+.img_box .girl{
+    width:1.74rem;
+    height: 3rem;
+    background: url("../image/star/girl.png") no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0.21rem;
+    left: 50%;
+    margin-left: -0.87rem;
+}
+.img_box .arrow{
+    width:0.68rem;
+    height: 0.65rem;
+    background: url("../image/star/arrow.png") no-repeat center;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0.24rem;
+    left: 50%;
+    margin-left: -0.34rem;
+}
+/*.img_box .img:hover{
+    opacity: 0.6;
+}*/
+.img_box .img .a{
+   /*background: url("../../images/start2_03.png") no-repeat  ;*/
+    /*background-size: 100% 100%;*/
+    /*width:100%;*/
+    /*height: 100%;*/
+}
+.img_box .img-font{
+    display: block;
+    width:0.76rem;
+    height: 0.5rem;
+    position: absolute;
+    background: url("../image/star/takePhoto.png") no-repeat center;
+    background-size: contain;
+    bottom: -0.2rem;
+    left: 50%;
+    margin-left: -0.38rem;
+}
+/*选择*/
+.start_select{
+    width: 2rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 0.3rem;
+    line-height: 0.3rem;
+}
+.start_select span{
+    color: #606060;
+    font-size: .14rem;
+    text-align: center;
+    padding: .01rem .02rem;
+    word-break: keep-all;
+    vertical-align: text-bottom;
+}
+/*性别*/
+.tag {
+    margin-right: 0.15rem; 
+}
+.regular-radio {
+    display: none;
+}
+.button-holder {
+    visibility: hidden;
+    padding-top: 0.1rem;
+}
+.sex-div {
+    display: inline-block;
+}
+.regular-radio + label {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    background-color: #DCDCDE;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    padding: 8px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    margin: 0 0.08rem;
+}
+
+.regular-radio:checked + label:after {
+    content: ' ';
+    width: 12px;
+    height: 12px;
+    border-radius: 50px;
+    position: absolute;
+    top: 3px;
+    text-shadow: 0px;
+    left: 3px;
+    font-size: 32px;
+}
+
+.regular-radio:checked + label {
+    background-color: #FF5770;
+    color: #99a1a7;
+    border: 3px solid #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.regular-radio + label:active, .regular-radio:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+/*性别*/
+.start_select input[type=radio] {
+    margin: 0;
+}
+.start_select .select{
+    height: 0.3rem;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    border-radius: 5px;
+    display: block;
+    width: 1.8rem;
+    font-size: .14rem;
+    padding: 0.04rem;
+    color: #333;
+    background-color: #eaf9f6;
+    background: url(../../images/arrow-mask.png) no-repeat right top;
+    background-size: 100% 100%;
+    text-align: center;
+}
+.start_select .select option {
+    padding-left: 0.8rem;
+}
+.help {
+    width: 309px;
+    height: 370.7px;
+    background: url(../image/star/help.png) no-repeat center;
+    background-size: cover;
+}
+
+
+.wait{
+    top: 185px;
+}
+
+
+/*按钮*/
+.start_btn{
+    width: 2.5rem;
+    height: 0.6rem;
+    margin: 0 auto;
+    background: url(../image/star/startBtn.png) no-repeat center;
+    background-size: 100%;
+}
+
+
+/*尾部*/
+.tip {
+    background: url(../image/star/tip.png) no-repeat center;
+    background-size: 100%;
+    position: fixed;
+    top: 0.55rem;
+    right: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+/* sunjia 2017-5-17 */
+.one{
+    width: 3.2rem;
+    margin: 0 auto;
+    margin-top: 0.05rem;
+}
+.white{display:none;}
+.title{
+    text-align: center;
+    margin-bottom: 0.05rem;
+}
+.content{
+    font-size: .1rem;
+    color: #a6a6a6;
+    text-align: center;
+}
+.two .img{
+    width: 2.2rem;
+    height: 1.8rem;
+    background: url("../image/star/help02.png") no-repeat;
+    background-size: 100% 100%;
+    margin: 0.05rem auto;
+}
+.three .img{
+    width: 2.2rem;
+    height: 1.8rem;
+    background: url("../image/star/help03.png") no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+.layui-layer-setwin .layui-layer-close2 {
+    position: absolute;
+    right: -12px;
+    top: -14px;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    background-position: -149px -31px;
+    _display: none;
+}
+#shutdown{
+    opacity:1;
+    transition: all .1s;
+}
+.control-label p{
+    margin-bottom: 0;
+    line-height: normal;
+    font-size: 0.10rem;
+}
+.modal-footer{
+    text-align: center;
+}
+@media screen and (max-width: 330px) {
+    .middle label {
+        padding-left: 5%;
+    }
+    .row{
+        padding-bottom: 0;
+    }
+    .analysis{
+        top: 79px;
+    }
+    .wait{
+        top: 114px;
+    }
+    .analysis{
+        font-size: 15px;
+    }
+    .load-in {
+        left: 15%;
+        top: 30%;
+    }
+    .control-label p{
+        margin-bottom: 0px;
+    }
+    .modal-header{
+        padding-bottom: 5px;
+        padding-top: 10px;
+    }
+    .modal-body{
+        padding-bottom: 0px;
+        padding-top: 5px;
+    }
+    .modal-footer{
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+}
+.close span{
+    font-size: 36px;
+}
+.modal-body .form-group{
+    margin-bottom: 0;
+}
+.layui-layer1 {
+    top: 50px!important;
+}
+
+/*适配广告机*/
+@media only screen and (min-device-width: 680px) {
+    .regular-radio + label {
+        vertical-align: super;
+        -webkit-appearance: none;
+        background-color: #DCDCDE;
+        border: 3px solid #fff;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+        padding: 16px;
+        border-radius: 50px;
+        display: inline-block;
+        position: relative;
+        margin: 0 0.08rem;
+    }
+    .regular-radio:checked + label {
+        vertical-align: super;
+        background-color: #FF5770;
+        color: #99a1a7;
+        border: 3px solid #fff;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1), inset 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    .help {
+        width: 927px;
+        height: 1112px;
+        background: url(../image/star/help.png) no-repeat center;
+        background-size: cover;
+    }
+    .img_box .girl{
+        width:1.74rem;
+        height: 3rem;
+        background: url("../image/star/girl.png") no-repeat center;
+        background-size: 100%;
+        position: absolute;
+        background-position: center;
+        background-repeat: no-repeat;
+        bottom: 0.182rem;
+        left: 50%;
+        margin-left: -0.87rem;
+    }
+    #back {
+        background: url(../image/star/back.png) no-repeat center;
+        background-size: 100% 100%;
+        position: fixed;
+        top: 50px;
+        left: 0.15rem;
+        width: 0.3rem;
+        height: 0.3rem;
+    }
+}

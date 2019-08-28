@@ -1,0 +1,38 @@
+.value_tab{
+    width: 1077px;
+    height:126px;
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+#back {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    background: url("../image/icon-right.png") no-repeat center;
+    z-index: 9999;
+}
+.vf {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 53px;
+    background-image: -webkit-gradient(linear, 0 0, right 0, from(#FF6896), to(#FF846F));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+/*取消长按事件*/
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

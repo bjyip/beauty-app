@@ -1,0 +1,179 @@
+body{
+    width: 1080px;
+}
+.content{
+    background: url("../image/limit_bg.jpg")no-repeat center;
+    background-size: 100% 100%;
+    width: 1080px;
+    /*height:100%;*/
+    /*position: relative;*/
+    /*top: 183px;*/
+    /*position: fixed;*/
+    padding-top: 183px;
+}
+
+p{
+    font-size: 36px;
+    color: #90613C;
+    letter-spacing: 5px;
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
+.eng{
+    font-size: 20px;
+    color: #D3AF92;
+    float: left;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 2px;
+    padding-top: 10px;
+}
+.first{
+   margin-top: 180px;
+    height: 485px;
+    /*position: relative;*/
+}
+.first li{
+    width: 310px;
+    height: 485px;
+    float: left;
+    margin-left: 39px;
+}
+.second{
+    margin-top: 30px;
+    height: 485px;
+    /*position: relative;*/
+}
+.second li{
+    width: 310px;
+    height: 485px;
+    float: left;
+    margin-left: 39px;
+}
+.third{
+    margin-top: 30px;
+    height: 485px;
+    /*position: relative;*/
+}
+.third li{
+    width: 310px;
+    height: 485px;
+    float: left;
+    margin-left: 39px;
+}
+/*li span:nth-child(1) {*/
+    /*display: inline-block;*/
+    /*float: left;*/
+    /*!*background: url("../image/price_img.jpg")no-repeat center;*!*/
+    /*width: 280px;*/
+    /*height: 280px;*/
+    /*border-radius: 30px;*/
+/*}*/
+
+.first li:nth-child(1) span:nth-child(1)  {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/slz.jpg") no-repeat center;*/
+    background-size: cover;
+}
+
+.first li:nth-child(2) span:nth-child(1) {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/syp.jpg") no-repeat center;*/
+    background-size: cover;
+}
+.first li:nth-child(3) span:nth-child(1) {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/qb.jpg") no-repeat center;*/
+    background-size: cover;
+}
+.second li:nth-child(1) span:nth-child(1) {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/jtlb.jpg") no-repeat center;*/
+    background-size: cover;
+}
+.second li:nth-child(2) span:nth-child(1) {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/jtlx.jpg") no-repeat center;*/
+    background-size: cover;
+}
+.second li:nth-child(3) span:nth-child(1) {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/zftc.jpg") no-repeat center;*/
+    background-size: cover;
+}
+.third li span:nth-child(1) {
+    display: inline-block;
+    float: left;
+    /*background: url("../image/price_img.jpg")no-repeat center;*/
+    width: 280px;
+    height: 280px;
+    border-radius: 30px;
+    /*background: url("../image/third_img.jpg") no-repeat center;*/
+    background-size: cover;
+}
+li span:nth-child(2){
+    font-size: 40px;
+    color: #424242;
+    text-align: center;
+    width: 280px;
+    display: inline-block;
+
+}
+li span:nth-child(3){
+    font-size: 36px;
+    color: #9A9A9A;
+    width: 340px;
+    text-align: center;
+    display: inline-block;
+    /* margin-left: 56px; */
+    margin-left: -18px;
+
+}
+li span:nth-child(4){
+   font-size: 60px;
+    color:#E76F51;
+    width: 188px;
+    display: inline-block;
+    text-align: center;
+}
+del{
+    text-decoration: line-through;
+    font-size: 27px;
+    color: #9E9E9E;
+}
+.botm{
+    /*height:200px;*/
+}
+

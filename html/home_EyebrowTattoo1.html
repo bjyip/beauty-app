@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../base/base.css">
+    <link rel="stylesheet" href="../base/tab.css">
+    <link rel="stylesheet" href="../css/home_EyebrowTattoo1.css">
+    <title>纹眉神器</title>
+</head>
+<body>
+<div class="lay">
+    <!--顶部tab-->
+    <div class="value_tab">
+        <!--后退-->
+        <img id="back" src="../image/icon-right.png" alt="">
+        <!--关闭-->
+        <!--标题-->
+        <span class="vf">纹眉神器</span>
+        <!--更多-->
+    </div>
+
+    <div class="cont">
+        <!--中间视频-->
+        <div class="cont_pic">
+            <div class="cont-photo" id="photo">
+            </div>
+        </div>
+        <div class="boy" id="male"><span class="boy_" >男士眉形</span></div>
+        <div class="gril" id="female"><span class="gril_">女士眉形</span></div>
+        <div class="tip" id="tip">
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/android.js"></script>
+<script src="../js/bbmis.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/layer/layer.min.js"></script>
+<script>
+mui.init({
+    gestureConfig:{
+        tap: true, //默认为true
+        doubletap: false, //默认为false
+        longtap: false, //默认为false
+    }
+});
+$(function(){
+    //获取状态栏导航栏高度
+    getInterface().getStatusBarHeight();
+})
+//获取状态栏导航栏高度
+function return_getStatusBarHeight(data1,data2){
+    // alert(parseInt(data1)+10+'px')
+    $('.value_tab').css('margin-top',parseInt(data1)+'px');
+}
+//后退
+ $("#back").on('tap',function () {
+    getInterface().leftBtnClick();
+});
+ var sex = '',file = '',jumpFlag=false;
+$('#photo').on('tap',function(){
+    getInterface().post_photo_brows("azz-eyebrow","","arpt-user");
+});
+function return_photo(data1,data2){
+    if(data1){
+        file = data1;
+        // $('#photo').css({'background':'url('+file+')','background-size':'400px 400px'});
+        $('#photo').css('background-image','url('+file+')');
+
+        getInterface().getPictureQA(file);
+    }
+}
+function return_getPictureQA(data){
+    if(data.faces.length == 0){
+        jumpFlag = false;
+        getInterface().toast('请平视摄像头拍照');
+    }else{
+        jumpFlag = true;
+        
+    }
+}
+$("#male").on('tap',function () {
+    if(file && jumpFlag){
+        sex = '男';
+        getInterface().html_jump_href(service+'/html/home_EyebrowTattoo3.html?sex='+sex+'&file='+file,'yes');
+    }else{
+        getInterface().toast('请拍照或选择照片');
+    }
+});
+
+$("#female").on('tap',function () {
+    if(file && jumpFlag){
+        sex = '女';
+        getInterface().html_jump_href(service+'/html/home_EyebrowTattoo3.html?sex='+sex+'&file='+file,'yes');
+    }else{
+        getInterface().toast('请拍照或选择照片');
+    }
+});
+//帮助文档
+$('.tip').on('tap',function(){
+    //页面层
+    layer.open({
+        type: 1,
+        title: false,
+        closeBtn: 0,
+        area:['927','1112'],
+        shade: 0.7, //遮罩透明度
+        closeBtn : 1,
+        content: '<div class="help"></div>'
+    }); 
+    $('.layui-layer').css({ 'background-color':'transparent','box-shadow':'none','left':'50%','margin-left':'-463.5px'});
+});
+
+</script>
+</body>
+</html>
